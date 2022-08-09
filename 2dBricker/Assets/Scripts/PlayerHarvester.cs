@@ -1,18 +1,20 @@
 using System;
-using Bricker.Game;
 using UnityEngine;
 
-public class PlayerHarvester : Harvester
+namespace Bricker.Game
 {
-    [SerializeField] private InputController _inputController;
-
-    private void Start()
+    public class PlayerHarvester : Harvester
     {
-        _inputController.PointerWorldPosition.Subscribe(MoveToPosition);
-    }
+        [SerializeField] private InputController _inputController;
 
-    private void MoveToPosition(Vector3 worldPosition)
-    {
-        transform.position = worldPosition;
+        private void Start()
+        {
+            _inputController.PointerWorldPosition.Subscribe(MoveToPosition);
+        }
+
+        private void MoveToPosition(Vector3 worldPosition)
+        {
+            transform.position = worldPosition;
+        }
     }
 }

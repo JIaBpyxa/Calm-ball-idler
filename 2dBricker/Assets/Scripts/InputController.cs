@@ -2,74 +2,77 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InputController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+namespace Bricker.Game
 {
-    [Space] [SerializeField] private float _magnitudeMultiplier = 1f;
-
-    public Vector3ReactiveProperty PointerWorldPosition;
-    public Vector3ReactiveProperty PointerPosition;
-
-    private Vector2 _realPointerPosition;
-    private Vector2 _smoothedPointerPosition;
-
-    private Camera _camera;
-    private Vector3 _cameraOffset;
-
-    private readonly Vector3 _defaultScreenPosition = new(10000, 10000);
-
-    private bool _isPressed;
-
-    private void Awake()
+    public class InputController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
-        _camera = Camera.main;
-        _cameraOffset = _camera.transform.position;
+        [Space] [SerializeField] private float _magnitudeMultiplier = 1f;
 
-        PointerWorldPosition = new Vector3ReactiveProperty(Vector3.zero);
-        PointerPosition = new Vector3ReactiveProperty(Vector3.zero);
+        public Vector3ReactiveProperty PointerWorldPosition;
+        public Vector3ReactiveProperty PointerPosition;
 
-        PointerPosition.Subscribe(UpdatePointerWorldPosition);
-        PointerPosition.Value = _defaultScreenPosition;
-    }
+        private Vector2 _realPointerPosition;
+        private Vector2 _smoothedPointerPosition;
 
-    private void LateUpdate()
-    {
-        if (!_isPressed) return;
+        private Camera _camera;
+        private Vector3 _cameraOffset;
 
-        SmoothPointer();
-    }
+        private readonly Vector3 _defaultScreenPosition = new(10000, 10000);
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        _isPressed = true;
+        private bool _isPressed;
 
-        _realPointerPosition = eventData.position;
-        _smoothedPointerPosition = _realPointerPosition;
-    }
+        private void Awake()
+        {
+            _camera = Camera.main;
+            _cameraOffset = _camera.transform.position;
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        _isPressed = false;
+            PointerWorldPosition = new Vector3ReactiveProperty(Vector3.zero);
+            PointerPosition = new Vector3ReactiveProperty(Vector3.zero);
 
-        _realPointerPosition = _defaultScreenPosition;
-        _smoothedPointerPosition = _realPointerPosition;
-        SmoothPointer();
-    }
+            PointerPosition.Subscribe(UpdatePointerWorldPosition);
+            PointerPosition.Value = _defaultScreenPosition;
+        }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        _realPointerPosition = eventData.position;
-    }
+        private void LateUpdate()
+        {
+            if (!_isPressed) return;
 
-    private void SmoothPointer()
-    {
-        var delta = _realPointerPosition - _smoothedPointerPosition;
-        _smoothedPointerPosition += delta * Time.deltaTime * _magnitudeMultiplier;
-        PointerPosition.Value = _smoothedPointerPosition;
-    }
+            SmoothPointer();
+        }
 
-    private void UpdatePointerWorldPosition(Vector3 screenPosition)
-    {
-        var worldPosition = _camera.ScreenToWorldPoint(screenPosition) - _cameraOffset;
-        PointerWorldPosition.Value = worldPosition;
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _isPressed = true;
+
+            _realPointerPosition = eventData.position;
+            _smoothedPointerPosition = _realPointerPosition;
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _isPressed = false;
+
+            _realPointerPosition = _defaultScreenPosition;
+            _smoothedPointerPosition = _realPointerPosition;
+            SmoothPointer();
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            _realPointerPosition = eventData.position;
+        }
+
+        private void SmoothPointer()
+        {
+            var delta = _realPointerPosition - _smoothedPointerPosition;
+            _smoothedPointerPosition += delta * Time.deltaTime * _magnitudeMultiplier;
+            PointerPosition.Value = _smoothedPointerPosition;
+        }
+
+        private void UpdatePointerWorldPosition(Vector3 screenPosition)
+        {
+            var worldPosition = _camera.ScreenToWorldPoint(screenPosition) - _cameraOffset;
+            PointerWorldPosition.Value = worldPosition;
+        }
     }
 }
