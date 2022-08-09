@@ -2,7 +2,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InputController : MonoBehaviour, IPointerDownHandler, IDragHandler
+public class InputController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     [Space] [SerializeField] private float _magnitudeMultiplier = 1f;
 
@@ -15,34 +15,56 @@ public class InputController : MonoBehaviour, IPointerDownHandler, IDragHandler
     private Camera _camera;
     private Vector3 _cameraOffset;
 
+    private readonly Vector3 _defaultScreenPosition = new(10000, 10000);
+
+    private bool _isPressed;
+
     private void Awake()
     {
         _camera = Camera.main;
         _cameraOffset = _camera.transform.position;
 
-        PointerPosition = new Vector3ReactiveProperty(Vector3.zero);
         PointerWorldPosition = new Vector3ReactiveProperty(Vector3.zero);
+        PointerPosition = new Vector3ReactiveProperty(Vector3.zero);
 
         PointerPosition.Subscribe(UpdatePointerWorldPosition);
+        PointerPosition.Value = _defaultScreenPosition;
     }
 
     private void LateUpdate()
     {
-        var delta = _realPointerPosition - _smoothedPointerPosition;
-        _smoothedPointerPosition += delta * Time.deltaTime * _magnitudeMultiplier;
-        PointerPosition.Value = _smoothedPointerPosition;
+        if (!_isPressed) return;
+
+        SmoothPointer();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //PointerPosition.Value = eventData.position;
+        _isPressed = true;
+
         _realPointerPosition = eventData.position;
+        _smoothedPointerPosition = _realPointerPosition;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        _isPressed = false;
+
+        _realPointerPosition = _defaultScreenPosition;
+        _smoothedPointerPosition = _realPointerPosition;
+        SmoothPointer();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         _realPointerPosition = eventData.position;
-        //PointerPosition.Value = eventData.position;
+    }
+
+    private void SmoothPointer()
+    {
+        var delta = _realPointerPosition - _smoothedPointerPosition;
+        _smoothedPointerPosition += delta * Time.deltaTime * _magnitudeMultiplier;
+        PointerPosition.Value = _smoothedPointerPosition;
     }
 
     private void UpdatePointerWorldPosition(Vector3 screenPosition)
