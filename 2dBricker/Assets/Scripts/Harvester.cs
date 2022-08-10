@@ -6,7 +6,7 @@ namespace Bricker.Game
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent<IHarvestable>(out var harvestable))
+            if (other.TryGetComponent<AbstractHarvestable>(out var harvestable))
             {
                 harvestable.Harvest();
             }

@@ -1,33 +1,35 @@
+using System;
 using UniRx;
 using UnityEngine;
-using Zenject;
-using TimeSpan = System.TimeSpan;
+using Object = UnityEngine.Object;
+using ObservableExtensions = UniRx.ObservableExtensions;
 
 namespace Bricker.Game
 {
+    [RequireComponent(typeof(HarvestablePool))]
     public class HarvestableSpawner : MonoBehaviour
     {
         [SerializeField] private float _spawnInterval = 3f;
-        [SerializeField] private GameObject _harvestablePrefab;
+        [SerializeField] private Object _harvestablePrefab;
 
-        private IHarvestable.Factory _factory;
+        private HarvestablePool _harvestablePool;
 
-        [Inject]
-        private void Construct(IHarvestable.Factory factory)
+        private void Awake()
         {
-            _factory = factory;
+            _harvestablePool = GetComponent<HarvestablePool>();
         }
 
         private void Start()
         {
+            _harvestablePool.Init(_harvestablePrefab, 10);
             var aloe = Observable.Interval(TimeSpan.FromSeconds(_spawnInterval)).TakeUntilDisable(this);
-            aloe.Subscribe(l => SpawnHarvestable());
+            ObservableExtensions.Subscribe(aloe, _ => SpawnHarvestable());
         }
 
         private void SpawnHarvestable()
         {
-            var newHarvestable = (AbstractBall)_factory.Create(_harvestablePrefab);
-            newHarvestable.transform.position = transform.position;
+            var newHarvestable = _harvestablePool.GetHarvestable();
+            newHarvestable.Activate(transform.position);
         }
     }
 }

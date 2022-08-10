@@ -7,8 +7,8 @@ namespace Bricker.Game
     {
         public override void InstallBindings()
         {
-            Container.BindFactory<Object, IHarvestable, IHarvestable.Factory>()
-                .FromFactory<PrefabFactory<IHarvestable>>();
+            Container.BindFactory<Object, AbstractHarvestable, AbstractHarvestable.Factory>()
+                .FromFactory<PrefabFactory<AbstractHarvestable>>();
         }
     }
 }
