@@ -1,10 +1,21 @@
 using UniRx;
 using UnityEngine;
+using Zenject;
 
-namespace Bricker.Game
+namespace Vorval.CalmBall.Game
 {
     public class SimpleHarvestable : AbstractHarvestable
     {
+        [SerializeField] private int _score = 1;
+
+        private ScoreService _scoreService;
+
+        [Inject]
+        private void Construct(ScoreService scoreService)
+        {
+            _scoreService = scoreService;
+        }
+
         public override void Init()
         {
             IsActive = new BoolReactiveProperty(false);
@@ -28,6 +39,7 @@ namespace Bricker.Game
         {
             Debug.Log("Harvested ball");
             OnHarvested?.Invoke();
+            _scoreService.AddScore(_score);
             Deactivate();
         }
     }

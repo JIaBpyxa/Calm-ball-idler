@@ -1,7 +1,7 @@
 using UniRx;
 using UnityEngine;
 
-namespace Bricker.Game
+namespace Vorval.CalmBall.Game
 {
     public class PlayerHarvester : Harvester
     {

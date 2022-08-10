@@ -2,7 +2,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Bricker.Game
+namespace Vorval.CalmBall.Game
 {
     public class InputController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {

@@ -3,7 +3,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Bricker.Game
+namespace Vorval.CalmBall.Game
 {
     public abstract class AbstractHarvestable : MonoBehaviour
     {

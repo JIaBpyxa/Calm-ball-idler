@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Bricker.Game
+namespace Vorval.CalmBall.Game
 {
     public class Harvester : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Bricker.Game
+namespace Vorval.CalmBall.Game
 {
     public class GameInstaller : MonoInstaller
     {

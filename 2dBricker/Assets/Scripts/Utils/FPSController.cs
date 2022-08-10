@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Bricker.Utils
+namespace Vorval.CalmBall.Utils
 {
     public class FPSController : MonoBehaviour
     {

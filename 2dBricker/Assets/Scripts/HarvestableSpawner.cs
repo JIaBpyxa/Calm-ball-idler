@@ -1,10 +1,7 @@
-using System;
 using UniRx;
 using UnityEngine;
-using Object = UnityEngine.Object;
-using ObservableExtensions = UniRx.ObservableExtensions;
 
-namespace Bricker.Game
+namespace Vorval.CalmBall.Game
 {
     [RequireComponent(typeof(HarvestablePool))]
     public class HarvestableSpawner : MonoBehaviour
@@ -21,9 +18,10 @@ namespace Bricker.Game
 
         private void Start()
         {
-            _harvestablePool.Init(_harvestablePrefab, 10);
-            var aloe = Observable.Interval(TimeSpan.FromSeconds(_spawnInterval)).TakeUntilDisable(this);
-            ObservableExtensions.Subscribe(aloe, _ => SpawnHarvestable());
+            _harvestablePool.Init(_harvestablePrefab, 20);
+            var spawnObservable =
+                Observable.Interval(System.TimeSpan.FromSeconds(_spawnInterval)).TakeUntilDisable(this);
+            spawnObservable.Subscribe(_ => SpawnHarvestable());
         }
 
         private void SpawnHarvestable()
