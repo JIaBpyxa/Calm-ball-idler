@@ -1,7 +1,7 @@
 using TMPro;
 using UniRx;
 using UnityEngine;
-using Vorval.CalmBall.Game;
+using Vorval.CalmBall.Service;
 using Zenject;
 
 namespace Vorval.CalmBall.UI

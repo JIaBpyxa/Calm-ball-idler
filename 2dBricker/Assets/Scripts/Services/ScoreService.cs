@@ -2,7 +2,7 @@
 using UniRx;
 using ObservableExtensions = UniRx.ObservableExtensions;
 
-namespace Vorval.CalmBall.Game
+namespace Vorval.CalmBall.Service
 {
     public class ScoreService
     {

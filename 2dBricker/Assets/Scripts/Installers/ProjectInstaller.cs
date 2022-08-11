@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using Vorval.CalmBall.Service;
+using Zenject;
 
 namespace Vorval.CalmBall.Game
 {

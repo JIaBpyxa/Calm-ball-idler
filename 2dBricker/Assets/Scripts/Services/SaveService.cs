@@ -1,4 +1,4 @@
-﻿namespace Vorval.CalmBall.Game
+﻿namespace Vorval.CalmBall.Service
 {
     public class SaveService
     {
