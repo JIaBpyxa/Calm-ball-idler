@@ -9,6 +9,8 @@ namespace Vorval.CalmBall.Game
         {
             Container.BindFactory<Object, AbstractHarvestable, AbstractHarvestable.Factory>()
                 .FromFactory<PrefabFactory<AbstractHarvestable>>();
+            Container.BindFactory<Object, ObstaclePack, ObstaclePack.Factory>()
+                .FromFactory<PrefabFactory<ObstaclePack>>();
         }
     }
 }
