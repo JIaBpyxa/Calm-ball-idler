@@ -678,7 +678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7695924647523607611, guid: e502f41e50584cd41886882db6f1c301, type: 3}
       propertyPath: _obstaclePackPrefabs.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7695924647523607611, guid: e502f41e50584cd41886882db6f1c301, type: 3}
       propertyPath: _obstaclePackPrefabs.Array.data[3]
@@ -692,6 +692,10 @@ PrefabInstance:
       propertyPath: _obstaclePackPrefabs.Array.data[5]
       value: 
       objectReference: {fileID: 2011638087042644188, guid: 6be70bc63e6a24441b0158f912dc0144, type: 3}
+    - target: {fileID: 7695924647523607611, guid: e502f41e50584cd41886882db6f1c301, type: 3}
+      propertyPath: _obstaclePackPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 2011638087042644188, guid: 66cf8535fe274406aac8cdc5cc91f2a1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e502f41e50584cd41886882db6f1c301, type: 3}
 --- !u!4 &698840116 stripped
@@ -2403,12 +2407,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7695924647523607611, guid: e502f41e50584cd41886882db6f1c301, type: 3}
       propertyPath: _obstaclePackPrefabs.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7695924647523607611, guid: e502f41e50584cd41886882db6f1c301, type: 3}
       propertyPath: _obstaclePackPrefabs.Array.data[3]
       value: 
       objectReference: {fileID: 2011638087042644188, guid: 670357a7b75a2d74baab589a54515e47, type: 3}
+    - target: {fileID: 7695924647523607611, guid: e502f41e50584cd41886882db6f1c301, type: 3}
+      propertyPath: _obstaclePackPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 2011638087042644188, guid: 66cf8535fe274406aac8cdc5cc91f2a1, type: 3}
     - target: {fileID: 7695924648057388763, guid: e502f41e50584cd41886882db6f1c301, type: 3}
       propertyPath: m_IsActive
       value: 0
