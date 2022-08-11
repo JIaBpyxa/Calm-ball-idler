@@ -41,6 +41,9 @@ TagManager:
   - name: Background
     uniqueID: 177960083
     locked: 0
+  - name: Harvetser
+    uniqueID: 1198412999
+    locked: 0
   - name: Obstacles
     uniqueID: 4018603169
     locked: 0
@@ -49,7 +52,4 @@ TagManager:
     locked: 0
   - name: Harvestables
     uniqueID: 2854118245
-    locked: 0
-  - name: Harvetser
-    uniqueID: 1198412999
     locked: 0
