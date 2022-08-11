@@ -53,3 +53,6 @@ TagManager:
   - name: Harvestables
     uniqueID: 2854118245
     locked: 0
+  - name: Spawners
+    uniqueID: 1154175283
+    locked: 0

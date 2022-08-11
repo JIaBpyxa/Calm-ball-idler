@@ -27,20 +27,22 @@ namespace Vorval.CalmBall.Game
         {
             transform.position = position;
             gameObject.SetActive(true);
+            harvestableView.Activate();
             IsActive.Value = true;
         }
 
         public override void Deactivate()
         {
             IsActive.Value = false;
-            gameObject.SetActive(false);
+            harvestableView.Deactivate(() => gameObject.SetActive(false));
         }
 
-        public override void Harvest()
+        public override void Harvest(float scoreModifier = 1f)
         {
             Debug.Log("Harvested ball");
             OnHarvested?.Invoke();
-            _scoreService.AddScore(_score);
+            var score = (int)(_score * scoreModifier);
+            _scoreService.AddScore(score);
             Deactivate();
         }
     }
