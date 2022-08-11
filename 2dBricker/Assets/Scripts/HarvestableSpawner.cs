@@ -18,7 +18,7 @@ namespace Vorval.CalmBall.Game
 
         private void Start()
         {
-            _harvestablePool.Init(_harvestablePrefab, 20);
+            _harvestablePool.Init(_harvestablePrefab, 10);
             var spawnObservable =
                 Observable.Interval(System.TimeSpan.FromSeconds(_spawnInterval)).TakeUntilDisable(this);
             spawnObservable.Subscribe(_ => SpawnHarvestable());

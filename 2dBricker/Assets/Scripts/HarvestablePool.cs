@@ -21,25 +21,35 @@ namespace Vorval.CalmBall.Game
 
         public void Init(Object prefab, int count)
         {
-            _poolSize = count;
             _prefab = prefab;
             _queue = new Queue<AbstractHarvestable>();
 
-            for (var id = 0; id < _poolSize; id++)
+            for (var id = 0; id < count; id++)
             {
-                var newHarvestable = _factory.Create(_prefab);
-                newHarvestable.Init();
-                newHarvestable.IsActive.Subscribe(isActive =>
-                {
-                    if (!isActive) EnqueueHarvestable(newHarvestable);
-                });
+                CreateHarvestable();
             }
         }
 
         public AbstractHarvestable GetHarvestable()
         {
-            var poolObject = _queue.Dequeue();
+            if (!_queue.TryPeek(out var poolObject))
+            {
+                CreateHarvestable();
+            }
+
+            poolObject = _queue.Dequeue();
             return poolObject;
+        }
+
+        private void CreateHarvestable()
+        {
+            var newHarvestable = _factory.Create(_prefab);
+            newHarvestable.Init();
+            _poolSize++;
+            newHarvestable.IsActive.Subscribe(isActive =>
+            {
+                if (!isActive) EnqueueHarvestable(newHarvestable);
+            });
         }
 
         private void EnqueueHarvestable(AbstractHarvestable harvestable)
