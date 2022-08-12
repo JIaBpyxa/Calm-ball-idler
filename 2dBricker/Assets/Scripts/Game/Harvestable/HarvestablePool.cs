@@ -44,7 +44,6 @@ namespace Vorval.CalmBall.Game
         private void CreateHarvestable()
         {
             var newHarvestable = _factory.Create(_prefab);
-            newHarvestable.Init();
             _poolSize++;
             newHarvestable.IsActive.Subscribe(isActive =>
             {

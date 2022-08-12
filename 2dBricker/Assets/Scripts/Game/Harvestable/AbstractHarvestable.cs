@@ -10,7 +10,6 @@ namespace Vorval.CalmBall.Game
         public BoolReactiveProperty IsActive;
 
         public Action OnHarvested { get; set; }
-        public abstract void Init();
         public abstract void Activate(Vector3 position);
         public abstract void Deactivate();
         public abstract void Harvest(float scoreModifier = 1f);

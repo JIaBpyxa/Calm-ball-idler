@@ -16,12 +16,6 @@ namespace Vorval.CalmBall.Game
             _scoreService = scoreService;
         }
 
-        public override void Init()
-        {
-            //IsActive = new BoolReactiveProperty(false);
-            //Deactivate();
-        }
-
         public override void Activate(Vector3 position)
         {
             transform.position = position;

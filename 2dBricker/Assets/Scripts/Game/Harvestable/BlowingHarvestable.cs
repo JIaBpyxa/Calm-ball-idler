@@ -13,12 +13,11 @@ namespace Vorval.CalmBall.Game
         private Vector3 _initialHarvesterScale;
         private Rigidbody2D _rigidbody;
 
-        public override void Init()
+        protected override void Awake()
         {
+            base.Awake();
             _rigidbody = GetComponent<Rigidbody2D>();
             _initialHarvesterScale = _harvester.transform.localScale;
-            IsActive = new BoolReactiveProperty(false);
-            Deactivate();
         }
 
         public override void Activate(Vector3 position)
