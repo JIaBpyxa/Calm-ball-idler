@@ -1,4 +1,3 @@
-using UniRx;
 using UnityEngine;
 using Vorval.CalmBall.Service;
 using Zenject;
@@ -19,8 +18,8 @@ namespace Vorval.CalmBall.Game
 
         public override void Init()
         {
-            IsActive = new BoolReactiveProperty(false);
-            Deactivate();
+            //IsActive = new BoolReactiveProperty(false);
+            //Deactivate();
         }
 
         public override void Activate(Vector3 position)
@@ -39,6 +38,8 @@ namespace Vorval.CalmBall.Game
 
         public override void Harvest(float scoreModifier = 1f)
         {
+            if (!IsActive.Value) return;
+
             Debug.Log("Harvested ball");
             OnHarvested?.Invoke();
             var score = (int)(_score * scoreModifier);

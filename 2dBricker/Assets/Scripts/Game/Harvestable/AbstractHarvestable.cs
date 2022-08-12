@@ -16,7 +16,7 @@ namespace Vorval.CalmBall.Game
         public abstract void Harvest(float scoreModifier = 1f);
 
         protected AbstractHarvestableView harvestableView;
-        
+
         public class Factory : PlaceholderFactory<UnityEngine.Object, AbstractHarvestable>
         {
         }
@@ -24,6 +24,8 @@ namespace Vorval.CalmBall.Game
         protected virtual void Awake()
         {
             harvestableView = GetComponentInChildren<AbstractHarvestableView>();
+            IsActive = new BoolReactiveProperty(false);
+            Deactivate();
         }
     }
 }
