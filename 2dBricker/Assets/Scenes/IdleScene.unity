@@ -659,6 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8883feb2c04cd0a66a569b641c6b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 2
   _spawnInterval: 4
   _harvestablePrefab: {fileID: 163884095371865549, guid: 45dd581667bea7b42a663d4bb869d6da, type: 3}
 --- !u!1 &619394800
@@ -1339,6 +1340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8883feb2c04cd0a66a569b641c6b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 4
   _spawnInterval: 10
   _harvestablePrefab: {fileID: 7326360401084285316, guid: 2dd8a6cfe598300489461660a2a5a252, type: 3}
 --- !u!1 &841407922
@@ -1669,6 +1671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8883feb2c04cd0a66a569b641c6b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   _spawnInterval: 2
   _harvestablePrefab: {fileID: 163884095371865549, guid: 06563323925f9413bb9c5c6cb3021469, type: 3}
 --- !u!114 &1083184986
@@ -3343,6 +3346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8883feb2c04cd0a66a569b641c6b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 3
   _spawnInterval: 10
   _harvestablePrefab: {fileID: 3112021138108646980, guid: b17b3be67c63e4c0cb01d45412c7ffd4, type: 3}
 --- !u!1 &1925655559

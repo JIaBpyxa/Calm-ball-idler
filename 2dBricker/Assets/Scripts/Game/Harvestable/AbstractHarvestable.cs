@@ -50,7 +50,7 @@ namespace Vorval.CalmBall.Game
         }
 
 
-        private void HandleUpgrade(HarvestableType harvestableType, int power)
+        private void HandleUpgrade(HarvestableType harvestableType)
         {
             if (harvestableType == Type)
             {

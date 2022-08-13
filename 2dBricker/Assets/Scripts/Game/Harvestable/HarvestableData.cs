@@ -26,6 +26,11 @@ namespace Vorval.CalmBall.Game
 
             return basePowerInt + basePowerMultiplier * Mathf.Log10(1 + upgradeLevel);
         }
+
+        public float GetRespawnDelay(int upgradeLevel)
+        {
+            return baseRespawnTime * Mathf.Pow(baseRespawnTimeMultiplier, upgradeLevel);
+        }
     }
 
     public enum HarvestableType

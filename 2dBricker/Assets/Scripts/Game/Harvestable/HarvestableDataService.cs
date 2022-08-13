@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Vorval.CalmBall.Service;
-using Zenject;
 
 namespace Vorval.CalmBall.Game
 {
@@ -10,7 +9,8 @@ namespace Vorval.CalmBall.Game
     {
         [SerializeField] private List<HarvestableData> _harvestableDataList;
 
-        public Action<HarvestableType, int> OnPowerUpgrade;
+        public Action<HarvestableType> OnPowerUpgrade;
+        public Action<HarvestableType> OnRespawnUpgrade;
 
         private Dictionary<HarvestableType, HarvestableData> _dataDictionary;
         private Dictionary<HarvestableType, HarvestableUpgradeData> _upgradeDataDictionary;
@@ -37,7 +37,15 @@ namespace Vorval.CalmBall.Game
             var upgradeData = _upgradeDataDictionary[harvestableType];
             upgradeData.UpgradePower();
             SaveService.SaveHarvestableUpgradeData(upgradeData);
-            OnPowerUpgrade?.Invoke(harvestableType, upgradeData.PowerUpgradeLevel);
+            OnPowerUpgrade?.Invoke(harvestableType);
+        }
+
+        public void UpgradeRespawn(HarvestableType harvestableType)
+        {
+            var upgradeData = _upgradeDataDictionary[harvestableType];
+            upgradeData.UpgradeRespawn();
+            SaveService.SaveHarvestableUpgradeData(upgradeData);
+            OnRespawnUpgrade?.Invoke(harvestableType);
         }
 
         public float GetPower(HarvestableType harvestableType)
@@ -45,6 +53,13 @@ namespace Vorval.CalmBall.Game
             var upgradeLevel = _upgradeDataDictionary[harvestableType].PowerUpgradeLevel;
             var power = _dataDictionary[harvestableType].GetPower(upgradeLevel);
             return power;
+        }
+
+        public float GetRespawnDelay(HarvestableType harvestableType)
+        {
+            var upgradeLevel = _upgradeDataDictionary[harvestableType].RespawnUpgradeLevel;
+            var respawnDelay = _dataDictionary[harvestableType].GetRespawnDelay(upgradeLevel);
+            return respawnDelay;
         }
     }
 }

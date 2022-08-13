@@ -20,5 +20,10 @@
         {
             PowerUpgradeLevel++;
         }
+
+        public void UpgradeRespawn()
+        {
+            RespawnUpgradeLevel++;
+        }
     }
 }

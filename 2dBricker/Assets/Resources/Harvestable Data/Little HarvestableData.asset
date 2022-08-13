@@ -19,7 +19,7 @@ MonoBehaviour:
   basePowerMultiplier: 10
   basePowerUpgradePrice: 1
   basePowerUpgradePriceMultiplier: 1
-  baseRespawnTime: 0
-  baseRespawnTimeMultiplier: 0
+  baseRespawnTime: 10
+  baseRespawnTimeMultiplier: 0.95
   baseRespawnUpgradePrice: 
   baseRespawnUpgradePriceMultiplier: 0
