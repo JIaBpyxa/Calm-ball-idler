@@ -384,6 +384,7 @@ MonoBehaviour:
   _panelHolder: {fileID: 6310191174342681909}
   _settingsPanel: {fileID: 1851852587543239462, guid: 4493a69e2c460493fb9910f6debad1de, type: 3}
   _shopPanel: {fileID: 5909136663915185613, guid: 9838051b3c0764f9fb716cde16d2e49b, type: 3}
+  _statsPanel: {fileID: 2021353248, guid: c9d58afe6626f154896d297d1d91c73e, type: 3}
 --- !u!1 &4113813736461902198
 GameObject:
   m_ObjectHideFlags: 0

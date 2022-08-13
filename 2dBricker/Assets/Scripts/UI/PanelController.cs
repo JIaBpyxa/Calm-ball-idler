@@ -11,6 +11,7 @@ namespace Vorval.CalmBall.UI
         [SerializeField] private Transform _panelHolder;
         [Space] [SerializeField] private AbstractPanelUI _settingsPanel;
         [SerializeField] private AbstractPanelUI _shopPanel;
+        [SerializeField] private AbstractPanelUI _statsPanel;
 
         private AbstractPanelUI _currentPanel;
         private PanelType _previousPanelType = 0;
@@ -56,6 +57,7 @@ namespace Vorval.CalmBall.UI
                 {
                     PanelType.Settings => _settingsPanel,
                     PanelType.Shop => _shopPanel,
+                    PanelType.Stats => _statsPanel,
                     _ => null
                 };
             }
@@ -94,7 +96,8 @@ namespace Vorval.CalmBall.UI
         {
             None = 0,
             Settings = 1,
-            Shop = 2
+            Shop = 2,
+            Stats = 3
         }
     }
 }
