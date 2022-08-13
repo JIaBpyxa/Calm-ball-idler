@@ -6,8 +6,7 @@ namespace Vorval.CalmBall.Game
 {
     public class SimpleHarvestable : AbstractHarvestable
     {
-        [SerializeField] private int _score = 1;
-
+        private int _score;
         private ScoreService _scoreService;
 
         [Inject]
@@ -39,6 +38,11 @@ namespace Vorval.CalmBall.Game
             var score = (int)(_score * scoreModifier);
             _scoreService.AddScore(score);
             Deactivate();
+        }
+
+        protected override void UpdatePower()
+        {
+            _score = Mathf.CeilToInt(harvestableDataService.GetPower(Type));
         }
     }
 }

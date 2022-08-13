@@ -1,5 +1,4 @@
 using DG.Tweening;
-using UniRx;
 using UnityEngine;
 
 namespace Vorval.CalmBall.Game
@@ -7,9 +6,9 @@ namespace Vorval.CalmBall.Game
     public class BlowingHarvestable : AbstractHarvestable
     {
         [SerializeField] private Harvester _harvester;
-        [SerializeField] private float _harvesterScaleModifier = 3f;
         [SerializeField] private float _blowDuration = .5f;
 
+        private float _harvesterScaleModifier = 3f;
         private Vector3 _initialHarvesterScale;
         private Rigidbody2D _rigidbody;
 
@@ -41,6 +40,11 @@ namespace Vorval.CalmBall.Game
             _rigidbody.bodyType = RigidbodyType2D.Static;
             OnHarvested?.Invoke();
             BlowHarvester();
+        }
+
+        protected override void UpdatePower()
+        {
+            _harvesterScaleModifier = harvestableDataService.GetPower(Type);
         }
 
         private void BlowHarvester()

@@ -373,10 +373,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13af415d1e874e05b9c888822212200e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _harvestableType: 3
   IsActive:
     value: 0
   _harvester: {fileID: 4830565523043024935}
-  _harvesterScaleModifier: 5
   _blowDuration: 0.5
 --- !u!50 &3112021138108646977
 Rigidbody2D:

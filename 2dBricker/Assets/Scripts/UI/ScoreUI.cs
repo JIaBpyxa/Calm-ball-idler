@@ -1,3 +1,4 @@
+using System.Numerics;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace Vorval.CalmBall.UI
             _scoreService.Score.Subscribe(UpdateText);
         }
 
-        private void UpdateText(int score)
+        private void UpdateText(BigInteger score)
         {
             _scoreText.text = $"{score}";
         }
