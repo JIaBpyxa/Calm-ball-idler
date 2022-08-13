@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using Vorval.CalmBall.Service;
 
@@ -55,11 +56,25 @@ namespace Vorval.CalmBall.Game
             return power;
         }
 
-        public float GetRespawnDelay(HarvestableType harvestableType)
+        public float GetRespawnInterval(HarvestableType harvestableType)
         {
             var upgradeLevel = _upgradeDataDictionary[harvestableType].RespawnUpgradeLevel;
-            var respawnDelay = _dataDictionary[harvestableType].GetRespawnDelay(upgradeLevel);
+            var respawnDelay = _dataDictionary[harvestableType].GetRespawnInterval(upgradeLevel);
             return respawnDelay;
+        }
+
+        public BigInteger GetPowerPrice(HarvestableType harvestableType)
+        {
+            var upgradeLevel = _upgradeDataDictionary[harvestableType].PowerUpgradeLevel;
+            var powerPrice = _dataDictionary[harvestableType].GetPowerPrice(upgradeLevel);
+            return powerPrice;
+        }
+
+        public BigInteger GetRespawnIntervalPrice(HarvestableType harvestableType)
+        {
+            var upgradeLevel = _upgradeDataDictionary[harvestableType].RespawnUpgradeLevel;
+            var respawnIntervalPrice = _dataDictionary[harvestableType].GetRespawnPrice(upgradeLevel);
+            return respawnIntervalPrice;
         }
     }
 }

@@ -30,21 +30,29 @@ namespace Vorval.CalmBall.Service
 
         public static void SaveHarvestableUpgradeData(HarvestableUpgradeData harvestableUpgradeData)
         {
-            var json = JsonUtility.ToJson(harvestableUpgradeData);
+            var json = JsonUtility.ToJson(harvestableUpgradeData.GetRawData());
             SecurePlayerPrefs.SetString($"{HarvestableKey}{harvestableUpgradeData.Type}", json);
         }
 
         public static HarvestableUpgradeData GetHarvestableUpgradeData(HarvestableType harvestableType)
         {
             var dataKey = $"{HarvestableKey}{harvestableType}";
-            if (!SecurePlayerPrefs.HasKey(dataKey))
+            var rawData = new HarvestableUpgradeData.RawData();
+
+            if (SecurePlayerPrefs.HasKey(dataKey))
             {
-                return new HarvestableUpgradeData(harvestableType, false, 0, 0);
+                var json = SecurePlayerPrefs.GetString(dataKey);
+                rawData = JsonUtility.FromJson<HarvestableUpgradeData.RawData>(json);
+            }
+            else
+            {
+                rawData.typeId = (int)harvestableType;
+                rawData.isBought = false;
+                rawData.powerUpgradeLevel = 0;
+                rawData.respawnIntervalUpgradeLevel = 0;
             }
 
-            var json = SecurePlayerPrefs.GetString(dataKey);
-            var data = JsonUtility.FromJson<HarvestableUpgradeData>(json);
-            return data;
+            return new HarvestableUpgradeData(rawData);
         }
     }
 }

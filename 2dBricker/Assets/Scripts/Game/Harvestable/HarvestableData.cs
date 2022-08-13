@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Numerics;
+using UnityEngine;
 
 namespace Vorval.CalmBall.Game
 {
@@ -27,9 +28,31 @@ namespace Vorval.CalmBall.Game
             return basePowerInt + basePowerMultiplier * Mathf.Log10(1 + upgradeLevel);
         }
 
-        public float GetRespawnDelay(int upgradeLevel)
+        public float GetRespawnInterval(int upgradeLevel)
         {
             return baseRespawnTime * Mathf.Pow(baseRespawnTimeMultiplier, upgradeLevel);
+        }
+
+        public BigInteger GetPowerPrice(int upgradeLevel)
+        {
+            if (!BigInteger.TryParse(basePowerUpgradePrice, out var basePowerUpgradePriceInt))
+            {
+                basePowerUpgradePriceInt = 1;
+            }
+
+            return basePowerUpgradePriceInt +
+                   (BigInteger)(basePowerUpgradePriceMultiplier * Mathf.Log10(1 + upgradeLevel));
+        }
+
+        public BigInteger GetRespawnPrice(int upgradeLevel)
+        {
+            if (!BigInteger.TryParse(baseRespawnUpgradePrice, out var baseRespawnUpgradePriceInt))
+            {
+                baseRespawnUpgradePriceInt = 1;
+            }
+
+            return baseRespawnUpgradePriceInt +
+                   (BigInteger)(baseRespawnUpgradePriceMultiplier * Mathf.Log10(1 + upgradeLevel));
         }
     }
 

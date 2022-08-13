@@ -2,7 +2,7 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 using Zenject;
-using Observable = UniRx.Observable;
+using ObservableExtensions = UniRx.ObservableExtensions;
 
 namespace Vorval.CalmBall.UI
 {
@@ -19,8 +19,8 @@ namespace Vorval.CalmBall.UI
             ClosingAnimation(duration);
 
             if (onClosedAction == null) return;
-            var timerObservable = Observable.Timer(TimeSpan.FromSeconds(duration));
-            timerObservable.Subscribe(_ => onClosedAction());
+            var timerObservable = UniRx.Observable.Timer(TimeSpan.FromSeconds(duration));
+            ObservableExtensions.Subscribe(timerObservable, _ => onClosedAction());
         }
 
         protected virtual void OpeningAnimation(float duration)
