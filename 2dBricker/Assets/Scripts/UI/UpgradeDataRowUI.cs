@@ -8,6 +8,7 @@ using Vorval.CalmBall.Game;
 using Vorval.CalmBall.Service;
 using Zenject;
 using static Vorval.CalmBall.Game.HarvestableData;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Vorval.CalmBall.UI
 {
@@ -51,7 +52,7 @@ namespace Vorval.CalmBall.UI
                 var isBought = _harvestableDataService.IsBought(_harvestableType);
                 if (isBought)
                 {
-                    Unlock();
+                    Unlock(0f);
                 }
                 else
                 {
@@ -79,18 +80,19 @@ namespace Vorval.CalmBall.UI
         private void HandleBought(HarvestableType harvestableType)
         {
             if (_harvestableType != harvestableType) return;
-            Unlock();
+            Unlock(.5f);
         }
 
         private void Lock()
         {
+            _lockObject.localPosition = Vector3.down * 6000f;
             _lockObject.gameObject.SetActive(true);
-            _lockObject.DOLocalMoveX(0, .3f).SetEase(Ease.InOutExpo);
+            _lockObject.DOLocalMoveY(0, .5f).SetEase(Ease.InOutExpo);
         }
 
-        private void Unlock()
+        private void Unlock(float duration)
         {
-            _lockObject.DOLocalMoveX(-3000f, .3f).SetEase(Ease.InOutExpo).onComplete += () =>
+            _lockObject.DOLocalMoveX(-2000f, duration).SetEase(Ease.InOutExpo).onComplete += () =>
             {
                 _lockObject.gameObject.SetActive(false);
             };
