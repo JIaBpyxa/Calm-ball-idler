@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"f9ceb979-b66f-4ef9-8a40-a0c170796cad\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"a2c88037-5de4-470e-a81f-dc368af26c93\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"simpleHarvestable\",\r\n      \"type\":
     \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
     1,\r\n        \"name\": \"Simply\",\r\n        \"description\": \"\",\r\n       
@@ -21,7 +21,7 @@ MonoBehaviour:
     2,\r\n        \"baseRespawnTimeMultiplier\": 0.99,\r\n        \"baseRespawnUpgradePrice\":
     10,\r\n        \"baseRespawnUpgradePriceMultiplier\": 1.25,\r\n        \"buyPrice\":
     0\r\n      }\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"1dd8915d-4ce9-4c53-85e7-82110f7be1bc\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"aeb4af21-d5f5-4ffe-ab9e-1686ed47d2f8\"\r\n    },\r\n    \"rs\": {\r\n     
     \"key\": \"littleHarvestable\",\r\n      \"type\": \"json\",\r\n      \"schemaId\":
     null,\r\n      \"value\": {\r\n        \"typeId\": 2,\r\n        \"name\": \"Fasty\",\r\n       
     \"description\": \"\",\r\n        \"basePower\": 10,\r\n        \"basePowerMultiplier\":
@@ -29,7 +29,7 @@ MonoBehaviour:
     1.5,\r\n        \"baseRespawnTime\": 10,\r\n        \"baseRespawnTimeMultiplier\":
     0.99,\r\n        \"baseRespawnUpgradePrice\": 50,\r\n        \"baseRespawnUpgradePriceMultiplier\":
     1.5,\r\n        \"buyPrice\": 1000\r\n      }\r\n    }\r\n  },\r\n  {\r\n   
-    \"metadata\": {\r\n      \"entityId\": \"a399c525-b47e-4718-8f87-8826c3891fe6\"\r\n   
+    \"metadata\": {\r\n      \"entityId\": \"a1a1f0d1-c197-48c9-90ca-5fff96e01f99\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"blowHarvestable\",\r\n      \"type\":
     \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
     3,\r\n        \"name\": \"Blowy\",\r\n        \"description\": \"\",\r\n       
@@ -38,7 +38,7 @@ MonoBehaviour:
     25,\r\n        \"baseRespawnTimeMultiplier\": 0.985,\r\n        \"baseRespawnUpgradePrice\":
     100,\r\n        \"baseRespawnUpgradePriceMultiplier\": 2,\r\n        \"buyPrice\":
     50000\r\n      }\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"6db600e1-af04-477d-a141-b52f2c5b8a74\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"635237d9-f75c-4cef-ab70-56bb3833d1c5\"\r\n    },\r\n    \"rs\": {\r\n     
     \"key\": \"slowHarvestable\",\r\n      \"type\": \"json\",\r\n      \"schemaId\":
     null,\r\n      \"value\": {\r\n        \"typeId\": 4,\r\n        \"name\": \"Slowy\",\r\n       
     \"description\": \"\",\r\n        \"basePower\": 50,\r\n        \"basePowerMultiplier\":
@@ -46,7 +46,7 @@ MonoBehaviour:
     1.1,\r\n        \"baseRespawnTime\": 60,\r\n        \"baseRespawnTimeMultiplier\":
     0.98,\r\n        \"baseRespawnUpgradePrice\": 1000,\r\n        \"baseRespawnUpgradePriceMultiplier\":
     1.1,\r\n        \"buyPrice\": 250000\r\n      }\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"f9ceb979-b66f-4ef9-8a40-a0c170796cad\"\r\n   
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"a2c88037-5de4-470e-a81f-dc368af26c93\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"simpleHarvestable\",\r\n      \"type\":
     \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
     1,\r\n        \"name\": \"Simply\",\r\n        \"description\": \"\",\r\n       
@@ -55,7 +55,7 @@ MonoBehaviour:
     2,\r\n        \"baseRespawnTimeMultiplier\": 0.99,\r\n        \"baseRespawnUpgradePrice\":
     10,\r\n        \"baseRespawnUpgradePriceMultiplier\": 1.25,\r\n        \"buyPrice\":
     0\r\n      }\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"1dd8915d-4ce9-4c53-85e7-82110f7be1bc\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"aeb4af21-d5f5-4ffe-ab9e-1686ed47d2f8\"\r\n    },\r\n    \"rs\": {\r\n     
     \"key\": \"littleHarvestable\",\r\n      \"type\": \"json\",\r\n      \"schemaId\":
     null,\r\n      \"value\": {\r\n        \"typeId\": 2,\r\n        \"name\": \"Fasty\",\r\n       
     \"description\": \"\",\r\n        \"basePower\": 10,\r\n        \"basePowerMultiplier\":
@@ -63,7 +63,7 @@ MonoBehaviour:
     1.5,\r\n        \"baseRespawnTime\": 10,\r\n        \"baseRespawnTimeMultiplier\":
     0.99,\r\n        \"baseRespawnUpgradePrice\": 50,\r\n        \"baseRespawnUpgradePriceMultiplier\":
     1.5,\r\n        \"buyPrice\": 1000\r\n      }\r\n    }\r\n  },\r\n  {\r\n   
-    \"metadata\": {\r\n      \"entityId\": \"a399c525-b47e-4718-8f87-8826c3891fe6\"\r\n   
+    \"metadata\": {\r\n      \"entityId\": \"a1a1f0d1-c197-48c9-90ca-5fff96e01f99\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"blowHarvestable\",\r\n      \"type\":
     \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
     3,\r\n        \"name\": \"Blowy\",\r\n        \"description\": \"\",\r\n       
@@ -72,7 +72,7 @@ MonoBehaviour:
     25,\r\n        \"baseRespawnTimeMultiplier\": 0.985,\r\n        \"baseRespawnUpgradePrice\":
     100,\r\n        \"baseRespawnUpgradePriceMultiplier\": 2,\r\n        \"buyPrice\":
     50000\r\n      }\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"6db600e1-af04-477d-a141-b52f2c5b8a74\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"635237d9-f75c-4cef-ab70-56bb3833d1c5\"\r\n    },\r\n    \"rs\": {\r\n     
     \"key\": \"slowHarvestable\",\r\n      \"type\": \"json\",\r\n      \"schemaId\":
     null,\r\n      \"value\": {\r\n        \"typeId\": 4,\r\n        \"name\": \"Slowy\",\r\n       
     \"description\": \"\",\r\n        \"basePower\": 50,\r\n        \"basePowerMultiplier\":
