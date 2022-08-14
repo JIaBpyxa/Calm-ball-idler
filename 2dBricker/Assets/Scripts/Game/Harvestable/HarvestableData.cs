@@ -39,7 +39,8 @@ namespace Vorval.CalmBall.Game
                 basePowerInt = 1;
             }
 
-            return basePowerInt + BasePowerMultiplier * Mathf.Log10(1 + upgradeLevel);
+            //return basePowerInt + BasePowerMultiplier * Mathf.Log10(1 + upgradeLevel);
+            return basePowerInt * Mathf.Pow(BasePowerMultiplier, upgradeLevel);
         }
 
         public float GetRespawnInterval(int upgradeLevel)
@@ -54,8 +55,9 @@ namespace Vorval.CalmBall.Game
                 basePowerUpgradePriceInt = 1;
             }
 
-            return basePowerUpgradePriceInt +
-                   (BigInteger)(BasePowerUpgradePriceMultiplier * Mathf.Log10(1 + upgradeLevel));
+            //return basePowerUpgradePriceInt +
+            //       (BigInteger)(BasePowerUpgradePriceMultiplier * Mathf.Log10(1 + upgradeLevel));
+            return basePowerUpgradePriceInt * (BigInteger)Mathf.Pow(BasePowerUpgradePriceMultiplier, upgradeLevel);
         }
 
         public BigInteger GetRespawnPrice(int upgradeLevel)
@@ -65,8 +67,9 @@ namespace Vorval.CalmBall.Game
                 baseRespawnUpgradePriceInt = 1;
             }
 
-            return baseRespawnUpgradePriceInt +
-                   (BigInteger)(BaseRespawnUpgradePriceMultiplier * Mathf.Log10(1 + upgradeLevel));
+            //return baseRespawnUpgradePriceInt +
+            //       (BigInteger)(BaseRespawnUpgradePriceMultiplier * Mathf.Log10(1 + upgradeLevel));
+            return baseRespawnUpgradePriceInt * (BigInteger)Mathf.Pow(BaseRespawnUpgradePriceMultiplier, upgradeLevel);
         }
 
         public struct RawData

@@ -8,6 +8,7 @@ namespace Vorval.CalmBall.Service
     {
         private const string ScoreKey = "Score";
         private const string HarvestableKey = "Harvestable_";
+        private const string RemoteDataKey = "RemoteData";
 
         public static void SaveScore(BigInteger score)
         {
@@ -53,6 +54,29 @@ namespace Vorval.CalmBall.Service
             }
 
             return new HarvestableUpgradeData(rawData);
+        }
+
+        public static void SaveRemoteDataCache(ConfigRemoteService.RemoteData remoteData)
+        {
+            var json = JsonUtility.ToJson(remoteData);
+            SecurePlayerPrefs.SetString(RemoteDataKey, json);
+        }
+
+        public static ConfigRemoteService.RemoteData GetRemoteDataCache()
+        {
+            string json;
+            if (SecurePlayerPrefs.HasKey(RemoteDataKey))
+            {
+                json = SecurePlayerPrefs.GetString(RemoteDataKey);
+            }
+            else
+            {
+                var textAsset = Resources.Load("defaultHarvestableData") as TextAsset;
+                json = textAsset ? textAsset.text : "";
+            }
+
+            var remoteData = JsonUtility.FromJson<ConfigRemoteService.RemoteData>(json);
+            return remoteData;
         }
     }
 }
