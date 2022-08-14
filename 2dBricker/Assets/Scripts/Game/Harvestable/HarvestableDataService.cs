@@ -14,6 +14,7 @@ namespace Vorval.CalmBall.Game
 
         private List<HarvestableData> _harvestableDataList;
 
+        public Action<HarvestableType> OnHarvestableBought;
         public Action<HarvestableType> OnPowerUpgrade;
         public Action<HarvestableType> OnRespawnUpgrade;
 
@@ -42,6 +43,20 @@ namespace Vorval.CalmBall.Game
         private void OnDisable()
         {
             _configRemoteService.OnRemoteDataLoaded -= InitData;
+        }
+
+        public bool IsBought(HarvestableType harvestableType)
+        {
+            var upgradeData = _upgradeDataDictionary[harvestableType];
+            return upgradeData.IsBought;
+        }
+
+        public void BuyHarvestable(HarvestableType harvestableType)
+        {
+            var upgradeData = _upgradeDataDictionary[harvestableType];
+            upgradeData.BuyHarvestable();
+            SaveService.SaveHarvestableUpgradeData(upgradeData);
+            OnHarvestableBought?.Invoke(harvestableType);
         }
 
         public void UpgradePower(HarvestableType harvestableType)
@@ -88,6 +103,11 @@ namespace Vorval.CalmBall.Game
             return respawnIntervalPrice;
         }
 
+        public BigInteger GetBuyPrice(HarvestableType harvestableType)
+        {
+            return _dataDictionary[harvestableType].GetBuyPrice();
+        }
+
         private void InitData(ConfigRemoteService.RemoteData remoteData)
         {
             _harvestableDataList = new List<HarvestableData>(4)
@@ -105,7 +125,7 @@ namespace Vorval.CalmBall.Game
                 var upgradeData = SaveService.GetHarvestableUpgradeData(harvestableType);
                 _upgradeDataDictionary.Add(harvestableType, upgradeData);
             }
-            
+
             OnServiceReady?.Invoke();
 
 

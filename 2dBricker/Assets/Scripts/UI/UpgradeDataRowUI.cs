@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using DG.Tweening;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Vorval.CalmBall.UI
         [SerializeField] private HarvestableType _harvestableType;
         [Space] [SerializeField] private Transform _lockObject;
         [SerializeField] private Button _buyButton;
+        [SerializeField] private TextMeshProUGUI _buyPriceText;
         [Space] [SerializeField] private TextMeshProUGUI _powerText;
         [SerializeField] private TextMeshProUGUI _respawnText;
         [Space] [SerializeField] private Button _powerUpgradeButton;
@@ -37,21 +39,61 @@ namespace Vorval.CalmBall.UI
             _scoreService.Score.Subscribe(UpdateUpgradeButtons);
             _powerUpgradeButton.onClick.AddListener(BuyPowerUpgrade);
             _respawnUpgradeButton.onClick.AddListener(BuyRespawnUpgrade);
+            _buyButton.onClick.AddListener(BuyHarvestable);
 
+            SetupLocker();
             UpdatePowerData();
             UpdateRespawnData();
+
+
+            void SetupLocker()
+            {
+                var isBought = _harvestableDataService.IsBought(_harvestableType);
+                if (isBought)
+                {
+                    Unlock();
+                }
+                else
+                {
+                    var buyPrice = _harvestableDataService.GetBuyPrice(_harvestableType);
+                    _buyPriceText.text = $"Buy: {buyPrice:D}";
+                    Lock();
+                }
+            }
         }
 
         private void OnEnable()
         {
             _harvestableDataService.OnPowerUpgrade += HandlePowerUpgrade;
             _harvestableDataService.OnRespawnUpgrade += HandleRespawnUpgrade;
+            _harvestableDataService.OnHarvestableBought += HandleBought;
         }
 
         private void OnDisable()
         {
             _harvestableDataService.OnPowerUpgrade -= HandlePowerUpgrade;
             _harvestableDataService.OnRespawnUpgrade -= HandleRespawnUpgrade;
+            _harvestableDataService.OnHarvestableBought -= HandleBought;
+        }
+
+        private void HandleBought(HarvestableType harvestableType)
+        {
+            if (_harvestableType != harvestableType) return;
+            Unlock();
+        }
+
+        private void Lock()
+        {
+            _lockObject.gameObject.SetActive(true);
+            _lockObject.DOLocalMoveX(0, .3f).SetEase(Ease.InOutExpo);
+        }
+
+        private void Unlock()
+        {
+            _lockObject.DOLocalMoveX(-3000f, .3f).SetEase(Ease.InOutExpo).onComplete += () =>
+            {
+                _lockObject.gameObject.SetActive(false);
+            };
         }
 
         private void HandlePowerUpgrade(HarvestableType harvestableType)
@@ -70,24 +112,36 @@ namespace Vorval.CalmBall.UI
         {
             var power = _harvestableDataService.GetPower(_harvestableType);
             _powerText.text = $"Power: {power:F}";
+
+            var powerUpgradePrice = _harvestableDataService.GetPowerPrice(_harvestableType);
+            _powerUpgradePriceText.text = $"{powerUpgradePrice.ToString()}";
         }
 
         private void UpdateRespawnData()
         {
             var respawnInterval = _harvestableDataService.GetRespawnInterval(_harvestableType);
             _respawnText.text = $"Interval: {respawnInterval:F}";
+
+            var respawnUpgradePrice = _harvestableDataService.GetRespawnIntervalPrice(_harvestableType);
+            _respawnUpgradePriceText.text = $"{respawnUpgradePrice.ToString()}";
         }
 
         private void UpdateUpgradeButtons(BigInteger currentScore)
         {
+            var buyPrice = _harvestableDataService.GetBuyPrice(_harvestableType);
             var powerUpgradePrice = _harvestableDataService.GetPowerPrice(_harvestableType);
             var respawnUpgradePrice = _harvestableDataService.GetRespawnIntervalPrice(_harvestableType);
 
+            _buyButton.interactable = _scoreService.IsPurchaseAvailable(buyPrice);
             _powerUpgradeButton.interactable = _scoreService.IsPurchaseAvailable(powerUpgradePrice);
             _respawnUpgradeButton.interactable = _scoreService.IsPurchaseAvailable(respawnUpgradePrice);
+        }
 
-            _powerUpgradePriceText.text = $"{powerUpgradePrice.ToString()}";
-            _respawnUpgradePriceText.text = $"{respawnUpgradePrice.ToString()}";
+        private void BuyHarvestable()
+        {
+            var buyPrice = _harvestableDataService.GetBuyPrice(_harvestableType);
+            _scoreService.ReduceScore(buyPrice);
+            _harvestableDataService.BuyHarvestable(_harvestableType);
         }
 
         private void BuyPowerUpgrade()

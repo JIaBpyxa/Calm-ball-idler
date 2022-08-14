@@ -8,14 +8,15 @@ namespace Vorval.CalmBall.Game
         public HarvestableType Type { get; }
         public string HarvestableName { get; }
         public string Description { get; }
-        public string BasePower { get; }
-        public float BasePowerMultiplier { get; }
-        public string BasePowerUpgradePrice { get; }
-        public float BasePowerUpgradePriceMultiplier { get; }
-        public float BaseRespawnTime { get; }
-        public float BaseRespawnTimeMultiplier { get; }
-        public string BaseRespawnUpgradePrice { get; }
-        public float BaseRespawnUpgradePriceMultiplier { get; }
+        private readonly string BasePower;
+        private readonly float BasePowerMultiplier;
+        private readonly string BasePowerUpgradePrice;
+        private readonly float BasePowerUpgradePriceMultiplier;
+        private readonly float BaseRespawnTime;
+        private readonly float BaseRespawnTimeMultiplier;
+        private readonly string BaseRespawnUpgradePrice;
+        private readonly float BaseRespawnUpgradePriceMultiplier;
+        private readonly string BuyPrice;
 
         public HarvestableData(RawData rawData)
         {
@@ -30,11 +31,12 @@ namespace Vorval.CalmBall.Game
             BaseRespawnTimeMultiplier = rawData.baseRespawnTimeMultiplier;
             BaseRespawnUpgradePrice = rawData.baseRespawnUpgradePrice;
             BaseRespawnUpgradePriceMultiplier = rawData.baseRespawnUpgradePriceMultiplier;
+            BuyPrice = rawData.buyPrice;
         }
 
         public float GetPower(int upgradeLevel)
         {
-            if (!int.TryParse(BasePower, out var basePowerInt))
+            if (!float.TryParse(BasePower, out var basePowerInt))
             {
                 basePowerInt = 1;
             }
@@ -72,6 +74,16 @@ namespace Vorval.CalmBall.Game
             return baseRespawnUpgradePriceInt * (BigInteger)Mathf.Pow(BaseRespawnUpgradePriceMultiplier, upgradeLevel);
         }
 
+        public BigInteger GetBuyPrice()
+        {
+            if (!BigInteger.TryParse(BuyPrice, out var buyPrice))
+            {
+                buyPrice = 1;
+            }
+
+            return buyPrice;
+        }
+
         public struct RawData
         {
             public int typeId;
@@ -85,6 +97,7 @@ namespace Vorval.CalmBall.Game
             public float baseRespawnTimeMultiplier;
             public string baseRespawnUpgradePrice;
             public float baseRespawnUpgradePriceMultiplier;
+            public string buyPrice;
         }
 
         public enum HarvestableType

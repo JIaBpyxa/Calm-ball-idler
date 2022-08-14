@@ -13,8 +13,11 @@ namespace Vorval.CalmBall.Game
         [SerializeField] private HarvestableData.HarvestableType type;
         [SerializeField] private Object _harvestablePrefab;
 
+        private HarvestableSpawnerView _spawnerView;
+
         private float _spawnInterval = 3f;
         private IDisposable _spawnDisposable;
+
 
         private HarvestablePool _harvestablePool;
         private HarvestableDataService _harvestableDataService;
@@ -27,6 +30,7 @@ namespace Vorval.CalmBall.Game
 
         private void Awake()
         {
+            _spawnerView = GetComponentInChildren<HarvestableSpawnerView>();
             _harvestablePool = GetComponent<HarvestablePool>();
         }
 
@@ -34,18 +38,27 @@ namespace Vorval.CalmBall.Game
         {
             _harvestableDataService.OnServiceReady += Init;
             _harvestableDataService.OnRespawnUpgrade += HandleUpgrade;
+            _harvestableDataService.OnHarvestableBought += HandleBuy;
         }
 
         private void OnDisable()
         {
             _harvestableDataService.OnServiceReady -= Init;
             _harvestableDataService.OnRespawnUpgrade -= HandleUpgrade;
+            _harvestableDataService.OnHarvestableBought -= HandleBuy;
         }
 
         private void Init()
         {
+            if (!_harvestableDataService.IsBought(type))
+            {
+                _spawnerView.Lock();
+                return;
+            }
+
             _harvestablePool.Init(_harvestablePrefab, 5);
             UpdateSpawnInterval();
+            _spawnerView.Unlock();
         }
 
 
@@ -53,6 +66,14 @@ namespace Vorval.CalmBall.Game
         {
             var newHarvestable = _harvestablePool.GetHarvestable();
             newHarvestable.Activate(transform.position);
+        }
+
+        private void HandleBuy(HarvestableData.HarvestableType harvestableType)
+        {
+            if (harvestableType == type)
+            {
+                Init();
+            }
         }
 
         private void HandleUpgrade(HarvestableData.HarvestableType harvestableType)
