@@ -1,19 +1,20 @@
+using System;
 using UniRx;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
-
+using ObservableExtensions = UniRx.ObservableExtensions;
 
 namespace Vorval.CalmBall.Game
 {
     [RequireComponent(typeof(HarvestablePool))]
     public class HarvestableSpawner : MonoBehaviour
     {
-        [SerializeField] private HarvestableType type;
+        [SerializeField] private HarvestableData.HarvestableType type;
         [SerializeField] private Object _harvestablePrefab;
 
         private float _spawnInterval = 3f;
-        private System.IDisposable _spawnDisposable;
+        private IDisposable _spawnDisposable;
 
         private HarvestablePool _harvestablePool;
         private HarvestableDataService _harvestableDataService;
@@ -29,17 +30,24 @@ namespace Vorval.CalmBall.Game
             _harvestablePool = GetComponent<HarvestablePool>();
         }
 
-        private void Start()
+        private void OnEnable()
+        {
+            _harvestableDataService.OnServiceReady += Init;
+            _harvestableDataService.OnRespawnUpgrade += HandleUpgrade;
+        }
+
+        private void OnDisable()
+        {
+            _harvestableDataService.OnServiceReady -= Init;
+            _harvestableDataService.OnRespawnUpgrade -= HandleUpgrade;
+        }
+
+        private void Init()
         {
             _harvestablePool.Init(_harvestablePrefab, 5);
-            _harvestableDataService.OnRespawnUpgrade += HandleUpgrade;
             UpdateSpawnInterval();
         }
 
-        private void OnDestroy()
-        {
-            _harvestableDataService.OnRespawnUpgrade -= HandleUpgrade;
-        }
 
         private void SpawnHarvestable()
         {
@@ -47,7 +55,7 @@ namespace Vorval.CalmBall.Game
             newHarvestable.Activate(transform.position);
         }
 
-        private void HandleUpgrade(HarvestableType harvestableType)
+        private void HandleUpgrade(HarvestableData.HarvestableType harvestableType)
         {
             if (harvestableType == type)
             {
@@ -60,8 +68,8 @@ namespace Vorval.CalmBall.Game
             _spawnInterval = _harvestableDataService.GetRespawnInterval(type);
             _spawnDisposable?.Dispose();
             var spawnObservable =
-                Observable.Interval(System.TimeSpan.FromSeconds(_spawnInterval)).TakeUntilDisable(this);
-            _spawnDisposable = spawnObservable.Subscribe(_ => SpawnHarvestable());
+                Observable.Interval(TimeSpan.FromSeconds(_spawnInterval)).TakeUntilDisable(this);
+            _spawnDisposable = ObservableExtensions.Subscribe(spawnObservable, _ => SpawnHarvestable());
             //spawnDisposable = spawnObservable.Subscribe(() => { SpawnHarvestable(); });
         }
     }

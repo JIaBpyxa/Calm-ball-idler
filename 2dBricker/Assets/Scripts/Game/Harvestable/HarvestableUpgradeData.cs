@@ -1,4 +1,6 @@
-﻿namespace Vorval.CalmBall.Game
+﻿using static Vorval.CalmBall.Game.HarvestableData;
+
+namespace Vorval.CalmBall.Game
 {
     public class HarvestableUpgradeData
     {
@@ -14,15 +16,6 @@
         public bool IsBought { get; private set; }
         public int PowerUpgradeLevel { get; private set; }
         public int RespawnUpgradeLevel { get; private set; }
-
-        // public HarvestableUpgradeData(HarvestableType type, bool isBought, int powerUpgradeLevel,
-        //     int respawnUpgradeLevel)
-        // {
-        //     Type = type;
-        //     IsBought = isBought;
-        //     PowerUpgradeLevel = powerUpgradeLevel;
-        //     RespawnUpgradeLevel = respawnUpgradeLevel;
-        // }
 
         public HarvestableUpgradeData(RawData rawData)
         {

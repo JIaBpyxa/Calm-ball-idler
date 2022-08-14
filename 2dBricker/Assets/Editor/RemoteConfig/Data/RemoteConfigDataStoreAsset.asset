@@ -12,12 +12,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: '[]'
-  _rsLastCachedKeyList: '[]'
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"8f8d74c7-dc68-48a6-acde-f7e0b1137689\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"simpleHarvestable\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
+    1,\r\n        \"name\": null,\r\n        \"description\": null,\r\n        \"basePower\":
+    null,\r\n        \"basePowerMultiplier\": 0,\r\n        \"basePowerUpgradePrice\":
+    null,\r\n        \"basePowerUpgradePriceMultiplier\": 0,\r\n        \"baseRespawnTime\":
+    0,\r\n        \"baseRespawnTimeMultiplier\": 0,\r\n        \"baseRespawnUpgradePrice\":
+    null,\r\n        \"baseRespawnUpgradePriceMultiplier\": 0\r\n      }\r\n    }\r\n 
+    },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"19facb8b-9fc5-4162-b472-e59a81d40f4e\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"littleHarvestable\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
+    2,\r\n        \"name\": null,\r\n        \"description\": null,\r\n        \"basePower\":
+    null,\r\n        \"basePowerMultiplier\": 0,\r\n        \"basePowerUpgradePrice\":
+    null,\r\n        \"basePowerUpgradePriceMultiplier\": 0,\r\n        \"baseRespawnTime\":
+    0,\r\n        \"baseRespawnTimeMultiplier\": 0,\r\n        \"baseRespawnUpgradePrice\":
+    null,\r\n        \"baseRespawnUpgradePriceMultiplier\": 0\r\n      }\r\n    }\r\n 
+    },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"5d3ba770-4f15-4e7e-b8b2-812cf6c0baed\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"blowHarvestable\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
+    3,\r\n        \"name\": null,\r\n        \"description\": null,\r\n        \"basePower\":
+    null,\r\n        \"basePowerMultiplier\": 0,\r\n        \"basePowerUpgradePrice\":
+    null,\r\n        \"basePowerUpgradePriceMultiplier\": 0,\r\n        \"baseRespawnTime\":
+    0,\r\n        \"baseRespawnTimeMultiplier\": 0,\r\n        \"baseRespawnUpgradePrice\":
+    null,\r\n        \"baseRespawnUpgradePriceMultiplier\": 0\r\n      }\r\n    }\r\n 
+    },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"4770b635-85ce-4575-9643-54bce9abe609\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"slowHarvestable\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
+    4,\r\n        \"name\": null,\r\n        \"description\": null,\r\n        \"basePower\":
+    null,\r\n        \"basePowerMultiplier\": 0,\r\n        \"basePowerUpgradePrice\":
+    null,\r\n        \"basePowerUpgradePriceMultiplier\": 0,\r\n        \"baseRespawnTime\":
+    0,\r\n        \"baseRespawnTimeMultiplier\": 0,\r\n        \"baseRespawnUpgradePrice\":
+    null,\r\n        \"baseRespawnUpgradePriceMultiplier\": 0\r\n      }\r\n    }\r\n 
+    }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"8f8d74c7-dc68-48a6-acde-f7e0b1137689\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"simpleHarvestable\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
+    1,\r\n        \"name\": null,\r\n        \"description\": null,\r\n        \"basePower\":
+    null,\r\n        \"basePowerMultiplier\": 0,\r\n        \"basePowerUpgradePrice\":
+    null,\r\n        \"basePowerUpgradePriceMultiplier\": 0,\r\n        \"baseRespawnTime\":
+    0,\r\n        \"baseRespawnTimeMultiplier\": 0,\r\n        \"baseRespawnUpgradePrice\":
+    null,\r\n        \"baseRespawnUpgradePriceMultiplier\": 0\r\n      }\r\n    }\r\n 
+    },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"19facb8b-9fc5-4162-b472-e59a81d40f4e\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"littleHarvestable\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
+    2,\r\n        \"name\": null,\r\n        \"description\": null,\r\n        \"basePower\":
+    null,\r\n        \"basePowerMultiplier\": 0,\r\n        \"basePowerUpgradePrice\":
+    null,\r\n        \"basePowerUpgradePriceMultiplier\": 0,\r\n        \"baseRespawnTime\":
+    0,\r\n        \"baseRespawnTimeMultiplier\": 0,\r\n        \"baseRespawnUpgradePrice\":
+    null,\r\n        \"baseRespawnUpgradePriceMultiplier\": 0\r\n      }\r\n    }\r\n 
+    },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"5d3ba770-4f15-4e7e-b8b2-812cf6c0baed\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"blowHarvestable\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
+    3,\r\n        \"name\": null,\r\n        \"description\": null,\r\n        \"basePower\":
+    null,\r\n        \"basePowerMultiplier\": 0,\r\n        \"basePowerUpgradePrice\":
+    null,\r\n        \"basePowerUpgradePriceMultiplier\": 0,\r\n        \"baseRespawnTime\":
+    0,\r\n        \"baseRespawnTimeMultiplier\": 0,\r\n        \"baseRespawnUpgradePrice\":
+    null,\r\n        \"baseRespawnUpgradePriceMultiplier\": 0\r\n      }\r\n    }\r\n 
+    },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"4770b635-85ce-4575-9643-54bce9abe609\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"slowHarvestable\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
+    4,\r\n        \"name\": null,\r\n        \"description\": null,\r\n        \"basePower\":
+    null,\r\n        \"basePowerMultiplier\": 0,\r\n        \"basePowerUpgradePrice\":
+    null,\r\n        \"basePowerUpgradePriceMultiplier\": 0,\r\n        \"baseRespawnTime\":
+    0,\r\n        \"baseRespawnTimeMultiplier\": 0,\r\n        \"baseRespawnUpgradePrice\":
+    null,\r\n        \"baseRespawnUpgradePriceMultiplier\": 0\r\n      }\r\n    }\r\n 
+    }\r\n]"
   _environments: "[\r\n  {\r\n    \"projectId\": \"83e12873-9a01-4903-8aa8-8ab1ca64b7a5\",\r\n   
-    \"name\": \"production\",\r\n    \"id\": \"b22c9b19-8212-4572-98c3-3e61d9fa8247\",\r\n   
-    \"isDefault\": true,\r\n    \"createdAt\": \"2022-08-13T06:17:17Z\",\r\n    \"updatedAt\":
-    \"2022-08-13T06:17:17Z\"\r\n  },\r\n  {\r\n    \"projectId\": \"83e12873-9a01-4903-8aa8-8ab1ca64b7a5\",\r\n   
     \"name\": \"dev\",\r\n    \"id\": \"6d025401-3b79-4ffe-8265-fb8cae2e94c6\",\r\n   
     \"isDefault\": false,\r\n    \"createdAt\": \"2022-08-13T07:01:59Z\",\r\n   
-    \"updatedAt\": \"2022-08-13T07:01:59Z\"\r\n  }\r\n]"
+    \"updatedAt\": \"2022-08-13T07:01:59Z\"\r\n  },\r\n  {\r\n    \"projectId\":
+    \"83e12873-9a01-4903-8aa8-8ab1ca64b7a5\",\r\n    \"name\": \"production\",\r\n   
+    \"id\": \"b22c9b19-8212-4572-98c3-3e61d9fa8247\",\r\n    \"isDefault\": true,\r\n   
+    \"createdAt\": \"2022-08-13T06:17:17Z\",\r\n    \"updatedAt\": \"2022-08-13T06:17:17Z\"\r\n 
+    }\r\n]"

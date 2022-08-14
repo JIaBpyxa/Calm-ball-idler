@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 using Vorval.CalmBall.Service;
+using Zenject;
+using static Vorval.CalmBall.Game.HarvestableData;
 
 namespace Vorval.CalmBall.Game
 {
     public class HarvestableDataService : MonoBehaviour
     {
-        [SerializeField] private List<HarvestableData> _harvestableDataList;
+        public Action OnServiceReady;
+
+        private List<HarvestableData> _harvestableDataList;
 
         public Action<HarvestableType> OnPowerUpgrade;
         public Action<HarvestableType> OnRespawnUpgrade;
@@ -16,21 +20,28 @@ namespace Vorval.CalmBall.Game
         private Dictionary<HarvestableType, HarvestableData> _dataDictionary;
         private Dictionary<HarvestableType, HarvestableUpgradeData> _upgradeDataDictionary;
 
+        private ConfigRemoteService _configRemoteService;
+
+        [Inject]
+        private void Construct(ConfigRemoteService configRemoteService)
+        {
+            _configRemoteService = configRemoteService;
+        }
+
         private void Awake()
         {
             _dataDictionary = new Dictionary<HarvestableType, HarvestableData>();
             _upgradeDataDictionary = new Dictionary<HarvestableType, HarvestableUpgradeData>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            foreach (var harvestableData in _harvestableDataList)
-            {
-                var harvestableType = harvestableData.type;
-                _dataDictionary.Add(harvestableType, harvestableData);
-                var upgradeData = SaveService.GetHarvestableUpgradeData(harvestableType);
-                _upgradeDataDictionary.Add(harvestableType, upgradeData);
-            }
+            _configRemoteService.OnRemoteDataLoaded += InitData;
+        }
+
+        private void OnDisable()
+        {
+            _configRemoteService.OnRemoteDataLoaded -= InitData;
         }
 
         public void UpgradePower(HarvestableType harvestableType)
@@ -75,6 +86,33 @@ namespace Vorval.CalmBall.Game
             var upgradeLevel = _upgradeDataDictionary[harvestableType].RespawnUpgradeLevel;
             var respawnIntervalPrice = _dataDictionary[harvestableType].GetRespawnPrice(upgradeLevel);
             return respawnIntervalPrice;
+        }
+
+        private void InitData(ConfigRemoteService.RemoteData remoteData)
+        {
+            _harvestableDataList = new List<HarvestableData>(4)
+            {
+                new(GetDataFromJson(remoteData.SimpleHarvestableJson)),
+                new(GetDataFromJson(remoteData.LittleHarvestableJson)),
+                new(GetDataFromJson(remoteData.BlowHarvestableJson)),
+                new(GetDataFromJson(remoteData.SlowHarvestableJson)),
+            };
+
+            foreach (var harvestableData in _harvestableDataList)
+            {
+                var harvestableType = harvestableData.Type;
+                _dataDictionary.Add(harvestableType, harvestableData);
+                var upgradeData = SaveService.GetHarvestableUpgradeData(harvestableType);
+                _upgradeDataDictionary.Add(harvestableType, upgradeData);
+            }
+            
+            OnServiceReady?.Invoke();
+
+
+            RawData GetDataFromJson(string json)
+            {
+                return JsonUtility.FromJson<RawData>(json);
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Vorval.CalmBall.Game;
 using Vorval.CalmBall.Service;
 using Zenject;
+using static Vorval.CalmBall.Game.HarvestableData;
 
 namespace Vorval.CalmBall.UI
 {

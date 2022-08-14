@@ -7,7 +7,7 @@ namespace Vorval.CalmBall.Game
 {
     public abstract class AbstractHarvestable : MonoBehaviour
     {
-        [SerializeField] private HarvestableType _harvestableType;
+        [SerializeField] private HarvestableData.HarvestableType _harvestableType;
         public BoolReactiveProperty IsActive;
 
         public Action OnHarvested { get; set; }
@@ -15,7 +15,7 @@ namespace Vorval.CalmBall.Game
         public abstract void Deactivate();
         public abstract void Harvest(float scoreModifier = 1f);
         protected abstract void UpdatePower();
-        public HarvestableType Type => _harvestableType;
+        public HarvestableData.HarvestableType Type => _harvestableType;
 
         protected AbstractHarvestableView harvestableView;
         protected HarvestableDataService harvestableDataService;
@@ -50,7 +50,7 @@ namespace Vorval.CalmBall.Game
         }
 
 
-        private void HandleUpgrade(HarvestableType harvestableType)
+        private void HandleUpgrade(HarvestableData.HarvestableType harvestableType)
         {
             if (harvestableType == Type)
             {

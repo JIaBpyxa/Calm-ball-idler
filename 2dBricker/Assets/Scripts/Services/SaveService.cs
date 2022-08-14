@@ -34,7 +34,7 @@ namespace Vorval.CalmBall.Service
             SecurePlayerPrefs.SetString($"{HarvestableKey}{harvestableUpgradeData.Type}", json);
         }
 
-        public static HarvestableUpgradeData GetHarvestableUpgradeData(HarvestableType harvestableType)
+        public static HarvestableUpgradeData GetHarvestableUpgradeData(HarvestableData.HarvestableType harvestableType)
         {
             var dataKey = $"{HarvestableKey}{harvestableType}";
             var rawData = new HarvestableUpgradeData.RawData();
