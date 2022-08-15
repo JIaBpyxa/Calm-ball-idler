@@ -1,15 +1,17 @@
 using System;
 using UniRx;
 using UnityEngine;
+using Vorval.CalmBall.Service;
 using Zenject;
 using Object = UnityEngine.Object;
-using ObservableExtensions = UniRx.ObservableExtensions;
 
 namespace Vorval.CalmBall.Game
 {
     [RequireComponent(typeof(HarvestablePool))]
-    public class HarvestableSpawner : MonoBehaviour
+    public class HarvestableSpawner : MonoBehaviour, ILoadingOperation
     {
+        public Action<ILoadingOperation> OnOperationFinished { get; set; }
+
         [SerializeField] private HarvestableData.HarvestableType type;
         [SerializeField] private Object _harvestablePrefab;
 
@@ -22,10 +24,12 @@ namespace Vorval.CalmBall.Game
         private HarvestablePool _harvestablePool;
         private HarvestableDataService _harvestableDataService;
 
+
         [Inject]
-        private void Construct(HarvestableDataService harvestableDataService)
+        private void Construct(HarvestableDataService harvestableDataService, LoadingService loadingService)
         {
             _harvestableDataService = harvestableDataService;
+            loadingService.AddLoadingOperation(this);
         }
 
         private void Awake()
@@ -50,15 +54,18 @@ namespace Vorval.CalmBall.Game
 
         private void Init()
         {
-            if (!_harvestableDataService.IsBought(type))
+            if (_harvestableDataService.IsBought(type))
+            {
+                _harvestablePool.Init(_harvestablePrefab, 5);
+                UpdateSpawnInterval();
+                _spawnerView.Unlock();
+            }
+            else
             {
                 _spawnerView.Lock();
-                return;
             }
 
-            _harvestablePool.Init(_harvestablePrefab, 5);
-            UpdateSpawnInterval();
-            _spawnerView.Unlock();
+            OnOperationFinished?.Invoke(this);
         }
 
 

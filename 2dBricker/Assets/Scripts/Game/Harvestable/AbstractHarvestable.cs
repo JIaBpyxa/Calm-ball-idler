@@ -1,7 +1,9 @@
 using System;
 using UniRx;
 using UnityEngine;
+using Vorval.CalmBall.Service;
 using Zenject;
+using Object = UnityEngine.Object;
 
 namespace Vorval.CalmBall.Game
 {
@@ -21,7 +23,7 @@ namespace Vorval.CalmBall.Game
         protected HarvestableDataService harvestableDataService;
 
 
-        public class Factory : PlaceholderFactory<UnityEngine.Object, AbstractHarvestable>
+        public class Factory : PlaceholderFactory<Object, AbstractHarvestable>
         {
         }
 

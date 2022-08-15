@@ -4,15 +4,18 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.RemoteConfig;
 using UnityEngine;
+using Zenject;
 
 namespace Vorval.CalmBall.Service
 {
-    public class ConfigRemoteService : MonoBehaviour
+    public class ConfigRemoteService : MonoBehaviour, ILoadingOperation
     {
-        public Action<RemoteData> OnRemoteDataLoaded;
+        public Action<RemoteData> OnRemoteDataLoaded { get; set; }
+        public Action<ILoadingOperation> OnOperationFinished { get; set; }
 
         // dev environment
         private const string EnvironmentId = "6d025401-3b79-4ffe-8265-fb8cae2e94c6";
+
         // prod environment
         //private const string EnvironmentId = "b22c9b19-8212-4572-98c3-3e61d9fa8247";
 
@@ -20,6 +23,12 @@ namespace Vorval.CalmBall.Service
         private const string LittleHarvestableData = "littleHarvestable";
         private const string BlowHarvestableData = "blowHarvestable";
         private const string SlowHarvestableData = "slowHarvestable";
+
+        [Inject]
+        private void Construct(LoadingService loadingService)
+        {
+            loadingService.AddLoadingOperation(this);
+        }
 
         public struct userAttributes
         {
@@ -89,6 +98,7 @@ namespace Vorval.CalmBall.Service
             var remoteData = new RemoteData(simpleJson, littleJson, blowJson, slowJson);
             SaveService.SaveRemoteDataCache(remoteData);
             OnRemoteDataLoaded?.Invoke(remoteData);
+            OnOperationFinished?.Invoke(this);
         }
 
         public struct RemoteData

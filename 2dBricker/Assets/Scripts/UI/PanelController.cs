@@ -1,6 +1,5 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace Vorval.CalmBall.UI

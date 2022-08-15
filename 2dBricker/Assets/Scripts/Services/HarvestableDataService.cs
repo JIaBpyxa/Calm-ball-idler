@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
-using Vorval.CalmBall.Service;
+using Vorval.CalmBall.Game;
 using Zenject;
 using static Vorval.CalmBall.Game.HarvestableData;
 
-namespace Vorval.CalmBall.Game
+namespace Vorval.CalmBall.Service
 {
     public class HarvestableDataService : MonoBehaviour
     {

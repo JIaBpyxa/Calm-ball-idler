@@ -7,6 +7,7 @@ namespace Vorval.CalmBall.Game
 {
     public class ProjectInstaller : MonoInstaller
     {
+        [SerializeField] private LoadingService _loadingService;
         [SerializeField] private ConfigRemoteService _configRemoteService;
         [SerializeField] private HarvestableDataService _harvestableDataService;
         [SerializeField] private PanelController _panelController;
@@ -14,6 +15,8 @@ namespace Vorval.CalmBall.Game
         public override void InstallBindings()
         {
             SecurePlayerPrefs.Init();
+
+            Container.BindInstance(_loadingService).AsSingle();
             Container.BindInstance(_configRemoteService).AsSingle();
             Container.BindInstance(_panelController).AsSingle();
             Container.BindInstance(_harvestableDataService).AsSingle();
