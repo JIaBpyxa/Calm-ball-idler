@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 using Zenject;
-using ObservableExtensions = UniRx.ObservableExtensions;
 using Random = UnityEngine.Random;
 
 namespace Vorval.CalmBall.Game
@@ -35,7 +34,7 @@ namespace Vorval.CalmBall.Game
         {
             SpawnRandomObstacle();
             var spawnObservable =
-                Observable.Interval(System.TimeSpan.FromSeconds(_spawnInterval)).TakeUntilDisable(this);
+                Observable.Interval(TimeSpan.FromSeconds(_spawnInterval)).TakeUntilDisable(this);
             ObservableExtensions.Subscribe(spawnObservable, _ => SpawnRandomObstacle());
         }
 
