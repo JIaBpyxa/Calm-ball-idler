@@ -26,6 +26,7 @@ namespace Vorval.CalmBall.Game
             gameObject.SetActive(true);
             harvestableView.Activate();
             IsActive.Value = true;
+            statsService.AddSpawned(Type);
         }
 
         public override void Deactivate()
@@ -34,11 +35,11 @@ namespace Vorval.CalmBall.Game
             harvestableView.Deactivate(() => gameObject.SetActive(false));
         }
 
-        public override void Harvest(float scoreModifier = 1)
+        public override void Harvest(float scoreModifier, Harvester.HarvesterType harvesterType)
         {
             Debug.Log("Harvested ball");
             _rigidbody.bodyType = RigidbodyType2D.Static;
-            OnHarvested?.Invoke();
+            //OnHarvested?.Invoke();
             BlowHarvester();
         }
 

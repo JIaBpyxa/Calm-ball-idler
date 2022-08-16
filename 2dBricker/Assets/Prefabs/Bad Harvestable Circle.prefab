@@ -114,4 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abf747cfa4c4b1b9c47add61119a2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _harvesterType: 2
   _scoreModifier: 0

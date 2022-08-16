@@ -12,15 +12,16 @@ namespace Vorval.CalmBall.Game
         [SerializeField] private HarvestableData.HarvestableType _harvestableType;
         public BoolReactiveProperty IsActive;
 
-        public Action OnHarvested { get; set; }
+        //public Action OnHarvested { get; set; }
         public abstract void Activate(Vector3 position);
         public abstract void Deactivate();
-        public abstract void Harvest(float scoreModifier = 1f);
+        public abstract void Harvest(float scoreModifier, Harvester.HarvesterType harvesterType);
         protected abstract void UpdatePower();
         public HarvestableData.HarvestableType Type => _harvestableType;
 
         protected AbstractHarvestableView harvestableView;
         protected HarvestableDataService harvestableDataService;
+        protected StatsService statsService;
 
 
         public class Factory : PlaceholderFactory<Object, AbstractHarvestable>
@@ -28,9 +29,10 @@ namespace Vorval.CalmBall.Game
         }
 
         [Inject]
-        private void Construct(HarvestableDataService dataService)
+        private void Construct(HarvestableDataService dataSvc, StatsService statsSvc)
         {
-            harvestableDataService = dataService;
+            harvestableDataService = dataSvc;
+            statsService = statsSvc;
         }
 
         protected virtual void Awake()

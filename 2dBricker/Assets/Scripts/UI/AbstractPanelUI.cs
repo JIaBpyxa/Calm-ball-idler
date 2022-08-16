@@ -8,6 +8,13 @@ namespace Vorval.CalmBall.UI
 {
     public abstract class AbstractPanelUI : MonoBehaviour
     {
+        [SerializeField] private PanelController.PanelType _panelType;
+
+        public PanelController.PanelType GetPanelType()
+        {
+            return _panelType;
+        }
+
         public virtual void OpenPanel()
         {
             OpeningAnimation(.3f);

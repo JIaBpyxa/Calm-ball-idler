@@ -8,11 +8,11 @@ namespace Vorval.CalmBall.Service
     {
         private const string ScoreKey = "Score";
         private const string HarvestableKey = "Harvestable_";
+        private const string HarvestableStatsKey = "Stats_";
         private const string RemoteDataKey = "RemoteData";
 
         public static void SaveScore(BigInteger score)
         {
-            //SecurePlayerPrefs.SetInt(ScoreKey, score);
             SecurePlayerPrefs.SetString(ScoreKey, score.ToString());
         }
 
@@ -26,7 +26,6 @@ namespace Vorval.CalmBall.Service
             }
 
             return BigInteger.Zero;
-            //return SecurePlayerPrefs.GetInt(ScoreKey, 0);
         }
 
         public static void SaveHarvestableUpgradeData(HarvestableUpgradeData harvestableUpgradeData)
@@ -54,6 +53,32 @@ namespace Vorval.CalmBall.Service
             }
 
             return new HarvestableUpgradeData(rawData);
+        }
+
+        public static void SaveHarvestableStats(HarvestableStatsData harvestableStatsData)
+        {
+            var json = JsonUtility.ToJson(harvestableStatsData.GetRawData());
+            SecurePlayerPrefs.SetString($"{HarvestableStatsKey}{harvestableStatsData.Type}", json);
+        }
+
+        public static HarvestableStatsData GetHarvestableStats(HarvestableData.HarvestableType harvestableType)
+        {
+            var dataKey = $"{HarvestableStatsKey}{harvestableType}";
+            var rawData = new HarvestableStatsData.RawData();
+
+            if (SecurePlayerPrefs.HasKey(dataKey))
+            {
+                var json = SecurePlayerPrefs.GetString(dataKey);
+                rawData = JsonUtility.FromJson<HarvestableStatsData.RawData>(json);
+            }
+            else
+            {
+                rawData.typeId = (int)harvestableType;
+                rawData.spawnedCount = 0;
+                rawData.scoreEarned = "0";
+            }
+
+            return new HarvestableStatsData(rawData);
         }
 
         public static void SaveRemoteDataCache(ConfigRemoteService.RemoteData remoteData)

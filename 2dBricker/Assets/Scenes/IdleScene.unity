@@ -756,6 +756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1765281022da4d95a683667271e8ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _harvesterType: 1
   _scoreModifier: 1.25
   _inputController: {fileID: 1450129782}
 --- !u!212 &774680962
@@ -1550,6 +1551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abf747cfa4c4b1b9c47add61119a2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _harvesterType: 0
   _scoreModifier: 1
 --- !u!1 &1128596909
 GameObject:

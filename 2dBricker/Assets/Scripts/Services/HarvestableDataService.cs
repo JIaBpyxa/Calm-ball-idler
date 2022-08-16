@@ -10,18 +10,16 @@ namespace Vorval.CalmBall.Service
 {
     public class HarvestableDataService : MonoBehaviour
     {
-        public Action OnServiceReady;
-
-        private List<HarvestableData> _harvestableDataList;
-
-        public Action<HarvestableType> OnHarvestableBought;
-        public Action<HarvestableType> OnPowerUpgrade;
-        public Action<HarvestableType> OnRespawnUpgrade;
+        public Action OnServiceReady { get; set; }
+        public Action<HarvestableType> OnHarvestableBought { get; set; }
+        public Action<HarvestableType> OnPowerUpgrade { get; set; }
+        public Action<HarvestableType> OnRespawnUpgrade { get; set; }
 
         private Dictionary<HarvestableType, HarvestableData> _dataDictionary;
         private Dictionary<HarvestableType, HarvestableUpgradeData> _upgradeDataDictionary;
 
         private ConfigRemoteService _configRemoteService;
+
 
         [Inject]
         private void Construct(ConfigRemoteService configRemoteService)
@@ -43,6 +41,11 @@ namespace Vorval.CalmBall.Service
         private void OnDisable()
         {
             _configRemoteService.OnRemoteDataLoaded -= InitData;
+        }
+
+        public string GetHarvestableName(HarvestableType harvestableType)
+        {
+            return _dataDictionary[harvestableType].HarvestableName;
         }
 
         public bool IsBought(HarvestableType harvestableType)
@@ -110,7 +113,7 @@ namespace Vorval.CalmBall.Service
 
         private void InitData(ConfigRemoteService.RemoteData remoteData)
         {
-            _harvestableDataList = new List<HarvestableData>(4)
+            var harvestableDataList = new List<HarvestableData>(4)
             {
                 new(GetDataFromJson(remoteData.SimpleHarvestableJson)),
                 new(GetDataFromJson(remoteData.LittleHarvestableJson)),
@@ -118,7 +121,7 @@ namespace Vorval.CalmBall.Service
                 new(GetDataFromJson(remoteData.SlowHarvestableJson)),
             };
 
-            foreach (var harvestableData in _harvestableDataList)
+            foreach (var harvestableData in harvestableDataList)
             {
                 var harvestableType = harvestableData.Type;
                 _dataDictionary.Add(harvestableType, harvestableData);

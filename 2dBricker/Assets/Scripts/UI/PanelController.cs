@@ -11,6 +11,7 @@ namespace Vorval.CalmBall.UI
         [Space] [SerializeField] private AbstractPanelUI _settingsPanel;
         [SerializeField] private AbstractPanelUI _shopPanel;
         [SerializeField] private AbstractPanelUI _statsPanel;
+        [SerializeField] private AbstractPanelUI _statsDataPanel;
 
         private AbstractPanelUI _currentPanel;
         private PanelType _previousPanelType = 0;
@@ -43,7 +44,7 @@ namespace Vorval.CalmBall.UI
             }
             else
             {
-                _previousPanelType = panelType;
+                _previousPanelType = _currentPanel.GetPanelType();
                 _currentPanel.ClosePanel(() => SpawnPanel(panelPrefab));
             }
 
@@ -57,6 +58,7 @@ namespace Vorval.CalmBall.UI
                     PanelType.Settings => _settingsPanel,
                     PanelType.Shop => _shopPanel,
                     PanelType.Stats => _statsPanel,
+                    PanelType.StatsData => _statsDataPanel,
                     _ => null
                 };
             }
@@ -96,7 +98,8 @@ namespace Vorval.CalmBall.UI
             None = 0,
             Settings = 1,
             Shop = 2,
-            Stats = 3
+            Stats = 3,
+            StatsData = 4,
         }
     }
 }

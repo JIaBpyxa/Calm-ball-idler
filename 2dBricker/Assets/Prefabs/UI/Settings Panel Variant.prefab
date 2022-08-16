@@ -131,4 +131,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7a1145db44428fb0039ce5d5b04bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panelType: 1
   _exitButton: {fileID: 4206080743182961960}

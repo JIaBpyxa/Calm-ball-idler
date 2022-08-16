@@ -4,7 +4,6 @@ using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using Vorval.CalmBall.Game;
 using Vorval.CalmBall.Service;
 using Zenject;
 using static Vorval.CalmBall.Game.HarvestableData;

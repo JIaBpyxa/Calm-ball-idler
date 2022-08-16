@@ -21,6 +21,7 @@ namespace Vorval.CalmBall.Game
             gameObject.SetActive(true);
             harvestableView.Activate();
             IsActive.Value = true;
+            statsService.AddSpawned(Type);
         }
 
         public override void Deactivate()
@@ -29,14 +30,21 @@ namespace Vorval.CalmBall.Game
             harvestableView.Deactivate(() => gameObject.SetActive(false));
         }
 
-        public override void Harvest(float scoreModifier = 1f)
+        public override void Harvest(float scoreModifier, Harvester.HarvesterType harvesterType)
         {
             if (!IsActive.Value) return;
 
             Debug.Log("Harvested ball");
-            OnHarvested?.Invoke();
+            //OnHarvested?.Invoke();
             var score = Mathf.RoundToInt(_score * scoreModifier);
             _scoreService.AddScore(score);
+            statsService.AddEarnedScore(Type, score);
+
+            if (harvesterType == Harvester.HarvesterType.BlowingHarvestable)
+            {
+                statsService.AddEarnedScore(HarvestableData.HarvestableType.Blow, score);
+            }
+
             Deactivate();
         }
 

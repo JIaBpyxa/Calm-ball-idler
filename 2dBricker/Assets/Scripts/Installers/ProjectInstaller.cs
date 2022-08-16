@@ -8,8 +8,8 @@ namespace Vorval.CalmBall.Game
     public class ProjectInstaller : MonoInstaller
     {
         [SerializeField] private LoadingService _loadingService;
-        [SerializeField] private ConfigRemoteService _configRemoteService;
-        [SerializeField] private HarvestableDataService _harvestableDataService;
+        [SerializeField] private ConfigRemoteService configRemoteService;
+        [SerializeField] private HarvestableDataService harvestableDataService;
         [SerializeField] private PanelController _panelController;
 
         public override void InstallBindings()
@@ -17,12 +17,13 @@ namespace Vorval.CalmBall.Game
             SecurePlayerPrefs.Init();
 
             Container.BindInstance(_loadingService).AsSingle();
-            Container.BindInstance(_configRemoteService).AsSingle();
+            Container.BindInstance(configRemoteService).AsSingle();
             Container.BindInstance(_panelController).AsSingle();
-            Container.BindInstance(_harvestableDataService).AsSingle();
+            Container.BindInstance(harvestableDataService).AsSingle();
 
             Container.Bind<ScoreService>().FromNew().AsSingle();
             Container.Bind<SaveService>().FromNew().AsSingle();
+            Container.Bind<StatsService>().FromNew().AsSingle();
 
             Container.BindFactory<Object, AbstractPanelUI, AbstractPanelUI.Factory>()
                 .FromFactory<PrefabFactory<AbstractPanelUI>>();
