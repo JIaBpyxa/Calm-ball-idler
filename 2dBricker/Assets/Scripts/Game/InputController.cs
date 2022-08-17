@@ -1,6 +1,8 @@
 using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Vorval.CalmBall.Service;
+using Zenject;
 
 namespace Vorval.CalmBall.Game
 {
@@ -24,7 +26,7 @@ namespace Vorval.CalmBall.Game
         private void Awake()
         {
             _camera = Camera.main;
-            _cameraOffset = _camera.transform.position;
+            _cameraOffset = Vector3.forward * _camera.transform.position.z;
 
             PointerWorldPosition = new Vector3ReactiveProperty(Vector3.zero);
             PointerPosition = new Vector3ReactiveProperty(Vector3.zero);
