@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 93874327}
   - component: {fileID: 93874328}
   m_Layer: 0
-  m_Name: Parallax Row_4
+  m_Name: Parallax Row_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 557023324}
   - component: {fileID: 557023325}
   m_Layer: 0
-  m_Name: Parallax Row_3
+  m_Name: Parallax Row_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1440,7 +1440,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 2e17f8137ab2ffa43aa216f90a2b962c, type: 3}
-  m_Color: {r: 0.09567462, g: 0.4716981, b: 0.4716981, a: 1}
+  m_Color: {r: 0.09567462, g: 0.4716981, b: 0.4716981, a: 0.78431374}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -1496,7 +1496,7 @@ GameObject:
   - component: {fileID: 962243422}
   - component: {fileID: 962243423}
   m_Layer: 0
-  m_Name: Parallax Row_5
+  m_Name: Parallax Row_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2380,7 +2380,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315890800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.35, y: -0.75, z: 0}
+  m_LocalPosition: {x: -7.1, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2430,7 +2430,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 9e1cbcce054ffec4eaeec8a81b064038, type: 3}
-  m_Color: {r: 0.101960786, g: 0.4117647, b: 0.4117647, a: 1}
+  m_Color: {r: 0.101960786, g: 0.4117647, b: 0.4117647, a: 0.74509805}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
