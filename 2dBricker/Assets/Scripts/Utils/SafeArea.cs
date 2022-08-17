@@ -141,7 +141,7 @@ namespace Crystal
             }
         }
 
-        Rect GetSafeArea ()
+        private Rect GetSafeArea ()
         {
             Rect safeArea = Screen.safeArea;
 
