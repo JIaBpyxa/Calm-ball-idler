@@ -26,8 +26,8 @@ namespace Vorval.CalmBall.Game
             var moveDuration = _meanMoveDuration * Random.Range(.75f, 1.25f);
 
             var sequence = DOTween.Sequence();
-            sequence.Append(_spriteRenderer.transform.DOLocalMoveX(startPoint, .05f));
-            sequence.Append(_spriteRenderer.transform.DOLocalMoveX(endPoint, moveDuration));
+            sequence.Append(_spriteRenderer.transform.DOLocalMoveX(startPoint, .01f).SetEase(Ease.Linear));
+            sequence.Append(_spriteRenderer.transform.DOLocalMoveX(endPoint, moveDuration).SetEase(Ease.Linear));
             sequence.SetLoops(-1, LoopType.Yoyo);
         }
     }
