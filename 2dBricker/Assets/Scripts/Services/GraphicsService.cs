@@ -29,14 +29,19 @@ namespace Vorval.CalmBall.Service
 
         private void UpdateFPS(Quality quality)
         {
+            QualitySettings.vSyncCount = 0;
+            var refreshRate = Screen.currentResolution.refreshRate;
+
             if (quality == Quality.Eco)
             {
-                Application.targetFrameRate = Mathf.Max(Screen.currentResolution.refreshRate / 2, 30);
+                Application.targetFrameRate = Mathf.Max(refreshRate / 2, 30);
             }
             else
             {
-                Application.targetFrameRate = Mathf.Max(Screen.currentResolution.refreshRate / 1, 60);
+                Application.targetFrameRate = Mathf.Max(refreshRate, 60);
             }
+
+            Debug.Log($"Refresh rate {refreshRate} Target FPS {Application.targetFrameRate}");
         }
 
         public enum Quality
