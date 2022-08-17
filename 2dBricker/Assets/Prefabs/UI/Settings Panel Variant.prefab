@@ -93,15 +93,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMax: 40
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cbe099fd1bf1d6499efae2d2db0734e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0642e1355c61cde4885516c5e887f323, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cbe099fd1bf1d6499efae2d2db0734e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0642e1355c61cde4885516c5e887f323, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -836,9 +836,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'High
-
-'
+  m_text: Fancy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 784aeb35ccb49f644bf9686357acf671, type: 2}
   m_sharedMaterial: {fileID: -2756242804892080823, guid: 784aeb35ccb49f644bf9686357acf671, type: 2}
@@ -973,7 +971,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Low
+  m_text: Eco
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 784aeb35ccb49f644bf9686357acf671, type: 2}
   m_sharedMaterial: {fileID: -2756242804892080823, guid: 784aeb35ccb49f644bf9686357acf671, type: 2}
@@ -1447,15 +1445,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMax: 45
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1570,7 +1568,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: 125
   m_PreferredWidth: -1
-  m_PreferredHeight: 200
+  m_PreferredHeight: 125
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -1629,8 +1627,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Top: 5
+    m_Bottom: 5
   m_ChildAlignment: 4
   m_Spacing: 15
   m_ChildForceExpandWidth: 1
@@ -1656,7 +1654,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: 125
   m_PreferredWidth: -1
-  m_PreferredHeight: 200
+  m_PreferredHeight: 125
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -1760,6 +1758,10 @@ PrefabInstance:
     - target: {fileID: 2751589586345721024, guid: f2510926040c5454eaa6388d5ec5751d, type: 3}
       propertyPath: m_Name
       value: Settings Panel Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837639478220642112, guid: f2510926040c5454eaa6388d5ec5751d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2510926040c5454eaa6388d5ec5751d, type: 3}

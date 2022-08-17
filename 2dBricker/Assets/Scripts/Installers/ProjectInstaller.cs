@@ -11,6 +11,7 @@ namespace Vorval.CalmBall.Game
         [SerializeField] private ConfigRemoteService configRemoteService;
         [SerializeField] private HarvestableDataService harvestableDataService;
         [SerializeField] private PanelController _panelController;
+        [SerializeField] private GraphicsService _graphicsService;
 
         public override void InstallBindings()
         {
@@ -20,6 +21,7 @@ namespace Vorval.CalmBall.Game
             Container.BindInstance(configRemoteService).AsSingle();
             Container.BindInstance(_panelController).AsSingle();
             Container.BindInstance(harvestableDataService).AsSingle();
+            Container.BindInstance(_graphicsService).AsSingle();
 
             Container.Bind<ScoreService>().FromNew().AsSingle();
             Container.Bind<SaveService>().FromNew().AsSingle();

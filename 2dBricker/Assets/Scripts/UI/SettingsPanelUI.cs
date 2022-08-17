@@ -13,29 +13,28 @@ namespace Vorval.CalmBall.UI
         [SerializeField] private Button _applicationExitButton;
 
         private PanelController _panelController;
+        private GraphicsService _graphicsService;
 
         [Inject]
-        private void Construct(PanelController panelController)
+        private void Construct(PanelController panelController, GraphicsService graphicsService)
         {
             _panelController = panelController;
-        }
-
-        private void Awake()
-        {
-            UpdateQuality(SaveService.GetQuality());
+            _graphicsService = graphicsService;
         }
 
         private void Start()
         {
             _exitButton.onClick.AddListener(_panelController.ForceClosePanel);
-            _lowGraphicsButton.onClick.AddListener(() => UpdateQuality(0));
-            _highGraphicsButton.onClick.AddListener(() => UpdateQuality(1));
+            _lowGraphicsButton.onClick.AddListener(() => UpdateQuality(GraphicsService.Quality.Eco));
+            _highGraphicsButton.onClick.AddListener(() => UpdateQuality(GraphicsService.Quality.Fancy));
             _applicationExitButton.onClick.AddListener(Application.Quit);
+
+            UpdateQuality(_graphicsService.CurrentQuality);
         }
 
-        private void UpdateQuality(int id)
+        private void UpdateQuality(GraphicsService.Quality quality)
         {
-            if (id == 0)
+            if (quality == GraphicsService.Quality.Eco)
             {
                 _lowGraphicsButton.interactable = false;
                 _highGraphicsButton.interactable = true;
@@ -46,8 +45,7 @@ namespace Vorval.CalmBall.UI
                 _highGraphicsButton.interactable = false;
             }
 
-            QualitySettings.SetQualityLevel(id);
-            SaveService.SaveQuality(id);
+            _graphicsService.UpdateQuality(quality);
         }
     }
 }

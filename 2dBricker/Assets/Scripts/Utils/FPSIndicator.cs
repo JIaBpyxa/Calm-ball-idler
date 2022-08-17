@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Vorval.CalmBall.Utils
 {
-    public class FPSController : MonoBehaviour
+    public class FPSIndicator : MonoBehaviour
     {
         [SerializeField] private Canvas _fpsCanvas;
         [SerializeField] private TextMeshProUGUI _fpsText;
@@ -13,7 +13,6 @@ namespace Vorval.CalmBall.Utils
 
         private void Start()
         {
-            Application.targetFrameRate = Screen.currentResolution.refreshRate / 1;
             _fpsCanvas.gameObject.SetActive(_isShow);
         }
 

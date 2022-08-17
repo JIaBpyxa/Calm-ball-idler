@@ -18,7 +18,9 @@ namespace Vorval.CalmBall.UI
         [SerializeField] private Button _buyButton;
         [SerializeField] private TextMeshProUGUI _buyPriceText;
         [Space] [SerializeField] private TextMeshProUGUI _powerText;
+        [SerializeField] private TextMeshProUGUI _powerLevelText;
         [SerializeField] private TextMeshProUGUI _respawnText;
+        [SerializeField] private TextMeshProUGUI _respawnLevelText;
         [Space] [SerializeField] private Button _powerUpgradeButton;
         [SerializeField] private Button _respawnUpgradeButton;
         [Space] [SerializeField] private TextMeshProUGUI _powerUpgradePriceText;
@@ -113,6 +115,7 @@ namespace Vorval.CalmBall.UI
         {
             var power = _harvestableDataService.GetPower(_harvestableType);
             _powerText.text = $"Power: {power:F}";
+            _powerLevelText.text = $"(Lv.{_harvestableDataService.GetPowerLevel(_harvestableType)})";
 
             var powerUpgradePrice = _harvestableDataService.GetPowerPrice(_harvestableType);
             _powerUpgradePriceText.text = $"{powerUpgradePrice.ToString()}";
@@ -122,6 +125,7 @@ namespace Vorval.CalmBall.UI
         {
             var respawnInterval = _harvestableDataService.GetRespawnInterval(_harvestableType);
             _respawnText.text = $"Interval: {respawnInterval:F}";
+            _respawnLevelText.text = $"(Lv.{_harvestableDataService.GetRespawnIntervalLevel(_harvestableType)})";
 
             var respawnUpgradePrice = _harvestableDataService.GetRespawnIntervalPrice(_harvestableType);
             _respawnUpgradePriceText.text = $"{respawnUpgradePrice.ToString()}";

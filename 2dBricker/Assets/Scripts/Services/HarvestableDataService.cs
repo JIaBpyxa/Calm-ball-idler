@@ -78,11 +78,21 @@ namespace Vorval.CalmBall.Service
             OnRespawnUpgrade?.Invoke(harvestableType);
         }
 
+        public int GetPowerLevel(HarvestableType harvestableType)
+        {
+            return _upgradeDataDictionary[harvestableType].PowerUpgradeLevel;
+        }
+
         public float GetPower(HarvestableType harvestableType)
         {
             var upgradeLevel = _upgradeDataDictionary[harvestableType].PowerUpgradeLevel;
             var power = _dataDictionary[harvestableType].GetPower(upgradeLevel);
             return power;
+        }
+
+        public int GetRespawnIntervalLevel(HarvestableType harvestableType)
+        {
+            return _upgradeDataDictionary[harvestableType].RespawnUpgradeLevel;
         }
 
         public float GetRespawnInterval(HarvestableType harvestableType)
