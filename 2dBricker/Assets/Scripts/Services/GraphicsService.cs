@@ -19,6 +19,7 @@ namespace Vorval.CalmBall.Service
         public void UpdateQuality(Quality quality)
         {
             var qualityId = (int)quality;
+            CurrentQuality = quality;
 
             QualitySettings.SetQualityLevel(qualityId);
             SaveService.SaveQuality(qualityId);
