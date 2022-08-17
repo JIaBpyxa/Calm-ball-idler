@@ -31,11 +31,11 @@ namespace Vorval.CalmBall.Service
         {
             if (quality == Quality.Eco)
             {
-                Application.targetFrameRate = Screen.currentResolution.refreshRate / 2;
+                Application.targetFrameRate = Mathf.Max(Screen.currentResolution.refreshRate / 2, 30);
             }
             else
             {
-                Application.targetFrameRate = Screen.currentResolution.refreshRate / 1;
+                Application.targetFrameRate = Mathf.Max(Screen.currentResolution.refreshRate / 1, 60);
             }
         }
 
