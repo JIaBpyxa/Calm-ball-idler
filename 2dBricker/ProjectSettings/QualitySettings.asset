@@ -4,7 +4,7 @@
 QualitySettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_CurrentQuality: 2
+  m_CurrentQuality: 1
   m_QualitySettings:
   - serializedVersion: 2
     name: Very Low
@@ -40,43 +40,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: 681886c5eb7344803b6206f758bf0b1c, type: 2}
-    excludedTargetPlatforms: []
-  - serializedVersion: 2
-    name: Low
-    pixelLightCount: 0
-    shadows: 0
-    shadowResolution: 0
-    shadowProjection: 1
-    shadowCascades: 1
-    shadowDistance: 20
-    shadowNearPlaneOffset: 3
-    shadowCascade2Split: 0.33333334
-    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
-    shadowmaskMode: 0
-    skinWeights: 2
-    textureQuality: 0
-    anisotropicTextures: 0
-    antiAliasing: 0
-    softParticles: 0
-    softVegetation: 0
-    realtimeReflectionProbes: 0
-    billboardsFaceCameraPosition: 0
-    vSyncCount: 0
-    lodBias: 0.4
-    maximumLODLevel: 0
-    streamingMipmapsActive: 0
-    streamingMipmapsAddAllCameras: 1
-    streamingMipmapsMemoryBudget: 512
-    streamingMipmapsRenderersPerFrame: 512
-    streamingMipmapsMaxLevelReduction: 2
-    streamingMipmapsMaxFileIORequests: 1024
-    particleRaycastBudget: 16
-    asyncUploadTimeSlice: 2
-    asyncUploadBufferSize: 16
-    asyncUploadPersistentBuffer: 1
-    resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: 681886c5eb7344803b6206f758bf0b1c, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: 86741099fe15e554d8854021feccbb61, type: 2}
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Medium
@@ -151,15 +115,15 @@ QualitySettings:
     customRenderPipeline: {fileID: 11400000, guid: 681886c5eb7344803b6206f758bf0b1c, type: 2}
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
-    Android: 2
-    Lumin: 3
-    Nintendo Switch: 3
-    PS4: 3
+    Android: 1
+    Lumin: 2
+    Nintendo Switch: 2
+    PS4: 2
     Server: 0
-    Stadia: 3
-    Standalone: 3
-    WebGL: 3
-    Windows Store Apps: 3
-    XboxOne: 3
-    iPhone: 2
-    tvOS: 2
+    Stadia: 2
+    Standalone: 2
+    WebGL: 2
+    Windows Store Apps: 2
+    XboxOne: 2
+    iPhone: 1
+    tvOS: 1

@@ -10,6 +10,7 @@ namespace Vorval.CalmBall.Service
         private const string HarvestableKey = "Harvestable_";
         private const string HarvestableStatsKey = "Stats_";
         private const string RemoteDataKey = "RemoteData";
+        private const string QualityKey = "Quality";
 
         public static void SaveScore(BigInteger score)
         {
@@ -102,6 +103,16 @@ namespace Vorval.CalmBall.Service
 
             var remoteData = JsonUtility.FromJson<ConfigRemoteService.RemoteData>(json);
             return remoteData;
+        }
+
+        public static void SaveQuality(int id)
+        {
+            SecurePlayerPrefs.SetInt(QualityKey, id);
+        }
+
+        public static int GetQuality()
+        {
+            return SecurePlayerPrefs.GetInt(QualityKey, 1);
         }
     }
 }

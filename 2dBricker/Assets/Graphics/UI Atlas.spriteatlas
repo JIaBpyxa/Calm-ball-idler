@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 7baacac8c1c1853439e1cef6ffd98541, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 65ab3890469142146b9267dbf9df48d4, type: 3}
+  - {fileID: 21300000, guid: 57da53a01d907b145916789e3c7675aa, type: 3}
+  - {fileID: 21300000, guid: 1044a0311fd5bcd4aa256bb95b62e9db, type: 3}
+  - {fileID: 21300000, guid: e517833113621b7419a01d13e5dc0e4f, type: 3}
+  - {fileID: 21300000, guid: 4da5c961dc303f443b4c87ed04e8e8ba, type: 3}
+  - {fileID: 21300000, guid: 437765d2426a7e24bb4c38e69cac578a, type: 3}
+  - {fileID: 21300000, guid: 4d84f953e23218c43b4b190f575331c0, type: 3}
+  - {fileID: 21300000, guid: 7f7b56a38c690254b96eb5fa0078ca40, type: 3}
+  - {fileID: 21300000, guid: 0e92c2d359f94b149895115919d35229, type: 3}
+  - {fileID: 21300000, guid: 01bf83e38f80e47429e35e5da1e72588, type: 3}
+  - {fileID: 21300000, guid: 731d2c046b6946744b55dc426ba5129e, type: 3}
+  - {fileID: 21300000, guid: 00480fb4ba61225428335ac85521b602, type: 3}
+  - {fileID: 21300000, guid: 9f3ae8d47bcc4f043a71ca0ebf6dfe51, type: 3}
+  - {fileID: 21300000, guid: 0642e1355c61cde4885516c5e887f323, type: 3}
+  - {fileID: 21300000, guid: 64218595455cf4f44aeb087e3861c44e, type: 3}
+  - {fileID: 21300000, guid: ffec79663416ebb438c4fdb57d62a1b2, type: 3}
+  - {fileID: 21300000, guid: 734c1ab87f831d841944fbfc8a6658a5, type: 3}
+  - {fileID: 21300000, guid: 9a44e8e8fd34c24499be28223545d7c6, type: 3}
+  - {fileID: 21300000, guid: 376129f8d44441047b7c13292f11a5d0, type: 3}
+  - {fileID: 21300000, guid: a72689f8dd49dfd41a275942ede1f412, type: 3}
+  - {fileID: 21300000, guid: c43ae269acc661f429f91cec78fb5015, type: 3}
+  - {fileID: 21300000, guid: eb75d7a9039427a49b4bcf4ecb737a5d, type: 3}
+  - {fileID: 21300000, guid: 11da405ab7e618240bf9f35230f6390b, type: 3}
+  - {fileID: 21300000, guid: d6e9a77a5c0eb4640bfdaeb6594bd737, type: 3}
+  - {fileID: 21300000, guid: 7c810c8a5d3ec024093021d83f835df5, type: 3}
+  - {fileID: 21300000, guid: c70367ca3e968f04385b4595bb94758a, type: 3}
+  - {fileID: 21300000, guid: db73631b50a23e94b875a334a2686007, type: 3}
+  - {fileID: 21300000, guid: 22eed4bc3e1fa0b4689f806504e13395, type: 3}
+  - {fileID: 21300000, guid: 5cb108fc5ed876f4cb593f36d070f9ec, type: 3}
+  - {fileID: 21300000, guid: 3836599d96b3af245a936eb302cbc155, type: 3}
+  - {fileID: 21300000, guid: 7b2295ede56eb114197f8a11a150178d, type: 3}
+  - {fileID: 21300000, guid: df5efded43f9b994eaa46dfebc950926, type: 3}
+  - {fileID: 21300000, guid: 0ab8e91e9ce620646b759fec3d11df6a, type: 3}
+  - {fileID: 21300000, guid: ac938f5eefd256443a2671dfba502d07, type: 3}
+  - {fileID: 21300000, guid: b16cc56e96631a54cb9a6a401820ff24, type: 3}
+  - {fileID: 21300000, guid: cbc96c6ed38253b40bb6bf983f8e722d, type: 3}
+  - {fileID: 21300000, guid: 1918967ee0d5e344983af254489c8f55, type: 3}
+  - {fileID: 21300000, guid: f73483be11474094ea630cf363755df9, type: 3}
+  - {fileID: 21300000, guid: e653657fe0274f84395eb752eb42a3e4, type: 3}
+  - {fileID: 21300000, guid: 8cbe099fd1bf1d6499efae2d2db0734e, type: 3}
+  - {fileID: 21300000, guid: 20d92ecf6953f7a4184882f26f79f874, type: 3}
+  - {fileID: 21300000, guid: eeaac2df5381054409c8d749245f9786, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Icon03
+  - ButtonStarsLock05
+  - ButtonStars01
+  - IconsStars02
+  - IconsStars04
+  - Slider01
+  - Panel01
+  - Button01
+  - Icon15
+  - CheckBox02
+  - Icon09
+  - graph
+  - Icon07
+  - BtnMenu
+  - ButtonStarsLock06
+  - Icon17
+  - Icon18
+  - Button02
+  - Icon01
+  - Icon11
+  - Icon13
+  - Icon10
+  - Button03
+  - Icon12
+  - IconsStars03
+  - Icon05
+  - Slider02
+  - Icon04
+  - IconsStars01
+  - Icon02
+  - Icon14
+  - Menu
+  - IconsStars05
+  - Icon06
+  - Icon08
+  - CheckBox04
+  - CheckBox01
+  - CheckBox05
+  - CheckBox03
+  - ButtonIcon
+  - Icon16
+  - Message01
+  m_RenderDataMap: {}
+  m_Tag: UI Atlas
+  m_IsVariant: 0

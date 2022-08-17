@@ -8,8 +8,10 @@ using Object = UnityEngine.Object;
 namespace Vorval.CalmBall.Game
 {
     [RequireComponent(typeof(HarvestablePool))]
-    public class HarvestableSpawner : MonoBehaviour
+    public class HarvestableSpawner : MonoBehaviour, ILoadingOperation
     {
+        public Action<ILoadingOperation> OnOperationFinished { get; set; }
+
         [SerializeField] private HarvestableData.HarvestableType type;
         [SerializeField] private Object _harvestablePrefab;
 
@@ -24,9 +26,10 @@ namespace Vorval.CalmBall.Game
 
 
         [Inject]
-        private void Construct(HarvestableDataService harvestableDataService)
+        private void Construct(HarvestableDataService harvestableDataService, LoadingService loadingService)
         {
             _harvestableDataService = harvestableDataService;
+            loadingService.AddLoadingOperation(this);
         }
 
         private void Awake()
@@ -61,6 +64,8 @@ namespace Vorval.CalmBall.Game
             {
                 _spawnerView.Lock();
             }
+            
+            OnOperationFinished?.Invoke(this);
         }
 
 
