@@ -16,15 +16,15 @@ namespace Vorval.CalmBall.Service
         // dev environment
         private const string EnvironmentId = "6d025401-3b79-4ffe-8265-fb8cae2e94c6";
 
-
         // prod environment
-
         //private const string EnvironmentId = "b22c9b19-8212-4572-98c3-3e61d9fa8247";
 
-        private const string SimpleHarvestableData = "simpleHarvestable";
-        private const string LittleHarvestableData = "littleHarvestable";
-        private const string BlowHarvestableData = "blowHarvestable";
-        private const string SlowHarvestableData = "slowHarvestable";
+        private const string SimpleHarvestableDataKey = "simpleHarvestable";
+        private const string LittleHarvestableDataKey = "littleHarvestable";
+        private const string BlowHarvestableDataKey = "blowHarvestable";
+        private const string SlowHarvestableDataKey = "slowHarvestable";
+        private const string RewardedScoreModifierDurationKey = "rewardedScoreModifierDuration";
+        private const string RewardedScoreModifierCoefKey = "rewardedScoreModifierCoef";
 
 
         [Inject]
@@ -106,12 +106,26 @@ namespace Vorval.CalmBall.Service
 
             void LoadRemoteData()
             {
-                var simpleJson = RemoteConfigService.Instance.appConfig.GetJson(SimpleHarvestableData);
-                var littleJson = RemoteConfigService.Instance.appConfig.GetJson(LittleHarvestableData);
-                var blowJson = RemoteConfigService.Instance.appConfig.GetJson(BlowHarvestableData);
-                var slowJson = RemoteConfigService.Instance.appConfig.GetJson(SlowHarvestableData);
+                var simpleJson = RemoteConfigService.Instance.appConfig.GetJson(SimpleHarvestableDataKey);
+                var littleJson = RemoteConfigService.Instance.appConfig.GetJson(LittleHarvestableDataKey);
+                var blowJson = RemoteConfigService.Instance.appConfig.GetJson(BlowHarvestableDataKey);
+                var slowJson = RemoteConfigService.Instance.appConfig.GetJson(SlowHarvestableDataKey);
+                var rewardedScoreModifierDuration =
+                    RemoteConfigService.Instance.appConfig.GetFloat(RewardedScoreModifierDurationKey);
+                var rewardedScoreModifierCoefficient =
+                    RemoteConfigService.Instance.appConfig.GetFloat(RewardedScoreModifierCoefKey);
 
-                var remoteData = new RemoteData(simpleJson, littleJson, blowJson, slowJson);
+
+                var remoteData = new RemoteData
+                {
+                    SimpleHarvestableJson = simpleJson,
+                    LittleHarvestableJson = littleJson,
+                    BlowHarvestableJson = blowJson,
+                    SlowHarvestableJson = slowJson,
+                    RewardedScoreModifierDuration = rewardedScoreModifierDuration,
+                    RewardedScoreModifierCoefficient = rewardedScoreModifierCoefficient
+                };
+
                 SaveService.SaveRemoteDataCache(remoteData);
                 OnRemoteDataLoaded?.Invoke(remoteData);
             }
@@ -123,18 +137,8 @@ namespace Vorval.CalmBall.Service
             public string LittleHarvestableJson;
             public string BlowHarvestableJson;
             public string SlowHarvestableJson;
-
-            public RemoteData(
-                string simpleHarvestableJson,
-                string littleHarvestableJson,
-                string blowHarvestableJson,
-                string slowHarvestableJson)
-            {
-                SimpleHarvestableJson = simpleHarvestableJson;
-                LittleHarvestableJson = littleHarvestableJson;
-                BlowHarvestableJson = blowHarvestableJson;
-                SlowHarvestableJson = slowHarvestableJson;
-            }
+            public float RewardedScoreModifierDuration;
+            public float RewardedScoreModifierCoefficient;
         }
     }
 }

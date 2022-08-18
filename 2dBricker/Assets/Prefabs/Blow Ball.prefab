@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _harvesterType: 10
-  _scoreModifier: 3
+  _defaultScoreModifier: 3
 --- !u!1 &3112021137614388303
 GameObject:
   m_ObjectHideFlags: 0

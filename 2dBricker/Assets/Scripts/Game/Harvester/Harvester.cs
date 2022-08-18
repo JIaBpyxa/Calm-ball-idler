@@ -1,18 +1,42 @@
+using UniRx;
 using UnityEngine;
+using Vorval.CalmBall.Service;
+using Zenject;
 
 namespace Vorval.CalmBall.Game
 {
     public class Harvester : MonoBehaviour
     {
         [SerializeField] protected HarvesterType _harvesterType;
-        [SerializeField] protected float _scoreModifier = 1f;
+        [SerializeField] protected float _defaultScoreModifier = 1f;
+
+        protected float scoreModifier;
+
+        private ScoreModifierService _scoreModifierService;
+
+        [Inject]
+        private void Construct(ScoreModifierService scoreModifierService)
+        {
+            _scoreModifierService = scoreModifierService;
+            _scoreModifierService.RewardedScoreModifierCoefficient.Subscribe(HandleScoreModifierChanged);
+        }
+
+        private void Awake()
+        {
+            scoreModifier = _defaultScoreModifier;
+        }
 
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent<AbstractHarvestable>(out var harvestable))
             {
-                harvestable.Harvest(_scoreModifier, _harvesterType);
+                harvestable.Harvest(scoreModifier, _harvesterType);
             }
+        }
+
+        private void HandleScoreModifierChanged(float modifier)
+        {
+            scoreModifier = _defaultScoreModifier * modifier;
         }
 
         public enum HarvesterType

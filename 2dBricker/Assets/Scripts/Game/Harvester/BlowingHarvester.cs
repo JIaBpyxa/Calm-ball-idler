@@ -10,7 +10,7 @@ namespace Vorval.CalmBall.Game
             {
                 if (harvestable.gameObject.Equals(transform.parent.gameObject)) return;
 
-                harvestable.Harvest(_scoreModifier, _harvesterType);
+                harvestable.Harvest(scoreModifier, _harvesterType);
             }
         }
     }
