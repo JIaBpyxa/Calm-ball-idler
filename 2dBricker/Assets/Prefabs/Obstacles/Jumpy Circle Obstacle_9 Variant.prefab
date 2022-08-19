@@ -9,19 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2275133361951238166, guid: da0aec6b04afb0943865ddcd6f27835c, type: 3}
       propertyPath: m_Color.b
-      value: 0.23921569
+      value: 0.17254902
       objectReference: {fileID: 0}
     - target: {fileID: 2275133361951238166, guid: da0aec6b04afb0943865ddcd6f27835c, type: 3}
       propertyPath: m_Color.g
-      value: 0.72156864
+      value: 0.47843137
       objectReference: {fileID: 0}
     - target: {fileID: 2275133361951238166, guid: da0aec6b04afb0943865ddcd6f27835c, type: 3}
       propertyPath: m_Color.r
-      value: 0.9607843
+      value: 0.9137255
       objectReference: {fileID: 0}
     - target: {fileID: 2645842435697797867, guid: da0aec6b04afb0943865ddcd6f27835c, type: 3}
       propertyPath: m_Name
-      value: Circle Obstacle_9
+      value: Jumpy Circle Obstacle_9 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3321743091372887071, guid: da0aec6b04afb0943865ddcd6f27835c, type: 3}
       propertyPath: m_RootOrder

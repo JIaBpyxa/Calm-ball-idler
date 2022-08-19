@@ -246,8 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0, g: 0.2627451, b: 0.25882354, a: 0.11764706}
-  _festivalColor: {r: 0, g: 0, b: 0, a: 0}
+  _defaultColor: {r: 0.9019608, g: 0.9607843, b: 0.92156863, a: 0.039215688}
+  _festivalColor: {r: 0.99607843, g: 0.9647059, b: 0.77254903, a: 0.039215688}
   _spriteRenderer: {fileID: 795114785}
   _meanMoveDuration: 210
   _leftEnd: -7.22
@@ -497,8 +497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0, g: 0.18039216, b: 0.1764706, a: 1}
-  _festivalColor: {r: 0.59607846, g: 0.4, b: 0, a: 1}
+  _defaultColor: {r: 0.06666667, g: 0.2627451, b: 0.25882354, a: 1}
+  _festivalColor: {r: 0.5921569, g: 0.23529412, b: 0.11372549, a: 1}
   _spriteRenderer: {fileID: 1807300548}
   _meanMoveDuration: 90
   _leftEnd: -7.22
@@ -539,7 +539,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 78, y: 58}
+  m_SizeDelta: {x: 70.2, y: 52.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &304222275
 MonoBehaviour:
@@ -789,8 +789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0.34901962, g: 0.7764706, b: 0.7764706, a: 0.0627451}
-  _festivalColor: {r: 0.9607843, g: 0.78431374, b: 0.43137255, a: 0.0627451}
+  _defaultColor: {r: 0.8745098, g: 0.9647059, b: 0.972549, a: 0.05882353}
+  _festivalColor: {r: 0.99607843, g: 0.9372549, b: 0.62352943, a: 0.05882353}
   _spriteRenderer: {fileID: 2025756322}
   _meanMoveDuration: 180
   _leftEnd: -7.22
@@ -1204,7 +1204,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 5b5bcf90c2586e046b0b0ce12c963d9e, type: 3}
-  m_Color: {r: 0, g: 0.26415092, b: 0.25828087, a: 0.11764706}
+  m_Color: {r: 0.9019608, g: 0.9607843, b: 0.92156863, a: 0.039215688}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -1288,7 +1288,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: efdf4c01466e2a842a5113b98a646738, type: 3}
-  m_Color: {r: 0.6901961, g: 0.5176471, b: 0.17254902, a: 1}
+  m_Color: {r: 0.1254902, g: 0.3372549, b: 0.32941177, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -1582,7 +1582,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 2e17f8137ab2ffa43aa216f90a2b962c, type: 3}
-  m_Color: {r: 0.9607843, g: 0.72156864, b: 0.23921569, a: 0.78431374}
+  m_Color: {r: 0.18039216, g: 0.41568628, b: 0.40392157, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -1672,8 +1672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0.101960786, g: 0.4117647, b: 0.4117647, a: 1}
-  _festivalColor: {r: 0.9607843, g: 0.78431374, b: 0.43137255, a: 1}
+  _defaultColor: {r: 0.21960784, g: 0.4745098, b: 0.46666667, a: 1}
+  _festivalColor: {r: 1, g: 0.7254902, b: 0.6039216, a: 1}
   _spriteRenderer: {fileID: 1315890802}
   _meanMoveDuration: 180
   _leftEnd: -7.22
@@ -1916,8 +1916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0.09411765, g: 0.47058824, b: 0.47058824, a: 0.78431374}
-  _festivalColor: {r: 0.9607843, g: 0.72156864, b: 0.23921569, a: 0.78431374}
+  _defaultColor: {r: 0.18039216, g: 0.41568628, b: 0.40392157, a: 1}
+  _festivalColor: {r: 0.7882353, g: 0.4509804, b: 0.3254902, a: 1}
   _spriteRenderer: {fileID: 852656977}
   _meanMoveDuration: 150
   _leftEnd: -7.22
@@ -2581,7 +2581,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 9e1cbcce054ffec4eaeec8a81b064038, type: 3}
-  m_Color: {r: 0.9607843, g: 0.78431374, b: 0.43137255, a: 1}
+  m_Color: {r: 0.21960784, g: 0.4745098, b: 0.46666667, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -2813,15 +2813,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6162169473431419291, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Color.b
-      value: 0.43137255
+      value: 0.5529412
       objectReference: {fileID: 0}
     - target: {fileID: 6162169473431419291, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Color.g
-      value: 0.43137255
+      value: 0.24313726
       objectReference: {fileID: 0}
     - target: {fileID: 6162169473431419291, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Color.r
-      value: 0.9607843
+      value: 0.6901961
       objectReference: {fileID: 0}
     - target: {fileID: 6162169473948764630, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Name
@@ -3074,8 +3074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0, g: 0.22745098, b: 0.21960784, a: 1}
-  _festivalColor: {r: 0.6901961, g: 0.5176471, b: 0.17254902, a: 1}
+  _defaultColor: {r: 0.1254902, g: 0.3372549, b: 0.32941177, a: 1}
+  _festivalColor: {r: 0.94509804, g: 0.6313726, b: 0.21568628, a: 1}
   _spriteRenderer: {fileID: 811792755}
   _meanMoveDuration: 120
   _leftEnd: -7.22
@@ -3137,6 +3137,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2316306854672035481, guid: b22c138a932a74311845b4dde5844765, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316306854672035483, guid: b22c138a932a74311845b4dde5844765, type: 3}
+      propertyPath: m_Color.b
+      value: 0.35686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316306854672035483, guid: b22c138a932a74311845b4dde5844765, type: 3}
+      propertyPath: m_Color.g
+      value: 0.35686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316306854672035483, guid: b22c138a932a74311845b4dde5844765, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2316306854672035483, guid: b22c138a932a74311845b4dde5844765, type: 3}
@@ -3446,7 +3458,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 1ddd0af7b4fa5654abae35cbd63cf85d, type: 3}
-  m_Color: {r: 0.34901962, g: 0.7764706, b: 0.7764706, a: 1}
+  m_Color: {r: 0.35686275, g: 0, b: 0, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -3465,15 +3477,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6162169473431419291, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Color.b
-      value: 0.7764706
+      value: 0.78039217
       objectReference: {fileID: 0}
     - target: {fileID: 6162169473431419291, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Color.g
-      value: 0.7764706
+      value: 0.7176471
       objectReference: {fileID: 0}
     - target: {fileID: 6162169473431419291, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Color.r
-      value: 0.34901962
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6162169473948764630, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Name
@@ -3559,15 +3571,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6162169473431419291, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Color.b
-      value: 0.43137255
+      value: 0.27450982
       objectReference: {fileID: 0}
     - target: {fileID: 6162169473431419291, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Color.g
-      value: 0.78431374
+      value: 0.8745098
       objectReference: {fileID: 0}
     - target: {fileID: 6162169473431419291, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Color.r
-      value: 0.9607843
+      value: 0.98039216
       objectReference: {fileID: 0}
     - target: {fileID: 6162169473948764630, guid: 6ba61f128f4e4be47be286a4d7461d7b, type: 3}
       propertyPath: m_Name
@@ -3770,7 +3782,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 2e17f8137ab2ffa43aa216f90a2b962c, type: 3}
-  m_Color: {r: 0.59607846, g: 0.4, b: 0, a: 1}
+  m_Color: {r: 0.06666667, g: 0.2627451, b: 0.25882354, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4465,7 +4477,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 5b5bcf90c2586e046b0b0ce12c963d9e, type: 3}
-  m_Color: {r: 0.9607843, g: 0.78431374, b: 0.43137255, a: 0.0627451}
+  m_Color: {r: 0.99607843, g: 0.9372549, b: 0.62352943, a: 0.05882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
