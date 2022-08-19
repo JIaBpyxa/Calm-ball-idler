@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"e208a135-e6e9-44ca-9235-d354a40d0f99\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"ca4b0c4d-9dae-4410-92fd-dafa8dab812f\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"simpleHarvestable\",\r\n      \"type\":
     \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
     1,\r\n        \"name\": \"Simply\",\r\n        \"description\": \"\",\r\n       
@@ -21,38 +21,38 @@ MonoBehaviour:
     2,\r\n        \"baseRespawnTimeMultiplier\": 0.99,\r\n        \"baseRespawnUpgradePrice\":
     10,\r\n        \"baseRespawnUpgradePriceMultiplier\": 1.25,\r\n        \"buyPrice\":
     0\r\n      }\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"4cba4c9a-5670-4640-b21d-bc1ad2efb522\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"061495f2-94fb-4ba4-978d-33d3fe2b31ca\"\r\n    },\r\n    \"rs\": {\r\n     
     \"key\": \"littleHarvestable\",\r\n      \"type\": \"json\",\r\n      \"schemaId\":
     null,\r\n      \"value\": {\r\n        \"typeId\": 2,\r\n        \"name\": \"Fasty\",\r\n       
     \"description\": \"\",\r\n        \"basePower\": 25,\r\n        \"basePowerMultiplier\":
-    1.15,\r\n        \"basePowerUpgradePrice\": 50,\r\n        \"basePowerUpgradePriceMultiplier\":
-    1.2,\r\n        \"baseRespawnTime\": 8,\r\n        \"baseRespawnTimeMultiplier\":
+    1.14,\r\n        \"basePowerUpgradePrice\": 250,\r\n        \"basePowerUpgradePriceMultiplier\":
+    1.23,\r\n        \"baseRespawnTime\": 8,\r\n        \"baseRespawnTimeMultiplier\":
     0.99,\r\n        \"baseRespawnUpgradePrice\": 250,\r\n        \"baseRespawnUpgradePriceMultiplier\":
-    1.2,\r\n        \"buyPrice\": 250\r\n      }\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
-    {\r\n      \"entityId\": \"499a0ba6-6769-4d1b-88bb-3dc936420eef\"\r\n    },\r\n   
-    \"rs\": {\r\n      \"key\": \"blowHarvestable\",\r\n      \"type\": \"json\",\r\n     
-    \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\": 3,\r\n       
-    \"name\": \"Blowy\",\r\n        \"description\": \"\",\r\n        \"basePower\":
-    1.5,\r\n        \"basePowerMultiplier\": 1.01,\r\n        \"basePowerUpgradePrice\":
+    1.23,\r\n        \"buyPrice\": 250\r\n      }\r\n    }\r\n  },\r\n  {\r\n   
+    \"metadata\": {\r\n      \"entityId\": \"c5661d77-0716-4eed-870f-4e4ac135998c\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"blowHarvestable\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
+    3,\r\n        \"name\": \"Vampire\",\r\n        \"description\": \"\",\r\n       
+    \"basePower\": 1.5,\r\n        \"basePowerMultiplier\": 1.01,\r\n        \"basePowerUpgradePrice\":
     100,\r\n        \"basePowerUpgradePriceMultiplier\": 1.2,\r\n        \"baseRespawnTime\":
     25,\r\n        \"baseRespawnTimeMultiplier\": 0.985,\r\n        \"baseRespawnUpgradePrice\":
     100,\r\n        \"baseRespawnUpgradePriceMultiplier\": 1.2,\r\n        \"buyPrice\":
     15000\r\n      }\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"6130cd7c-be5b-4987-bc9a-cece29c1ca88\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"ba43031d-c492-4f2d-bad0-c3651b438a0b\"\r\n    },\r\n    \"rs\": {\r\n     
     \"key\": \"slowHarvestable\",\r\n      \"type\": \"json\",\r\n      \"schemaId\":
     null,\r\n      \"value\": {\r\n        \"typeId\": 4,\r\n        \"name\": \"Slowy\",\r\n       
     \"description\": \"\",\r\n        \"basePower\": 25000,\r\n        \"basePowerMultiplier\":
-    1.1,\r\n        \"basePowerUpgradePrice\": 50000,\r\n        \"basePowerUpgradePriceMultiplier\":
+    1.12,\r\n        \"basePowerUpgradePrice\": 50000,\r\n        \"basePowerUpgradePriceMultiplier\":
     1.2,\r\n        \"baseRespawnTime\": 60,\r\n        \"baseRespawnTimeMultiplier\":
-    0.98,\r\n        \"baseRespawnUpgradePrice\": 50000,\r\n        \"baseRespawnUpgradePriceMultiplier\":
+    0.99,\r\n        \"baseRespawnUpgradePrice\": 50000,\r\n        \"baseRespawnUpgradePriceMultiplier\":
     1.2,\r\n        \"buyPrice\": 250000\r\n      }\r\n    }\r\n  },\r\n  {\r\n   
-    \"metadata\": {\r\n      \"entityId\": \"ce55daa5-cbf3-4722-8833-be3d5cd71c26\"\r\n   
+    \"metadata\": {\r\n      \"entityId\": \"8c26bbe9-0200-43e2-bbdb-57473152504c\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"rewardedScoreModifierDuration\",\r\n     
-    \"type\": \"float\",\r\n      \"value\": 300.0\r\n    }\r\n  },\r\n  {\r\n   
-    \"metadata\": {\r\n      \"entityId\": \"51683afb-dcfd-4159-bde8-c37aab2c1efb\"\r\n   
+    \"type\": \"float\",\r\n      \"value\": 120.0\r\n    }\r\n  },\r\n  {\r\n   
+    \"metadata\": {\r\n      \"entityId\": \"1f048cec-7ac9-47f2-ad9b-0878cbebea1d\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"rewardedScoreModifierCoef\",\r\n     
-    \"type\": \"float\",\r\n      \"value\": 1.5\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"e208a135-e6e9-44ca-9235-d354a40d0f99\"\r\n   
+    \"type\": \"float\",\r\n      \"value\": 2.0\r\n    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"ca4b0c4d-9dae-4410-92fd-dafa8dab812f\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"simpleHarvestable\",\r\n      \"type\":
     \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
     1,\r\n        \"name\": \"Simply\",\r\n        \"description\": \"\",\r\n       
@@ -61,37 +61,37 @@ MonoBehaviour:
     2,\r\n        \"baseRespawnTimeMultiplier\": 0.99,\r\n        \"baseRespawnUpgradePrice\":
     10,\r\n        \"baseRespawnUpgradePriceMultiplier\": 1.25,\r\n        \"buyPrice\":
     0\r\n      }\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"4cba4c9a-5670-4640-b21d-bc1ad2efb522\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"061495f2-94fb-4ba4-978d-33d3fe2b31ca\"\r\n    },\r\n    \"rs\": {\r\n     
     \"key\": \"littleHarvestable\",\r\n      \"type\": \"json\",\r\n      \"schemaId\":
     null,\r\n      \"value\": {\r\n        \"typeId\": 2,\r\n        \"name\": \"Fasty\",\r\n       
     \"description\": \"\",\r\n        \"basePower\": 25,\r\n        \"basePowerMultiplier\":
-    1.15,\r\n        \"basePowerUpgradePrice\": 50,\r\n        \"basePowerUpgradePriceMultiplier\":
-    1.2,\r\n        \"baseRespawnTime\": 8,\r\n        \"baseRespawnTimeMultiplier\":
+    1.14,\r\n        \"basePowerUpgradePrice\": 250,\r\n        \"basePowerUpgradePriceMultiplier\":
+    1.23,\r\n        \"baseRespawnTime\": 8,\r\n        \"baseRespawnTimeMultiplier\":
     0.99,\r\n        \"baseRespawnUpgradePrice\": 250,\r\n        \"baseRespawnUpgradePriceMultiplier\":
-    1.2,\r\n        \"buyPrice\": 250\r\n      }\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
-    {\r\n      \"entityId\": \"499a0ba6-6769-4d1b-88bb-3dc936420eef\"\r\n    },\r\n   
-    \"rs\": {\r\n      \"key\": \"blowHarvestable\",\r\n      \"type\": \"json\",\r\n     
-    \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\": 3,\r\n       
-    \"name\": \"Blowy\",\r\n        \"description\": \"\",\r\n        \"basePower\":
-    1.5,\r\n        \"basePowerMultiplier\": 1.01,\r\n        \"basePowerUpgradePrice\":
+    1.23,\r\n        \"buyPrice\": 250\r\n      }\r\n    }\r\n  },\r\n  {\r\n   
+    \"metadata\": {\r\n      \"entityId\": \"c5661d77-0716-4eed-870f-4e4ac135998c\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"blowHarvestable\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"typeId\":
+    3,\r\n        \"name\": \"Vampire\",\r\n        \"description\": \"\",\r\n       
+    \"basePower\": 1.5,\r\n        \"basePowerMultiplier\": 1.01,\r\n        \"basePowerUpgradePrice\":
     100,\r\n        \"basePowerUpgradePriceMultiplier\": 1.2,\r\n        \"baseRespawnTime\":
     25,\r\n        \"baseRespawnTimeMultiplier\": 0.985,\r\n        \"baseRespawnUpgradePrice\":
     100,\r\n        \"baseRespawnUpgradePriceMultiplier\": 1.2,\r\n        \"buyPrice\":
     15000\r\n      }\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
-    \"6130cd7c-be5b-4987-bc9a-cece29c1ca88\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"ba43031d-c492-4f2d-bad0-c3651b438a0b\"\r\n    },\r\n    \"rs\": {\r\n     
     \"key\": \"slowHarvestable\",\r\n      \"type\": \"json\",\r\n      \"schemaId\":
     null,\r\n      \"value\": {\r\n        \"typeId\": 4,\r\n        \"name\": \"Slowy\",\r\n       
     \"description\": \"\",\r\n        \"basePower\": 25000,\r\n        \"basePowerMultiplier\":
-    1.1,\r\n        \"basePowerUpgradePrice\": 50000,\r\n        \"basePowerUpgradePriceMultiplier\":
+    1.12,\r\n        \"basePowerUpgradePrice\": 50000,\r\n        \"basePowerUpgradePriceMultiplier\":
     1.2,\r\n        \"baseRespawnTime\": 60,\r\n        \"baseRespawnTimeMultiplier\":
-    0.98,\r\n        \"baseRespawnUpgradePrice\": 50000,\r\n        \"baseRespawnUpgradePriceMultiplier\":
+    0.99,\r\n        \"baseRespawnUpgradePrice\": 50000,\r\n        \"baseRespawnUpgradePriceMultiplier\":
     1.2,\r\n        \"buyPrice\": 250000\r\n      }\r\n    }\r\n  },\r\n  {\r\n   
-    \"metadata\": {\r\n      \"entityId\": \"ce55daa5-cbf3-4722-8833-be3d5cd71c26\"\r\n   
+    \"metadata\": {\r\n      \"entityId\": \"8c26bbe9-0200-43e2-bbdb-57473152504c\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"rewardedScoreModifierDuration\",\r\n     
-    \"type\": \"float\",\r\n      \"value\": 300.0\r\n    }\r\n  },\r\n  {\r\n   
-    \"metadata\": {\r\n      \"entityId\": \"51683afb-dcfd-4159-bde8-c37aab2c1efb\"\r\n   
+    \"type\": \"float\",\r\n      \"value\": 120.0\r\n    }\r\n  },\r\n  {\r\n   
+    \"metadata\": {\r\n      \"entityId\": \"1f048cec-7ac9-47f2-ad9b-0878cbebea1d\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"rewardedScoreModifierCoef\",\r\n     
-    \"type\": \"float\",\r\n      \"value\": 1.5\r\n    }\r\n  }\r\n]"
+    \"type\": \"float\",\r\n      \"value\": 2.0\r\n    }\r\n  }\r\n]"
   _environments: "[\r\n  {\r\n    \"projectId\": \"83e12873-9a01-4903-8aa8-8ab1ca64b7a5\",\r\n   
     \"name\": \"dev\",\r\n    \"id\": \"6d025401-3b79-4ffe-8265-fb8cae2e94c6\",\r\n   
     \"isDefault\": false,\r\n    \"createdAt\": \"2022-08-13T07:01:59Z\",\r\n   

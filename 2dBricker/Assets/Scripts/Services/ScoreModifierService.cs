@@ -10,7 +10,7 @@ namespace Vorval.CalmBall.Service
         public readonly BoolReactiveProperty IsActive;
         public float RewardedScoreModifierDuration { get; private set; }
         public FloatReactiveProperty RewardedScoreModifierCoefficient { get; private set; }
-
+        public FloatReactiveProperty CurrentScoreModifierCoefficient { get; private set; }
         private AdsService _adsService;
 
 
@@ -21,7 +21,8 @@ namespace Vorval.CalmBall.Service
             configRemoteService.OnRemoteDataLoaded += UpdateRemoteData;
             adsService.OnRewardedCompleted += HandleRewardedAdCompleted;
             IsActive = new BoolReactiveProperty(false);
-            RewardedScoreModifierCoefficient = new FloatReactiveProperty(1f);
+            CurrentScoreModifierCoefficient = new FloatReactiveProperty(1f);
+            RewardedScoreModifierCoefficient = new FloatReactiveProperty(2f);
 
             loadingService.AddLoadingOperation(this);
         }
@@ -30,6 +31,7 @@ namespace Vorval.CalmBall.Service
         {
             RewardedScoreModifierDuration = remoteData.RewardedScoreModifierDuration;
             RewardedScoreModifierCoefficient.Value = remoteData.RewardedScoreModifierCoefficient;
+            //CurrentScoreModifierCoefficient.Value = remoteData.RewardedScoreModifierCoefficient;
 
             OnOperationFinished?.Invoke(this);
         }
@@ -45,13 +47,14 @@ namespace Vorval.CalmBall.Service
         private void ActivateRewardedScoreModifier()
         {
             IsActive.Value = true;
+            CurrentScoreModifierCoefficient.Value = RewardedScoreModifierCoefficient.Value;
             var saveObservable = Observable.Timer(TimeSpan.FromSeconds(RewardedScoreModifierDuration));
             ObservableExtensions.Subscribe(saveObservable, _ => ResetScoreModifier());
 
             void ResetScoreModifier()
             {
                 IsActive.Value = false;
-                RewardedScoreModifierCoefficient.Value = 1f;
+                CurrentScoreModifierCoefficient.Value = 1f;
             }
         }
     }

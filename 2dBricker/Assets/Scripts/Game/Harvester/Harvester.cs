@@ -18,7 +18,7 @@ namespace Vorval.CalmBall.Game
         private void Construct(ScoreModifierService scoreModifierService)
         {
             _scoreModifierService = scoreModifierService;
-            _scoreModifierService.RewardedScoreModifierCoefficient.Subscribe(HandleScoreModifierChanged);
+            _scoreModifierService.CurrentScoreModifierCoefficient.Subscribe(HandleScoreModifierChanged);
         }
 
         private void Awake()
