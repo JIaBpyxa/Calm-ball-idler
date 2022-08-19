@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using UniRx;
 using Unity.Services.Core;
 using Unity.Services.Mediation;
 using UnityEngine;
