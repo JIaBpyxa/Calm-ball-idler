@@ -15,6 +15,8 @@ namespace Vorval.CalmBall.UI
         [Space] [SerializeField] private TextMeshProUGUI _spawnedText;
         [SerializeField] private TextMeshProUGUI _earnedScoreText;
         [SerializeField] private TextMeshProUGUI _meanEarnedScoreText;
+        [SerializeField] private TextMeshProUGUI _powerLevelText;
+        [SerializeField] private TextMeshProUGUI _intervalLevelText;
 
         private HarvestableData.HarvestableType _harvestableType;
 
@@ -36,6 +38,8 @@ namespace Vorval.CalmBall.UI
             _exitButton.onClick.AddListener(_panelController.GoBackward);
             _harvestableType = _statsService.ChosenHarvestableStats;
             _titleText.text = _harvestableDataService.GetHarvestableName(_harvestableType);
+            _powerLevelText.text = $"{_harvestableDataService.GetPowerLevel(_harvestableType)} level";
+            _intervalLevelText.text = $"{_harvestableDataService.GetRespawnIntervalLevel(_harvestableType)} level";
 
             UpdateData();
         }
