@@ -92,6 +92,7 @@ namespace Vorval.CalmBall.UI
         {
             _currentPanel = _panelFactory.Create(panelPrefab);
             _currentPanel.transform.SetParent(_panelHolder);
+            _currentPanel.transform.DOScale(1f, .1f);
             _currentPanel.OpenPanel();
         }
 

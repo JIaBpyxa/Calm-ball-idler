@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using I2.Loc;
 using UnityEngine;
 using Vorval.CalmBall.Game;
 using Zenject;
@@ -45,7 +46,8 @@ namespace Vorval.CalmBall.Service
 
         public string GetHarvestableName(HarvestableType harvestableType)
         {
-            return _dataDictionary[harvestableType].HarvestableName;
+            var localizeName = LocalizationManager.GetTranslation(_dataDictionary[harvestableType].HarvestableName);
+            return localizeName;
         }
 
         public bool IsBought(HarvestableType harvestableType)

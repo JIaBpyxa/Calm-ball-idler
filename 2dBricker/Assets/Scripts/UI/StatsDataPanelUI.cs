@@ -1,4 +1,5 @@
 ﻿using System;
+using I2.Loc;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,8 +39,10 @@ namespace Vorval.CalmBall.UI
             _exitButton.onClick.AddListener(_panelController.GoBackward);
             _harvestableType = _statsService.ChosenHarvestableStats;
             _titleText.text = _harvestableDataService.GetHarvestableName(_harvestableType);
-            _powerLevelText.text = $"{_harvestableDataService.GetPowerLevel(_harvestableType)} level";
-            _intervalLevelText.text = $"{_harvestableDataService.GetRespawnIntervalLevel(_harvestableType)} level";
+            _powerLevelText.text =
+                $"{_harvestableDataService.GetPowerLevel(_harvestableType)} {ScriptLocalization.Level}";
+            _intervalLevelText.text =
+                $"{_harvestableDataService.GetRespawnIntervalLevel(_harvestableType)} {ScriptLocalization.Level}";
 
             UpdateData();
         }
@@ -76,7 +79,7 @@ namespace Vorval.CalmBall.UI
             {
                 var meanEarned = 60 / _harvestableDataService.GetRespawnInterval(_harvestableType) *
                                  _harvestableDataService.GetPower(_harvestableType);
-                _meanEarnedScoreText.text = $"{meanEarned}/min";
+                _meanEarnedScoreText.text = $"{meanEarned}/{ScriptLocalization.Min}";
             }
         }
     }

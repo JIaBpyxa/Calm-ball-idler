@@ -572,6 +572,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 800
       objectReference: {fileID: 0}
+    - target: {fileID: 8315229763250619661, guid: f2510926040c5454eaa6388d5ec5751d, type: 3}
+      propertyPath: mTerm
+      value: Stats
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315229763250619661, guid: f2510926040c5454eaa6388d5ec5751d, type: 3}
+      propertyPath: mLocalizeTarget
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2510926040c5454eaa6388d5ec5751d, type: 3}
 --- !u!114 &1974711567695873047 stripped

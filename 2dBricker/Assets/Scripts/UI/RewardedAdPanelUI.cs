@@ -1,4 +1,5 @@
 ﻿using System;
+using I2.Loc;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,10 +35,14 @@ namespace Vorval.CalmBall.UI
         private void Start()
         {
             _watchButton.onClick.AddListener(ShowRewarded);
+            var localizationParamsManager = _descriptionText.GetComponent<LocalizationParamsManager>();
 
             var coefficient = _scoreModifierService.RewardedScoreModifierCoefficient;
             var duration = Mathf.RoundToInt(_scoreModifierService.RewardedScoreModifierDuration / 60);
-            _descriptionText.text = $"Get x{coefficient:f1} for {duration} minutes by watching ad";
+
+            localizationParamsManager.SetParameterValue("DURATION", $"{duration}");
+            localizationParamsManager.SetParameterValue("MODIFIER", $"{coefficient:f1}");
+            //_descriptionText.text = $"Get x{coefficient:f1} for {duration} minutes by watching ad";
         }
 
         private void ShowRewarded()

@@ -32,13 +32,15 @@ namespace Vorval.CalmBall.Service
             QualitySettings.vSyncCount = 0;
             var refreshRate = Screen.currentResolution.refreshRate;
 
+            if (refreshRate <= 60) refreshRate = 60;
+
             if (quality == Quality.Eco)
             {
-                Application.targetFrameRate = Mathf.Max(refreshRate / 2, 30);
+                Application.targetFrameRate = refreshRate / 2;
             }
             else
             {
-                Application.targetFrameRate = Mathf.Max(refreshRate, 60);
+                Application.targetFrameRate = refreshRate;
             }
 
             Debug.Log($"Refresh rate {refreshRate} Target FPS {Application.targetFrameRate}");

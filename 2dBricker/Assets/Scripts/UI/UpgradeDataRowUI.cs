@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using DG.Tweening;
+using I2.Loc;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -18,9 +19,7 @@ namespace Vorval.CalmBall.UI
         [SerializeField] private Button _buyButton;
         [SerializeField] private TextMeshProUGUI _buyPriceText;
         [Space] [SerializeField] private TextMeshProUGUI _powerText;
-        [SerializeField] private TextMeshProUGUI _powerLevelText;
         [SerializeField] private TextMeshProUGUI _respawnText;
-        [SerializeField] private TextMeshProUGUI _respawnLevelText;
         [Space] [SerializeField] private Button _powerUpgradeButton;
         [SerializeField] private Button _respawnUpgradeButton;
         [Space] [SerializeField] private TextMeshProUGUI _powerUpgradePriceText;
@@ -58,7 +57,7 @@ namespace Vorval.CalmBall.UI
                 else
                 {
                     var buyPrice = _harvestableDataService.GetBuyPrice(_harvestableType);
-                    _buyPriceText.text = $"Buy: {buyPrice:D}";
+                    _buyPriceText.text = $"{ScriptLocalization.Buy}: {buyPrice:D}";
                     Lock();
                 }
             }
@@ -114,8 +113,7 @@ namespace Vorval.CalmBall.UI
         private void UpdatePowerData()
         {
             var power = _harvestableDataService.GetPower(_harvestableType);
-            _powerText.text = $"Power: {power:F}";
-            _powerLevelText.text = $"(Lv.{_harvestableDataService.GetPowerLevel(_harvestableType)})";
+            _powerText.text = $"{ScriptLocalization.Power}: {power:F}";
 
             var powerUpgradePrice = _harvestableDataService.GetPowerPrice(_harvestableType);
             _powerUpgradePriceText.text = $"{powerUpgradePrice.ToString()}";
@@ -124,8 +122,7 @@ namespace Vorval.CalmBall.UI
         private void UpdateRespawnData()
         {
             var respawnInterval = _harvestableDataService.GetRespawnInterval(_harvestableType);
-            _respawnText.text = $"Interval: {respawnInterval:F}";
-            _respawnLevelText.text = $"(Lv.{_harvestableDataService.GetRespawnIntervalLevel(_harvestableType)})";
+            _respawnText.text = $"{ScriptLocalization.Interval}: {respawnInterval:F}{ScriptLocalization.Sec}";
 
             var respawnUpgradePrice = _harvestableDataService.GetRespawnIntervalPrice(_harvestableType);
             _respawnUpgradePriceText.text = $"{respawnUpgradePrice.ToString()}";
