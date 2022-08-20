@@ -35,7 +35,7 @@ namespace Vorval.CalmBall.UI
         {
             _watchButton.onClick.AddListener(ShowRewarded);
 
-            var coefficient = _scoreModifierService.CurrentScoreModifierCoefficient;
+            var coefficient = _scoreModifierService.RewardedScoreModifierCoefficient;
             var duration = Mathf.RoundToInt(_scoreModifierService.RewardedScoreModifierDuration / 60);
             _descriptionText.text = $"Get x{coefficient:f1} for {duration} minutes by watching ad";
         }
