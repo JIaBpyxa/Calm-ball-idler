@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7442985886494641091}
   - component: {fileID: 646524283316608509}
   - component: {fileID: 11964707226657999}
+  - component: {fileID: 3236613040807102424}
   m_Layer: 5
   m_Name: Stats Button
   m_TagString: Untagged
@@ -160,6 +161,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3236613040807102424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898589957445644193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95de315fb8b4296bc6ccae8da10c9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3648806897163309025
 GameObject:
   m_ObjectHideFlags: 0

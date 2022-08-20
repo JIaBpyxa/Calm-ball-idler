@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181873ced042462d937595ac8f20c66d, type: 3}
+  m_Name: GameAudioLibrary
+  m_EditorClassIdentifier: 
+  simpleSpawned: {fileID: 8300000, guid: 56bd2e5e9a2daa3468ddf8cd516076bd, type: 3}
+  littleSpawned: {fileID: 8300000, guid: 33390c5093fd8db4e9a36b471fe5e3e4, type: 3}
+  blowSpawned: {fileID: 8300000, guid: 82a82c49e47453b4ab9ea5f3be30b160, type: 3}
+  slowSpawned: {fileID: 8300000, guid: ff8953900a972264fbe0519cd7410af9, type: 3}
+  defaultHarvested: {fileID: 8300000, guid: 30f2423dda9f2884e95ea71c6d3adb24, type: 3}
+  playerHarvested: {fileID: 8300000, guid: 6dfb58052315fed4fa148f7cf4fc9651, type: 3}
+  badHarvested: {fileID: 8300000, guid: 927a8566f044c864cbc93d93f1a17f2e, type: 3}
+  blowHarvested: {fileID: 8300000, guid: 0ceb2203648ba42439d00445ddbfc35f, type: 3}

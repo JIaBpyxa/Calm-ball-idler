@@ -1,7 +1,5 @@
-using System;
 using TMPro;
 using UniRx;
-using Unity.Services.RemoteConfig;
 using UnityEngine;
 using UnityEngine.UI;
 using Vorval.CalmBall.Service;

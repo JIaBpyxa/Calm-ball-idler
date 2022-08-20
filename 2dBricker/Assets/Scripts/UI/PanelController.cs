@@ -1,6 +1,8 @@
 using DG.Tweening;
 using UnityEngine;
+using Vorval.CalmBall.Service;
 using Zenject;
+using AudioType = Vorval.CalmBall.Service.AudioType;
 
 namespace Vorval.CalmBall.UI
 {
@@ -18,11 +20,13 @@ namespace Vorval.CalmBall.UI
         private PanelType _previousPanelType = 0;
 
         private AbstractPanelUI.Factory _panelFactory;
+        private AudioService _audioService;
 
         [Inject]
-        private void Construct(AbstractPanelUI.Factory panelFactory)
+        private void Construct(AbstractPanelUI.Factory panelFactory, AudioService audioService)
         {
             _panelFactory = panelFactory;
+            _audioService = audioService;
         }
 
         private void Start()
@@ -50,6 +54,7 @@ namespace Vorval.CalmBall.UI
             }
 
             _canvasGroup.DOFade(1f, .5f);
+            _audioService.PlayEffectUI(AudioType.PanelOpen);
 
 
             AbstractPanelUI GetPanelPrefab()
@@ -74,6 +79,7 @@ namespace Vorval.CalmBall.UI
             _currentPanel.ClosePanel();
             _currentPanel = null;
             _previousPanelType = PanelType.None;
+            _audioService.PlayEffectUI(AudioType.PanelClose);
         }
 
         public void GoBackward()

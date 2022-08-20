@@ -34,14 +34,7 @@ namespace Vorval.CalmBall.Service
 
             if (refreshRate <= 60) refreshRate = 60;
 
-            if (quality == Quality.Eco)
-            {
-                Application.targetFrameRate = refreshRate / 2;
-            }
-            else
-            {
-                Application.targetFrameRate = refreshRate;
-            }
+            Application.targetFrameRate = quality == Quality.Fancy ? refreshRate : 60;
 
             Debug.Log($"Refresh rate {refreshRate} Target FPS {Application.targetFrameRate}");
         }

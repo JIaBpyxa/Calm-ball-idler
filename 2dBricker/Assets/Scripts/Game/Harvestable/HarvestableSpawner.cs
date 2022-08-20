@@ -23,12 +23,15 @@ namespace Vorval.CalmBall.Game
 
         private HarvestablePool _harvestablePool;
         private HarvestableDataService _harvestableDataService;
+        private AudioService _audioService;
 
 
         [Inject]
-        private void Construct(HarvestableDataService harvestableDataService, LoadingService loadingService)
+        private void Construct(HarvestableDataService harvestableDataService, LoadingService loadingService,
+            AudioService audioService)
         {
             _harvestableDataService = harvestableDataService;
+            _audioService = audioService;
             loadingService.AddLoadingOperation(this);
         }
 
@@ -64,7 +67,7 @@ namespace Vorval.CalmBall.Game
             {
                 _spawnerView.Lock();
             }
-            
+
             OnOperationFinished?.Invoke(this);
         }
 
@@ -73,6 +76,7 @@ namespace Vorval.CalmBall.Game
         {
             var newHarvestable = _harvestablePool.GetHarvestable();
             newHarvestable.Activate(transform.position);
+            _audioService.PlayHarvestableSpawnedEffect(type);
         }
 
         private void HandleBuy(HarvestableData.HarvestableType harvestableType)

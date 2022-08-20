@@ -12,13 +12,15 @@ namespace Vorval.CalmBall.Game
 
         protected float scoreModifier;
 
+        protected AudioService audioService;
         private ScoreModifierService _scoreModifierService;
 
         [Inject]
-        private void Construct(ScoreModifierService scoreModifierService)
+        private void Construct(ScoreModifierService scoreModifierService, AudioService audioSvc)
         {
             _scoreModifierService = scoreModifierService;
             _scoreModifierService.CurrentScoreModifierCoefficient.Subscribe(HandleScoreModifierChanged);
+            audioService = audioSvc;
         }
 
         private void Awake()
@@ -31,6 +33,7 @@ namespace Vorval.CalmBall.Game
             if (other.TryGetComponent<AbstractHarvestable>(out var harvestable))
             {
                 harvestable.Harvest(scoreModifier, _harvesterType);
+                audioService.PlayHarvestedEffect(_harvesterType);
             }
         }
 
