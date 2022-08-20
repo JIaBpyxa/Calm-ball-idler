@@ -50,7 +50,10 @@ namespace Vorval.CalmBall.UI
             else
             {
                 _previousPanelType = _currentPanel.GetPanelType();
-                _currentPanel.ClosePanel(() => SpawnPanel(panelPrefab));
+                _currentPanel.ClosePanel(() =>
+                {
+                    _currentPanel.gameObject.SetActive(false);
+                });
             }
 
             _canvasGroup.DOFade(1f, .5f);

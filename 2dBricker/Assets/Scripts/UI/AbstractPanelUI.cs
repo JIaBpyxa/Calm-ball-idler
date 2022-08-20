@@ -25,9 +25,14 @@ namespace Vorval.CalmBall.UI
             const float duration = .3f;
             ClosingAnimation(duration);
 
-            if (onClosedAction == null) return;
+            //if (onClosedAction == null) return;
             var timerObservable = UniRx.Observable.Timer(TimeSpan.FromSeconds(duration));
-            ObservableExtensions.Subscribe(timerObservable, _ => onClosedAction());
+            ObservableExtensions.Subscribe(timerObservable, _ =>
+            {
+                onClosedAction?.Invoke();
+                gameObject.SetActive(false);
+                Destroy(gameObject);
+            });
         }
 
         protected virtual void OpeningAnimation(float duration)
