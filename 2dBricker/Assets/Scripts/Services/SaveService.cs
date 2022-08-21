@@ -11,6 +11,8 @@ namespace Vorval.CalmBall.Service
         private const string HarvestableStatsKey = "Stats_";
         private const string RemoteDataKey = "RemoteData";
         private const string QualityKey = "Quality";
+        private const string MusicKey = "Music";
+        private const string SfxKey = "Sfx";
 
         public static void SaveScore(BigInteger score)
         {
@@ -113,6 +115,26 @@ namespace Vorval.CalmBall.Service
         public static int GetQuality()
         {
             return SecurePlayerPrefs.GetInt(QualityKey, 1);
+        }
+
+        public static void SaveMusicVolume(float volume)
+        {
+            SecurePlayerPrefs.SetFloat(MusicKey, volume);
+        }
+
+        public static void SaveSfxVolume(float volume)
+        {
+            SecurePlayerPrefs.SetFloat(SfxKey, volume);
+        }
+
+        public static float GetMusicVolume()
+        {
+            return SecurePlayerPrefs.GetFloat(MusicKey, 1f);
+        }
+        
+        public static float GetSfxVolume()
+        {
+            return SecurePlayerPrefs.GetFloat(SfxKey, 1f);
         }
     }
 }

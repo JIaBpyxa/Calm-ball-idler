@@ -391,6 +391,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 200
   m_TargetDisplay: 0
@@ -1626,6 +1627,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
@@ -1740,6 +1742,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1000
   m_TargetDisplay: 0
@@ -1844,6 +1847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiAudioLibrary: {fileID: 11400000, guid: cb25faff03d2c51409634205b1480504, type: 2}
   gameAudioLibrary: {fileID: 11400000, guid: 4d204f649bed2fa499b413f46760c288, type: 2}
+  _audioMixer: {fileID: 24100000, guid: 64acc30f2b67fab469b57c170bf95036, type: 2}
   _musicSource: {fileID: 8669816003066664590}
   _effectsUISource: {fileID: 1161328062651456646}
   _effectsGameSource: {fileID: 5470228235147029355}

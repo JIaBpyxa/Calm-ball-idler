@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using I2.Loc;
 using TMPro;
 using UnityEngine;
@@ -68,8 +69,8 @@ namespace Vorval.CalmBall.UI
         private void UpdateData()
         {
             var harvestableData = _statsService.GetHarvestableStatsData(_harvestableType);
-            _spawnedText.text = $"{harvestableData.SpawnedCount}";
-            _earnedScoreText.text = $"{harvestableData.ScoreEarned}";
+            _spawnedText.text = $"{harvestableData.SpawnedCount:D}";
+            _earnedScoreText.text = $"{ScoreService.GetStringFromValue(harvestableData.ScoreEarned)}";
 
             if (_harvestableType == HarvestableData.HarvestableType.Blow)
             {
@@ -77,9 +78,9 @@ namespace Vorval.CalmBall.UI
             }
             else
             {
-                var meanEarned = 60 / _harvestableDataService.GetRespawnInterval(_harvestableType) *
-                                 _harvestableDataService.GetPower(_harvestableType);
-                _meanEarnedScoreText.text = $"{meanEarned}/{ScriptLocalization.Min}";
+                var meanEarned = new BigInteger(60 / _harvestableDataService.GetRespawnInterval(_harvestableType) *
+                                                _harvestableDataService.GetPower(_harvestableType));
+                _meanEarnedScoreText.text = $"{ScoreService.GetStringFromValue(meanEarned)}/{ScriptLocalization.Min}";
             }
         }
     }

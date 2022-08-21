@@ -41,13 +41,21 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5b5bcf90c2586e046b0b0ce12c963d9e, type: 3}
   - {fileID: 21300000, guid: efdf4c01466e2a842a5113b98a646738, type: 3}
   - {fileID: 21300000, guid: 2e17f8137ab2ffa43aa216f90a2b962c, type: 3}
+  - {fileID: 21300000, guid: 2d807134f94f82a4d9c5f01349136f38, type: 3}
+  - {fileID: 21300000, guid: 09f23ee4ff669d342a5e111b6edc6728, type: 3}
   - {fileID: 21300000, guid: 1ddd0af7b4fa5654abae35cbd63cf85d, type: 3}
+  - {fileID: 21300000, guid: c3c34e396a46f4439925b24e67779a5d, type: 3}
+  - {fileID: 21300000, guid: f901e3be562b640438c7cb4e1b5e2500, type: 3}
   - {fileID: 21300000, guid: 9e1cbcce054ffec4eaeec8a81b064038, type: 3}
   m_PackedSpriteNamesToIndex:
   - Clouds
   - Second Layer
   - First Layer
+  - Background
+  - Ball View
   - Mountains details
+  - 1x1
+  - Spawner View
   - Mountains
   m_RenderDataMap: {}
   m_Tag: Parallax Atlas

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Audio;
 using Vorval.CalmBall.Game;
 using Zenject;
 
@@ -9,9 +10,28 @@ namespace Vorval.CalmBall.Service
     {
         [SerializeField] private AudioLibrary uiAudioLibrary;
         [SerializeField] private AudioLibrary gameAudioLibrary;
+        [Space] [SerializeField] private AudioMixer _audioMixer;
         [Space] [SerializeField] private AudioSource _musicSource;
         [SerializeField] private AudioSource _effectsUISource;
         [SerializeField] private AudioSource _effectsGameSource;
+
+        public float MusicVolume
+        {
+            get => SaveService.GetMusicVolume();
+            private set => SaveService.SaveMusicVolume(value);
+        }
+
+        public float SfxVolume
+        {
+            get => SaveService.GetSfxVolume();
+            private set => SaveService.SaveSfxVolume(value);
+        }
+
+        //private float _baseMusicVolume;
+        //private float _baseSfxVolume;
+
+        private const string MusicKey = "MusicVolume";
+        private const string SfxKey = "EffectsVolume";
 
 
         [Inject]
@@ -20,6 +40,24 @@ namespace Vorval.CalmBall.Service
             harvestableDataService.OnPowerUpgrade += _ => PlayEffectUI(AudioType.PowerUpgrade);
             harvestableDataService.OnRespawnUpgrade += _ => PlayEffectUI(AudioType.RespawnUpgrade);
             harvestableDataService.OnHarvestableBought += _ => PlayEffectUI(AudioType.HarvestableBought);
+        }
+
+        private void Start()
+        {
+            UpdateMusicVolume(MusicVolume);
+            UpdateSfxVolume(SfxVolume);
+        }
+
+        public void UpdateMusicVolume(float volume)
+        {
+            MusicVolume = volume;
+            _audioMixer.SetFloat(MusicKey, -80 * (1 - volume));
+        }
+
+        public void UpdateSfxVolume(float volume)
+        {
+            SfxVolume = volume;
+            _audioMixer.SetFloat(SfxKey, -80 * (1 - volume));
         }
 
         public void PlayEffectUI(AudioType audioType)

@@ -28,7 +28,7 @@ namespace Vorval.CalmBall.UI
 
         private void UpdateText(BigInteger score)
         {
-            _scoreText.text = $"{score}";
+            _scoreText.text = $"{ScoreService.GetStringFromValue(score)}";
         }
     }
 }

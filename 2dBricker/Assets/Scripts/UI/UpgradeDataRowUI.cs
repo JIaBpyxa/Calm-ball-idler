@@ -57,7 +57,7 @@ namespace Vorval.CalmBall.UI
                 else
                 {
                     var buyPrice = _harvestableDataService.GetBuyPrice(_harvestableType);
-                    _buyPriceText.text = $"{ScriptLocalization.Buy}: {buyPrice:D}";
+                    _buyPriceText.text = $"{ScriptLocalization.Buy}: {ScoreService.GetStringFromValue(buyPrice)}";
                     Lock();
                 }
             }
@@ -116,7 +116,7 @@ namespace Vorval.CalmBall.UI
             _powerText.text = $"{ScriptLocalization.Power}: {power:F}";
 
             var powerUpgradePrice = _harvestableDataService.GetPowerPrice(_harvestableType);
-            _powerUpgradePriceText.text = $"{powerUpgradePrice.ToString()}";
+            _powerUpgradePriceText.text = $"{ScoreService.GetStringFromValue(powerUpgradePrice)}";
         }
 
         private void UpdateRespawnData()
@@ -125,7 +125,7 @@ namespace Vorval.CalmBall.UI
             _respawnText.text = $"{ScriptLocalization.Interval}: {respawnInterval:F}{ScriptLocalization.Sec}";
 
             var respawnUpgradePrice = _harvestableDataService.GetRespawnIntervalPrice(_harvestableType);
-            _respawnUpgradePriceText.text = $"{respawnUpgradePrice.ToString()}";
+            _respawnUpgradePriceText.text = $"{ScoreService.GetStringFromValue(respawnUpgradePrice)}";
         }
 
         private void UpdateUpgradeButtons(BigInteger currentScore)

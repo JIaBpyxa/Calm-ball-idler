@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace I2.Loc
+﻿namespace I2.Loc
 {
 	public static class ScriptLocalization
 	{

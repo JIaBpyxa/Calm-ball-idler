@@ -42,5 +42,30 @@ namespace Vorval.CalmBall.Service
         {
             return price <= Score.Value;
         }
+        
+        public static string GetStringFromValue(BigInteger value)
+        {
+            var s = value.ToString();
+            var length = s.Length;
+
+            switch (length)
+            {
+                case < 4:
+                    return s;
+                case < 7:
+                    return $"{s[..(length - 3)]}.{s.Substring(length - 3, 1)}K";
+                case < 10:
+                    return $"{s[..(length - 6)]}.{s.Substring(length - 6, 1)}M";
+                case < 13:
+                    return $"{s[..(length - 9)]}.{s.Substring(length - 9, 1)}B";
+                case < 16:
+                    return $"{s[..(length - 12)]}.{s.Substring(length - 12, 1)}T";
+                default:
+                {
+                    var symbol = (char)('a' + (length - 16) / 3);
+                    return $"{s[..(length - (length - 1) / 3 * 3)]}.{s.Substring(length - (length - 1) / 3 * 3, 1)}{symbol}{symbol}";
+                }
+            }
+        }
     }
 }
