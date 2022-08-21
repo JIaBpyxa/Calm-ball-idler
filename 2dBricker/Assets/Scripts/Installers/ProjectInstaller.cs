@@ -15,6 +15,7 @@ namespace Vorval.CalmBall.Game
         [SerializeField] private AdsService _adsService;
         [SerializeField] private AnalyticsEventService _analyticsEventService;
         [SerializeField] private AudioService _audioService;
+        [SerializeField] private GyroService _gyroService;
 
         public override void InstallBindings()
         {
@@ -28,6 +29,7 @@ namespace Vorval.CalmBall.Game
             Container.BindInstance(_adsService).AsSingle();
             Container.BindInstance(_analyticsEventService).AsSingle();
             Container.BindInstance(_audioService).AsSingle();
+            Container.BindInstance(_gyroService).AsSingle();
 
             Container.Bind<ScoreService>().FromNew().AsSingle();
             Container.Bind<SaveService>().FromNew().AsSingle();

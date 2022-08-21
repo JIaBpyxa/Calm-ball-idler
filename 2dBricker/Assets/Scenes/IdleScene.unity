@@ -249,6 +249,7 @@ MonoBehaviour:
   _festivalColor: {r: 0.99607843, g: 0.9647059, b: 0.77254903, a: 0.039215688}
   _spriteRenderer: {fileID: 795114785}
   _meanMoveDuration: 210
+  _parallaxY: -0.15
   _leftEnd: -7.22
   rightEnd: 7.28
 --- !u!1001 &124797209
@@ -515,6 +516,7 @@ MonoBehaviour:
   _festivalColor: {r: 0.5921569, g: 0.23529412, b: 0.11372549, a: 1}
   _spriteRenderer: {fileID: 1807300548}
   _meanMoveDuration: 90
+  _parallaxY: -0.05
   _leftEnd: -7.22
   rightEnd: 7.28
 --- !u!1 &304222273
@@ -887,6 +889,7 @@ MonoBehaviour:
   _festivalColor: {r: 0.99607843, g: 0.9372549, b: 0.62352943, a: 0.05882353}
   _spriteRenderer: {fileID: 2025756322}
   _meanMoveDuration: 180
+  _parallaxY: -0.25
   _leftEnd: -7.22
   rightEnd: 7.28
 --- !u!1 &619394800
@@ -1415,7 +1418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811792753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.2200003, y: -2.6, z: 0}
+  m_LocalPosition: {x: -7.2200003, y: -2.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1961,12 +1964,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: randomSeed
+      value: -453274712
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
@@ -2060,6 +2071,7 @@ MonoBehaviour:
   _festivalColor: {r: 1, g: 0.7254902, b: 0.6039216, a: 1}
   _spriteRenderer: {fileID: 1315890802}
   _meanMoveDuration: 180
+  _parallaxY: -0.7
   _leftEnd: -7.22
   rightEnd: 7.28
 --- !u!1 &995288637
@@ -2310,6 +2322,7 @@ MonoBehaviour:
   _festivalColor: {r: 0.7882353, g: 0.4509804, b: 0.3254902, a: 1}
   _spriteRenderer: {fileID: 852656977}
   _meanMoveDuration: 150
+  _parallaxY: -0.4
   _leftEnd: -7.22
   rightEnd: 7.28
 --- !u!4 &1076844352 stripped
@@ -2744,6 +2757,10 @@ PrefabInstance:
     - target: {fileID: 4105467879955000, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: randomSeed
+      value: 216810212
       objectReference: {fileID: 0}
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -3628,6 +3645,7 @@ MonoBehaviour:
   _festivalColor: {r: 0.94509804, g: 0.6313726, b: 0.21568628, a: 1}
   _spriteRenderer: {fileID: 811792755}
   _meanMoveDuration: 120
+  _parallaxY: -0.2
   _leftEnd: -7.22
   rightEnd: 7.28
 --- !u!1001 &1451782443

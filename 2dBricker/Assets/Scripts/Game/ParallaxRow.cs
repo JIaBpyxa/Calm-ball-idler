@@ -1,8 +1,10 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UniRx;
 using UnityEngine;
 using Vorval.CalmBall.Service;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Vorval.CalmBall.Game
 {
@@ -12,13 +14,18 @@ namespace Vorval.CalmBall.Game
         [SerializeField] private Color _festivalColor;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [Space] [SerializeField] private float _meanMoveDuration = 90f;
+        [Space] [SerializeField] private float _parallaxY;
 
         [Space] [SerializeField] private float _leftEnd;
         [SerializeField] private float rightEnd;
+        //[Space] [Range(-1f,1f)] [SerializeField] private float _test = 1f;
+
+        private GyroService _gyroService;
 
         [Inject]
-        private void Construct(ScoreModifierService scoreModifierService)
+        private void Construct(ScoreModifierService scoreModifierService, GyroService gyroService)
         {
+            _gyroService = gyroService;
             scoreModifierService.IsActive.Subscribe(HandleScoreModifierActivation);
         }
 
@@ -26,6 +33,18 @@ namespace Vorval.CalmBall.Game
         {
             StartMoving();
             EndFestival();
+        }
+
+        private void Update()
+        {
+            var gravity = _gyroService.Gravity;
+            //var gravityY = gravity.y;
+            var gravityZ = gravity.z;
+
+            //var offset = Mathf.LerpUnclamped(0, _parallaxY, _test);
+            var offset = Mathf.LerpUnclamped(0, _parallaxY, gravityZ);
+
+            transform.localPosition = Vector3.up * offset;
         }
 
         private void StartMoving()
