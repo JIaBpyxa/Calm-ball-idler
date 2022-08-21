@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6756558698143637828}
   - component: {fileID: 9052520649956467138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Row Backgroung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8236160780680680468}
   - component: {fileID: 5123587574636655001}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObstaclePack_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 8236160780680680468}
     m_Modifications:
     - target: {fileID: 5273951441946176146, guid: 9a0312e3a03284254a5a028f8375f607, type: 3}
@@ -197,6 +198,7 @@ PrefabInstance:
       value: -195
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a0312e3a03284254a5a028f8375f607, type: 3}
 --- !u!4 &9028230322035286923 stripped
 Transform:
@@ -208,6 +210,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 8236160780680680468}
     m_Modifications:
     - target: {fileID: 5273951441946176146, guid: 9a0312e3a03284254a5a028f8375f607, type: 3}
@@ -267,6 +270,7 @@ PrefabInstance:
       value: -15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a0312e3a03284254a5a028f8375f607, type: 3}
 --- !u!4 &9028230321911898878 stripped
 Transform:
@@ -278,6 +282,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 8236160780680680468}
     m_Modifications:
     - target: {fileID: 7670677181124612955, guid: cec8440628f39489888aebe0282e76d9, type: 3}
@@ -336,7 +341,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bad Harvestable Box_1
       objectReference: {fileID: 0}
+    - target: {fileID: 8788855046617911677, guid: cec8440628f39489888aebe0282e76d9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: cec8440628f39489888aebe0282e76d9, type: 3}
 --- !u!4 &1767960133482356610 stripped
 Transform:
@@ -348,6 +358,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 8236160780680680468}
     m_Modifications:
     - target: {fileID: 7670677181124612955, guid: cec8440628f39489888aebe0282e76d9, type: 3}
@@ -406,7 +417,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bad Harvestable Box
       objectReference: {fileID: 0}
+    - target: {fileID: 8788855046617911677, guid: cec8440628f39489888aebe0282e76d9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: cec8440628f39489888aebe0282e76d9, type: 3}
 --- !u!4 &1767960133550077300 stripped
 Transform:

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 695744570256735370}
   - component: {fileID: 4391523482280941831}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BottomObstaclePack_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1718571972844311297}
   - component: {fileID: 3325410075858094413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Row Backgroung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,6 +136,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 695744570256735370}
     m_Modifications:
     - target: {fileID: 2316306854672035480, guid: b22c138a932a74311845b4dde5844765, type: 3}
@@ -195,6 +196,7 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b22c138a932a74311845b4dde5844765, type: 3}
 --- !u!4 &311296899523012244 stripped
 Transform:
@@ -206,6 +208,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 695744570256735370}
     m_Modifications:
     - target: {fileID: 2316306854672035480, guid: b22c138a932a74311845b4dde5844765, type: 3}
@@ -265,6 +268,7 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b22c138a932a74311845b4dde5844765, type: 3}
 --- !u!4 &7617462517206003202 stripped
 Transform:

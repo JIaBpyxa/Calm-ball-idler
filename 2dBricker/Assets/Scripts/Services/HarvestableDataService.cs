@@ -20,12 +20,14 @@ namespace Vorval.CalmBall.Service
         private Dictionary<HarvestableType, HarvestableUpgradeData> _upgradeDataDictionary;
 
         private ConfigRemoteService _configRemoteService;
+        private ScoreService _scoreService;
 
 
         [Inject]
-        private void Construct(ConfigRemoteService configRemoteService)
+        private void Construct(ConfigRemoteService configRemoteService, ScoreService scoreService)
         {
             _configRemoteService = configRemoteService;
+            _scoreService = scoreService;
         }
 
         private void Awake()
@@ -59,9 +61,18 @@ namespace Vorval.CalmBall.Service
         public void BuyHarvestable(HarvestableType harvestableType)
         {
             var upgradeData = _upgradeDataDictionary[harvestableType];
-            upgradeData.BuyHarvestable();
+            var buyPrice = GetBuyPrice(harvestableType);
+            _scoreService.ReduceScore(buyPrice);
+            upgradeData.SetBought();
             SaveService.SaveHarvestableUpgradeData(upgradeData);
             OnHarvestableBought?.Invoke(harvestableType);
+        }
+
+        public void BuyUpgradePower(HarvestableType harvestableType)
+        {
+            var powerUpgradePrice = GetPowerPrice(harvestableType);
+            _scoreService.ReduceScore(powerUpgradePrice);
+            UpgradePower(harvestableType);
         }
 
         public void UpgradePower(HarvestableType harvestableType)
@@ -70,6 +81,13 @@ namespace Vorval.CalmBall.Service
             upgradeData.UpgradePower();
             SaveService.SaveHarvestableUpgradeData(upgradeData);
             OnPowerUpgrade?.Invoke(harvestableType);
+        }
+
+        public void BuyUpgradeRespawn(HarvestableType harvestableType)
+        {
+            var respawnUpgradePrice = GetRespawnIntervalPrice(harvestableType);
+            _scoreService.ReduceScore(respawnUpgradePrice);
+            UpgradeRespawn(harvestableType);
         }
 
         public void UpgradeRespawn(HarvestableType harvestableType)

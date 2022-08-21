@@ -7,7 +7,7 @@ namespace Vorval.CalmBall.Service
 {
     public class ScoreService
     {
-        public ReactiveProperty<BigInteger> Score;
+        public readonly ReactiveProperty<BigInteger> Score;
 
         private const int SavePeriod = 5;
 

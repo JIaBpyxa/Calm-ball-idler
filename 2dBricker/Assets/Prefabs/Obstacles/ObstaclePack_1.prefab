@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2717372114172267926}
   - component: {fileID: 1215990442900924443}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObstaclePack_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4032680179376114826}
   - component: {fileID: 8653911675166028096}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Row Backgroung_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,11 +138,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 2717372114172267926}
     m_Modifications:
     - target: {fileID: 7357950482455046011, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
       propertyPath: m_Name
       value: Simple Obstacle_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357950482455046011, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8473313391820825949, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
       propertyPath: m_RootOrder
@@ -193,6 +198,7 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
 --- !u!4 &5773977736379779454 stripped
 Transform:
@@ -204,11 +210,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 2717372114172267926}
     m_Modifications:
     - target: {fileID: 7357950482455046011, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
       propertyPath: m_Name
       value: Simple Obstacle_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357950482455046011, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8473313391820825949, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
       propertyPath: m_RootOrder
@@ -259,6 +270,7 @@ PrefabInstance:
       value: -30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
 --- !u!4 &2850662413704468273 stripped
 Transform:
@@ -270,11 +282,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 2717372114172267926}
     m_Modifications:
     - target: {fileID: 7357950482455046011, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
       propertyPath: m_Name
       value: Simple Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357950482455046011, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8473313391820825949, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
       propertyPath: m_RootOrder
@@ -325,6 +342,7 @@ PrefabInstance:
       value: -30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
 --- !u!4 &2438599928872546964 stripped
 Transform:
@@ -336,11 +354,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 2717372114172267926}
     m_Modifications:
     - target: {fileID: 7357950482455046011, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
       propertyPath: m_Name
       value: Simple Obstacle_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357950482455046011, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8473313391820825949, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
       propertyPath: m_RootOrder
@@ -391,6 +414,7 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 86e9bae4ff096c2488c37ee2a694fec8, type: 3}
 --- !u!4 &3415452420944409171 stripped
 Transform:

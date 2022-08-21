@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3321743091372887071}
   - component: {fileID: 2275133361951238166}
   - component: {fileID: 7556247001386861804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

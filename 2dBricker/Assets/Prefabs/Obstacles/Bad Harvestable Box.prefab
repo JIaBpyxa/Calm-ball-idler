@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8860405541261187494}
   - component: {fileID: 4017946131051803468}
   - component: {fileID: 5516210383334251188}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bad Harvestable Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1198412999
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c3c34e396a46f4439925b24e67779a5d, type: 3}
   m_Color: {r: 0.7294118, g: 0.27450982, b: 0.29411766, a: 1}
   m_FlipX: 0

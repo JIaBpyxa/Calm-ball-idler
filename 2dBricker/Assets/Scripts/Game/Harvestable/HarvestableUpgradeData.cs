@@ -25,7 +25,7 @@ namespace Vorval.CalmBall.Game
             RespawnUpgradeLevel = rawData.respawnIntervalUpgradeLevel;
         }
 
-        public void BuyHarvestable()
+        public void SetBought()
         {
             IsBought = true;
         }

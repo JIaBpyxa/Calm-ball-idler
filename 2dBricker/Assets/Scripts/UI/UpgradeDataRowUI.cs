@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 using DG.Tweening;
 using I2.Loc;
 using TMPro;
@@ -25,6 +26,8 @@ namespace Vorval.CalmBall.UI
         [Space] [SerializeField] private TextMeshProUGUI _powerUpgradePriceText;
         [SerializeField] private TextMeshProUGUI _respawnUpgradePriceText;
 
+        private IDisposable _scoreDisposable;
+        
         private HarvestableDataService _harvestableDataService;
         private ScoreService _scoreService;
 
@@ -37,7 +40,7 @@ namespace Vorval.CalmBall.UI
 
         private void Start()
         {
-            _scoreService.Score.Subscribe(UpdateUpgradeButtons);
+            _scoreDisposable = _scoreService.Score.Subscribe(UpdateUpgradeButtons);
             _powerUpgradeButton.onClick.AddListener(BuyPowerUpgrade);
             _respawnUpgradeButton.onClick.AddListener(BuyRespawnUpgrade);
             _buyButton.onClick.AddListener(BuyHarvestable);
@@ -75,6 +78,8 @@ namespace Vorval.CalmBall.UI
             _harvestableDataService.OnPowerUpgrade -= HandlePowerUpgrade;
             _harvestableDataService.OnRespawnUpgrade -= HandleRespawnUpgrade;
             _harvestableDataService.OnHarvestableBought -= HandleBought;
+            
+            _scoreDisposable.Dispose();
         }
 
         private void HandleBought(HarvestableType harvestableType)
@@ -141,23 +146,17 @@ namespace Vorval.CalmBall.UI
 
         private void BuyHarvestable()
         {
-            var buyPrice = _harvestableDataService.GetBuyPrice(_harvestableType);
-            _scoreService.ReduceScore(buyPrice);
             _harvestableDataService.BuyHarvestable(_harvestableType);
         }
 
         private void BuyPowerUpgrade()
         {
-            var powerUpgradePrice = _harvestableDataService.GetPowerPrice(_harvestableType);
-            _scoreService.ReduceScore(powerUpgradePrice);
-            _harvestableDataService.UpgradePower(_harvestableType);
+            _harvestableDataService.BuyUpgradePower(_harvestableType);
         }
 
         private void BuyRespawnUpgrade()
         {
-            var respawnUpgradePrice = _harvestableDataService.GetRespawnIntervalPrice(_harvestableType);
-            _scoreService.ReduceScore(respawnUpgradePrice);
-            _harvestableDataService.UpgradeRespawn(_harvestableType);
+            _harvestableDataService.BuyUpgradeRespawn(_harvestableType);
         }
     }
 }

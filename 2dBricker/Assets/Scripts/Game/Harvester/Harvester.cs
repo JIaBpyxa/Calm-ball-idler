@@ -1,3 +1,4 @@
+using System;
 using UniRx;
 using UnityEngine;
 using Vorval.CalmBall.Service;
@@ -11,6 +12,7 @@ namespace Vorval.CalmBall.Game
         [SerializeField] protected float _defaultScoreModifier = 1f;
 
         protected float scoreModifier;
+        private IDisposable _scoreDisposable;
 
         protected AudioService audioService;
         private ScoreModifierService _scoreModifierService;
@@ -19,13 +21,19 @@ namespace Vorval.CalmBall.Game
         private void Construct(ScoreModifierService scoreModifierService, AudioService audioSvc)
         {
             _scoreModifierService = scoreModifierService;
-            _scoreModifierService.CurrentScoreModifierCoefficient.Subscribe(HandleScoreModifierChanged);
+            _scoreDisposable =
+                _scoreModifierService.CurrentScoreModifierCoefficient.Subscribe(HandleScoreModifierChanged);
             audioService = audioSvc;
         }
 
         private void Awake()
         {
             scoreModifier = _defaultScoreModifier;
+        }
+
+        private void OnDestroy()
+        {
+            _scoreDisposable.Dispose();
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D other)

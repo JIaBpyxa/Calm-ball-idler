@@ -37,7 +37,7 @@ namespace Vorval.CalmBall.UI
             _watchButton.onClick.AddListener(ShowRewarded);
             var localizationParamsManager = _descriptionText.GetComponent<LocalizationParamsManager>();
 
-            var coefficient = _scoreModifierService.RewardedScoreModifierCoefficient;
+            var coefficient = _scoreModifierService.RewardedScoreModifierCoefficient.Value;
             var duration = Mathf.RoundToInt(_scoreModifierService.RewardedScoreModifierDuration / 60);
 
             localizationParamsManager.SetParameterValue("DURATION", $"{duration}");

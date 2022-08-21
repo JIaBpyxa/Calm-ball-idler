@@ -27,9 +27,6 @@ namespace Vorval.CalmBall.Service
             private set => SaveService.SaveSfxVolume(value);
         }
 
-        //private float _baseMusicVolume;
-        //private float _baseSfxVolume;
-
         private const string MusicKey = "MusicVolume";
         private const string SfxKey = "EffectsVolume";
 

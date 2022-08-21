@@ -1496,7 +1496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703913605607113821, guid: 9012c2e42601ce5429a33b8c1f0ce986, type: 3}
       propertyPath: m_text
-      value: "\u042D\u0444\u0444\u0435\u043A\u0442\u044B"
+      value: Effects
       objectReference: {fileID: 0}
     - target: {fileID: 6790516648067460911, guid: 9012c2e42601ce5429a33b8c1f0ce986, type: 3}
       propertyPath: mTerm
