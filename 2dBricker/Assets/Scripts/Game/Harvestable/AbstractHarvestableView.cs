@@ -7,6 +7,7 @@ namespace Vorval.CalmBall.Game
     {
         [Space] [SerializeField] protected float activationDuration = .1f;
         [SerializeField] protected float deactivationDuration = .1f;
+        //[Space] [SerializeField] protected ParticleSystem harvestedParticles;
 
         protected Vector3 initialScale;
 

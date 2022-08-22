@@ -41,7 +41,7 @@ namespace Vorval.CalmBall.UI
 
             _applicationExitButton.onClick.AddListener(Application.Quit);
 
-            UpdateQuality(_graphicsService.CurrentQuality);
+            UpdateQuality(_graphicsService.CurrentQuality.Value);
         }
 
         private void UpdateQuality(GraphicsService.Quality quality)

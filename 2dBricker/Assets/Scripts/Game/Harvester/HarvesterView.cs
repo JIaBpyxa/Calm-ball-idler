@@ -1,5 +1,4 @@
 ﻿using System;
-using DG.Tweening;
 using UniRx;
 using UnityEngine;
 using Vorval.CalmBall.Service;
@@ -7,11 +6,9 @@ using Zenject;
 
 namespace Vorval.CalmBall.Game
 {
-    public class HarvestableSpawnerView : MonoBehaviour
+    public class HarvesterView : MonoBehaviour
     {
-        [SerializeField] private Transform _lockerHolder;
         [SerializeField] private ParticleSystem _particleSystem;
-
         private bool _isParticlesEnabled;
         private IDisposable _qualityDisposable;
 
@@ -33,25 +30,16 @@ namespace Vorval.CalmBall.Game
             _qualityDisposable = _graphicsService.CurrentQuality.Subscribe(OnQualityUpdate);
         }
 
-        public void Lock()
+        private void OnDestroy()
         {
-            _lockerHolder.localPosition = Vector3.up * 1000f;
-            _lockerHolder.gameObject.SetActive(true);
-            _lockerHolder.DOLocalMoveY(0f, .5f);
+            _qualityDisposable.Dispose();
         }
 
-        public void Unlock()
-        {
-            _lockerHolder.DOLocalMoveY(1000f, .5f).SetEase(Ease.InOutExpo).onComplete += () =>
-            {
-                _lockerHolder.gameObject.SetActive(false);
-            };
-        }
-
-        public void SpawnAction()
+        public void HarvestAction(Vector2 position)
         {
             if (_isParticlesEnabled)
             {
+                _particleSystem.transform.position = position;
                 _particleSystem.Play();
             }
         }

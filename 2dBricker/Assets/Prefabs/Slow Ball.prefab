@@ -296,5 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e753c5a3e0a545109b585a793ca33639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activationDuration: 0.1
+  activationDuration: 0.5
   deactivationDuration: 0.1
+  harvestedParticles: {fileID: 0}

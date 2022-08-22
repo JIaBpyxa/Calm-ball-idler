@@ -77,6 +77,7 @@ namespace Vorval.CalmBall.Game
             var newHarvestable = _harvestablePool.GetHarvestable();
             newHarvestable.Activate(transform.position);
             _audioService.PlayHarvestableSpawnedEffect(type);
+            _spawnerView.SpawnAction();
         }
 
         private void HandleBuy(HarvestableData.HarvestableType harvestableType)

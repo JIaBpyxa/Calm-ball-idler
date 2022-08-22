@@ -15,9 +15,11 @@ namespace Vorval.CalmBall.Game
 
         public override void Deactivate(Action deactivationAction)
         {
+            //harvestedParticles.Play();
             transform.DOKill();
+
             transform.DOScale(Vector3.zero, deactivationDuration).SetEase(Ease.InOutCirc).onComplete +=
-                deactivationAction.Invoke;
+                () => deactivationAction?.Invoke();
         }
     }
 }

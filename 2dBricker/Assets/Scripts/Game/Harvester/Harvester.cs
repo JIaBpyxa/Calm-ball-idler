@@ -8,6 +8,7 @@ namespace Vorval.CalmBall.Game
 {
     public class Harvester : MonoBehaviour
     {
+        [SerializeField] protected HarvesterView _harvesterView;
         [SerializeField] protected HarvesterType _harvesterType;
         [SerializeField] protected float _defaultScoreModifier = 1f;
 
@@ -40,9 +41,15 @@ namespace Vorval.CalmBall.Game
         {
             if (other.TryGetComponent<AbstractHarvestable>(out var harvestable))
             {
-                harvestable.Harvest(scoreModifier, _harvesterType);
-                audioService.PlayHarvestedEffect(_harvesterType);
+                HarvestAction(harvestable);
             }
+        }
+
+        protected void HarvestAction(AbstractHarvestable harvestable)
+        {
+            harvestable.Harvest(scoreModifier, _harvesterType);
+            audioService.PlayHarvestedEffect(_harvesterType);
+            _harvesterView.HarvestAction(harvestable.transform.position);
         }
 
         private void HandleScoreModifierChanged(float modifier)

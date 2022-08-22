@@ -9,13 +9,12 @@ namespace Vorval.CalmBall.Game
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             if (!_blowingHarvestable.IsActive.Value) return;
-            
+
             if (other.TryGetComponent<AbstractHarvestable>(out var harvestable))
             {
                 if (harvestable.gameObject.Equals(_blowingHarvestable.gameObject)) return;
 
-                harvestable.Harvest(scoreModifier, _harvesterType);
-                audioService.PlayHarvestedEffect(_harvesterType);
+                HarvestAction(harvestable);
             }
         }
     }

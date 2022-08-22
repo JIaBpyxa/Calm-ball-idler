@@ -1,25 +1,26 @@
-﻿using UnityEngine;
+﻿using UniRx;
+using UnityEngine;
 
 namespace Vorval.CalmBall.Service
 {
     public class GraphicsService : MonoBehaviour
     {
-        public Quality CurrentQuality { get; private set; }
+        public ReactiveProperty<Quality> CurrentQuality { get; private set; }
 
         private void Awake()
         {
-            CurrentQuality = (Quality)SaveService.GetQuality();
+            CurrentQuality = new ReactiveProperty<Quality>((Quality)SaveService.GetQuality());
         }
 
         private void Start()
         {
-            UpdateQuality(CurrentQuality);
+            UpdateQuality(CurrentQuality.Value);
         }
 
         public void UpdateQuality(Quality quality)
         {
             var qualityId = (int)quality;
-            CurrentQuality = quality;
+            CurrentQuality.Value = quality;
 
             QualitySettings.SetQualityLevel(qualityId);
             SaveService.SaveQuality(qualityId);
