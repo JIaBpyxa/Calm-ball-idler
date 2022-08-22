@@ -10,6 +10,7 @@ namespace Vorval.CalmBall.Game
     public abstract class AbstractHarvestable : MonoBehaviour
     {
         [SerializeField] private HarvestableData.HarvestableType _harvestableType;
+        [SerializeField] private float _maxMagnitude = 10f;
         public BoolReactiveProperty IsActive;
 
         //public Action OnHarvested { get; set; }
@@ -19,6 +20,8 @@ namespace Vorval.CalmBall.Game
         protected abstract void UpdatePower();
         public HarvestableData.HarvestableType Type => _harvestableType;
 
+        protected Rigidbody2D rb;
+        
         protected AbstractHarvestableView harvestableView;
         protected HarvestableDataService harvestableDataService;
         protected StatsService statsService;
@@ -38,6 +41,7 @@ namespace Vorval.CalmBall.Game
         protected virtual void Awake()
         {
             harvestableView = GetComponentInChildren<AbstractHarvestableView>();
+            rb = GetComponent<Rigidbody2D>();
             IsActive = new BoolReactiveProperty(false);
             Deactivate();
         }
@@ -46,6 +50,11 @@ namespace Vorval.CalmBall.Game
         {
             harvestableDataService.OnPowerUpgrade += HandleUpgrade;
             UpdatePower();
+        }
+
+        private void FixedUpdate()
+        {
+            rb.velocity = Vector2.ClampMagnitude(rb.velocity, _maxMagnitude);
         }
 
         private void OnDestroy()
