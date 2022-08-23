@@ -77,8 +77,7 @@ namespace Vorval.CalmBall.UI
             }
             else
             {
-                var meanEarned = new BigInteger(60 / _harvestableDataService.GetRespawnInterval(_harvestableType) *
-                                                _harvestableDataService.GetPower(_harvestableType));
+                var meanEarned = _harvestableDataService.GetMeanEarnings(_harvestableType);
                 _meanEarnedScoreText.text = $"{ScoreService.GetStringFromValue(meanEarned)}/{ScriptLocalization.Min}";
             }
         }

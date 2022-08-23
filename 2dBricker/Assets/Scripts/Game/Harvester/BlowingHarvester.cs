@@ -13,6 +13,7 @@ namespace Vorval.CalmBall.Game
             if (other.TryGetComponent<AbstractHarvestable>(out var harvestable))
             {
                 if (harvestable.gameObject.Equals(_blowingHarvestable.gameObject)) return;
+                if (harvestable.Type == HarvestableData.HarvestableType.Bonus) return;
 
                 HarvestAction(harvestable);
             }

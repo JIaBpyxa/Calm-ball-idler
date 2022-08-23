@@ -892,6 +892,7 @@ MonoBehaviour:
   _statsPanel: {fileID: 2021353248, guid: c9d58afe6626f154896d297d1d91c73e, type: 3}
   _statsDataPanel: {fileID: 896546446080760302, guid: 18451efb3e0e59a45a0193b7bf47ef41, type: 3}
   _rewardedAdPanel: {fileID: 2450532068914962555, guid: e8606e11c05d7b94393060ba7def5eee, type: 3}
+  _bonusHarvestablePanel: {fileID: 9190775400617100664, guid: 987269a35b9c70746b44263eefeb50c9, type: 3}
 --- !u!1 &4113813736461902198
 GameObject:
   m_ObjectHideFlags: 0

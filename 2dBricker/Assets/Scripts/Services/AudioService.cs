@@ -82,6 +82,7 @@ namespace Vorval.CalmBall.Service
                 HarvestableData.HarvestableType.Little => AudioType.LittleSpawned,
                 HarvestableData.HarvestableType.Blow => AudioType.BlowSpawned,
                 HarvestableData.HarvestableType.Slow => AudioType.SlowSpawned,
+                _ => AudioType.SlowSpawned
             };
 
             PlayEffectGame(audioType, .5f);

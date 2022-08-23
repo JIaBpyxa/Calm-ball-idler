@@ -54,7 +54,8 @@ namespace Vorval.CalmBall.Service
 
         public enum RewardedType
         {
-            ScoreModifier
+            ScoreModifier,
+            ScoreBonus
         }
     }
 }

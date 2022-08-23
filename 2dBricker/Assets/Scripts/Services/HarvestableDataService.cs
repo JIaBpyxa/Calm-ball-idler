@@ -52,6 +52,8 @@ namespace Vorval.CalmBall.Service
             return localizeName;
         }
 
+        #region Buy
+
         public bool IsBought(HarvestableType harvestableType)
         {
             var upgradeData = _upgradeDataDictionary[harvestableType];
@@ -67,6 +69,10 @@ namespace Vorval.CalmBall.Service
             SaveService.SaveHarvestableUpgradeData(upgradeData);
             OnHarvestableBought?.Invoke(harvestableType);
         }
+
+        #endregion
+
+        #region Upgrade
 
         public void BuyUpgradePower(HarvestableType harvestableType)
         {
@@ -98,6 +104,10 @@ namespace Vorval.CalmBall.Service
             OnRespawnUpgrade?.Invoke(harvestableType);
         }
 
+        #endregion
+
+        #region Power and level
+
         public int GetPowerLevel(HarvestableType harvestableType)
         {
             return _upgradeDataDictionary[harvestableType].PowerUpgradeLevel;
@@ -122,6 +132,10 @@ namespace Vorval.CalmBall.Service
             return respawnDelay;
         }
 
+        #endregion
+
+        #region Prices
+
         public BigInteger GetPowerPrice(HarvestableType harvestableType)
         {
             var upgradeLevel = _upgradeDataDictionary[harvestableType].PowerUpgradeLevel;
@@ -141,14 +155,50 @@ namespace Vorval.CalmBall.Service
             return _dataDictionary[harvestableType].GetBuyPrice();
         }
 
+        #endregion
+
+        public BigInteger GetMeanEarnings(HarvestableType harvestableType)
+        {
+            if (harvestableType is HarvestableType.Bonus or HarvestableType.Blow)
+            {
+                return BigInteger.Zero;
+            }
+
+            var meanEarned = new BigInteger(60 / GetRespawnInterval(harvestableType) * GetPower(harvestableType));
+            return meanEarned;
+        }
+
+        public BigInteger GetOpenMeanEarnings(float modifier = 1f)
+        {
+            var meanEarnings = BigInteger.Zero;
+
+            foreach (var (type, upgradeData) in _upgradeDataDictionary)
+            {
+                if (upgradeData.IsBought)
+                {
+                    meanEarnings += GetMeanEarnings(type);
+                }
+            }
+
+            meanEarnings *= (BigInteger)modifier;
+
+            return meanEarnings;
+        }
+
+        public BigInteger GetBonusMeanEarnings()
+        {
+            return GetOpenMeanEarnings(GetPower(HarvestableType.Bonus));
+        }
+
         private void InitData(ConfigRemoteService.RemoteData remoteData)
         {
-            var harvestableDataList = new List<HarvestableData>(4)
+            var harvestableDataList = new List<HarvestableData>(5)
             {
                 new(GetDataFromJson(remoteData.SimpleHarvestableJson)),
                 new(GetDataFromJson(remoteData.LittleHarvestableJson)),
                 new(GetDataFromJson(remoteData.BlowHarvestableJson)),
                 new(GetDataFromJson(remoteData.SlowHarvestableJson)),
+                new(GetDataFromJson(remoteData.BonusHarvestableJson))
             };
 
             foreach (var harvestableData in harvestableDataList)

@@ -14,15 +14,16 @@ namespace Vorval.CalmBall.Service
         public Action<ILoadingOperation> OnOperationFinished { get; set; }
 
         // dev environment
-        private const string EnvironmentId = "6d025401-3b79-4ffe-8265-fb8cae2e94c6";
+        //private const string EnvironmentId = "6d025401-3b79-4ffe-8265-fb8cae2e94c6";
 
         // prod environment
-        //private const string EnvironmentId = "b22c9b19-8212-4572-98c3-3e61d9fa8247";
+        private const string EnvironmentId = "b22c9b19-8212-4572-98c3-3e61d9fa8247";
 
         private const string SimpleHarvestableDataKey = "simpleHarvestable";
         private const string LittleHarvestableDataKey = "littleHarvestable";
         private const string BlowHarvestableDataKey = "blowHarvestable";
         private const string SlowHarvestableDataKey = "slowHarvestable";
+        private const string BonusHarvestableDataKey = "bonusHarvestable";
         private const string RewardedScoreModifierDurationKey = "rewardedScoreModifierDuration";
         private const string RewardedScoreModifierCoefKey = "rewardedScoreModifierCoef";
 
@@ -110,6 +111,7 @@ namespace Vorval.CalmBall.Service
                 var littleJson = RemoteConfigService.Instance.appConfig.GetJson(LittleHarvestableDataKey);
                 var blowJson = RemoteConfigService.Instance.appConfig.GetJson(BlowHarvestableDataKey);
                 var slowJson = RemoteConfigService.Instance.appConfig.GetJson(SlowHarvestableDataKey);
+                var bonusJson = RemoteConfigService.Instance.appConfig.GetJson(BonusHarvestableDataKey);
                 var rewardedScoreModifierDuration =
                     RemoteConfigService.Instance.appConfig.GetFloat(RewardedScoreModifierDurationKey);
                 var rewardedScoreModifierCoefficient =
@@ -122,6 +124,7 @@ namespace Vorval.CalmBall.Service
                     LittleHarvestableJson = littleJson,
                     BlowHarvestableJson = blowJson,
                     SlowHarvestableJson = slowJson,
+                    BonusHarvestableJson = bonusJson,
                     RewardedScoreModifierDuration = rewardedScoreModifierDuration,
                     RewardedScoreModifierCoefficient = rewardedScoreModifierCoefficient
                 };
@@ -137,6 +140,7 @@ namespace Vorval.CalmBall.Service
             public string LittleHarvestableJson;
             public string BlowHarvestableJson;
             public string SlowHarvestableJson;
+            public string BonusHarvestableJson;
             public float RewardedScoreModifierDuration;
             public float RewardedScoreModifierCoefficient;
         }

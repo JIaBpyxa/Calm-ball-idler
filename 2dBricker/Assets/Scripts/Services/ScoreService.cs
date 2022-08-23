@@ -21,7 +21,7 @@ namespace Vorval.CalmBall.Service
 
         public BigInteger GetScore() => Score.Value;
 
-        public void AddScore(int addedScore)
+        public void AddScore(BigInteger addedScore)
         {
             UpdateScore(BigInteger.Add(Score.Value, addedScore));
         }

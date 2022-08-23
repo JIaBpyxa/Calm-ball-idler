@@ -100,7 +100,8 @@ namespace Vorval.CalmBall.Game
             Simple = 1,
             Little = 2,
             Blow = 3,
-            Slow = 4
+            Slow = 4,
+            Bonus = 5
         }
     }
 }

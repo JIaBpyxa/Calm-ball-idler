@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Numerics;
 using UniRx;
+using Vorval.CalmBall.Game;
 using Zenject;
 
 namespace Vorval.CalmBall.Service
@@ -11,13 +13,19 @@ namespace Vorval.CalmBall.Service
         public float RewardedScoreModifierDuration { get; private set; }
         public FloatReactiveProperty RewardedScoreModifierCoefficient { get; private set; }
         public FloatReactiveProperty CurrentScoreModifierCoefficient { get; private set; }
-        private AdsService _adsService;
 
+        private AdsService _adsService;
+        private HarvestableDataService _harvestableDataService;
+        private ScoreService _scoreService;
 
         [Inject]
-        private ScoreModifierService(ConfigRemoteService configRemoteService, AdsService adsService,
+        private ScoreModifierService(HarvestableDataService harvestableDataService,
+            ConfigRemoteService configRemoteService, AdsService adsService, ScoreService scoreService,
             LoadingService loadingService)
         {
+            _harvestableDataService = harvestableDataService;
+            _scoreService = scoreService;
+
             configRemoteService.OnRemoteDataLoaded += UpdateRemoteData;
             adsService.OnRewardedCompleted += HandleRewardedAdCompleted;
             IsActive = new BoolReactiveProperty(false);
@@ -27,12 +35,27 @@ namespace Vorval.CalmBall.Service
             loadingService.AddLoadingOperation(this);
         }
 
+        public BigInteger GetMeanEarnings()
+        {
+            return _harvestableDataService.GetOpenMeanEarnings();
+        }
+
+        public BigInteger GetBonusMeanEarnings()
+        {
+            return _harvestableDataService.GetBonusMeanEarnings();
+        }
+
+        public void AddMeanEarnings()
+        {
+            var meanScore = _harvestableDataService.GetOpenMeanEarnings();
+            _scoreService.AddScore(meanScore);
+        }
+        
         private void UpdateRemoteData(ConfigRemoteService.RemoteData remoteData)
         {
             RewardedScoreModifierDuration = remoteData.RewardedScoreModifierDuration;
             RewardedScoreModifierCoefficient.Value = remoteData.RewardedScoreModifierCoefficient;
-            //CurrentScoreModifierCoefficient.Value = remoteData.RewardedScoreModifierCoefficient;
-
+            
             OnOperationFinished?.Invoke(this);
         }
 
@@ -41,6 +64,11 @@ namespace Vorval.CalmBall.Service
             if (rewardedType == AdsService.RewardedType.ScoreModifier)
             {
                 ActivateRewardedScoreModifier();
+            }
+            else if (rewardedType == AdsService.RewardedType.ScoreBonus)
+            {
+                var meanScore = _harvestableDataService.GetBonusMeanEarnings();
+                _scoreService.AddScore(meanScore);
             }
         }
 

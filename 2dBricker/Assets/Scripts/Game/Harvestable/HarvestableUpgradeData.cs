@@ -20,7 +20,7 @@ namespace Vorval.CalmBall.Game
         public HarvestableUpgradeData(RawData rawData)
         {
             Type = (HarvestableType)rawData.typeId;
-            IsBought = rawData.isBought || Type == HarvestableType.Simple;
+            IsBought = rawData.isBought || Type is HarvestableType.Simple or HarvestableType.Bonus;
             PowerUpgradeLevel = rawData.powerUpgradeLevel;
             RespawnUpgradeLevel = rawData.respawnIntervalUpgradeLevel;
         }
