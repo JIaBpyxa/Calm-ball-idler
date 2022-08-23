@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Numerics;
 using UniRx;
-using Vorval.CalmBall.Game;
 using Zenject;
 
 namespace Vorval.CalmBall.Service
@@ -9,6 +8,7 @@ namespace Vorval.CalmBall.Service
     public class ScoreModifierService : ILoadingOperation
     {
         public Action<ILoadingOperation> OnOperationFinished { get; set; }
+        public Action<bool> OnBonusEarned { get; set; }
         public readonly BoolReactiveProperty IsActive;
         public float RewardedScoreModifierDuration { get; private set; }
         public FloatReactiveProperty RewardedScoreModifierCoefficient { get; private set; }
@@ -49,6 +49,7 @@ namespace Vorval.CalmBall.Service
         {
             var meanScore = _harvestableDataService.GetOpenMeanEarnings();
             _scoreService.AddScore(meanScore);
+            OnBonusEarned?.Invoke(false);
         }
         
         private void UpdateRemoteData(ConfigRemoteService.RemoteData remoteData)
@@ -69,6 +70,7 @@ namespace Vorval.CalmBall.Service
             {
                 var meanScore = _harvestableDataService.GetBonusMeanEarnings();
                 _scoreService.AddScore(meanScore);
+                OnBonusEarned?.Invoke(true);
             }
         }
 

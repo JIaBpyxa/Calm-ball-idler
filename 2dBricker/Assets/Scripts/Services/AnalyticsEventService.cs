@@ -15,14 +15,16 @@ namespace Vorval.CalmBall.Service
         public Action<ILoadingOperation> OnOperationFinished { get; set; }
         private HarvestableDataService _harvestableDataService;
         private AdsService _adsService;
+        private ScoreModifierService _scoreModifierService;
 
         [Inject]
         private void Construct(LoadingService loadingService, HarvestableDataService harvestableDataService,
-            AdsService adsService)
+            AdsService adsService, ScoreModifierService scoreModifierService)
         {
             loadingService.AddLoadingOperation(this);
             _harvestableDataService = harvestableDataService;
             _adsService = adsService;
+            _scoreModifierService = scoreModifierService;
         }
 
         async void Start()
@@ -46,6 +48,7 @@ namespace Vorval.CalmBall.Service
             _harvestableDataService.OnPowerUpgrade += HandleHarvestablePowerUpgrade;
             _harvestableDataService.OnRespawnUpgrade += HandleHarvestableRespawnUpgrade;
             _adsService.OnRewardedCompleted += HandleRewardedAdsCompleted;
+            _scoreModifierService.OnBonusEarned += HandleBonusEarned;
         }
 
         private void OnDisable()
@@ -54,6 +57,7 @@ namespace Vorval.CalmBall.Service
             _harvestableDataService.OnPowerUpgrade -= HandleHarvestablePowerUpgrade;
             _harvestableDataService.OnRespawnUpgrade -= HandleHarvestableRespawnUpgrade;
             _adsService.OnRewardedCompleted -= HandleRewardedAdsCompleted;
+            _scoreModifierService.OnBonusEarned -= HandleBonusEarned;
         }
 
         private void HandleHarvestableBought(HarvestableData.HarvestableType harvestableType)
@@ -97,7 +101,20 @@ namespace Vorval.CalmBall.Service
 
         private void HandleRewardedAdsCompleted(AdsService.RewardedType rewardedType)
         {
-            AnalyticsService.Instance.CustomData(GetScoreModifierViaADEvent, new Dictionary<string, object>());
+            if (rewardedType == AdsService.RewardedType.ScoreModifier)
+            {
+                AnalyticsService.Instance.CustomData(GetScoreModifierViaADEvent, new Dictionary<string, object>());
+            }
+        }
+
+        private void HandleBonusEarned(bool isWatchedAd)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                { IsWatchedAdParam, isWatchedAd },
+            };
+
+            AnalyticsService.Instance.CustomData(BonusScoreEarnedEvent, parameters);
         }
     }
 
@@ -106,6 +123,8 @@ namespace Vorval.CalmBall.Service
         public const string BoughtHarvestableEvent = "boughtHarvestable";
         public const string UpgradedHarvestableEvent = "upgradedHarvestable";
         public const string GetScoreModifierViaADEvent = "getScoreModifierViaAD";
+        public const string BonusScoreEarnedEvent = "bonusScoreEarned";
+        public const string IsWatchedAdParam = "isWatchedAd";
         public const string HarvestableTypeIdParam = "harvestableTypeId";
         public const string UpgradeLevelParam = "upgradeLevel";
         public const string UpgradeTypeParam = "upgradeType";
