@@ -1,0 +1,31 @@
+﻿using Vorval.CalmBall.Service;
+using Zenject;
+
+namespace Vorval.CalmBall.Game
+{
+    public class BonusHarvestableSpawner : AbstractHarvestableSpawner
+    {
+        private AdsService _adsService;
+
+        [Inject]
+        private void Construct(AdsService adsSvc)
+        {
+            _adsService = adsSvc;
+        }
+
+        protected override void Init()
+        {
+            InitPool();
+            UpdateSpawnInterval();
+            OnOperationFinished?.Invoke(this);
+        }
+
+        protected override void SpawnHarvestable()
+        {
+            if (_adsService.IsRewardedAdLoaded)
+            {
+                base.SpawnHarvestable();
+            }
+        }
+    }
+}
