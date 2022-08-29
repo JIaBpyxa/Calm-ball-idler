@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Unity.Services.RemoteConfig;
 using UnityEngine;
 using Zenject;
 
@@ -21,17 +23,21 @@ namespace Vorval.CalmBall.Service
             loadingService.AddLoadingOperation(this);
         }
 
-        private void Start()
+        private async void Start()
         {
-            InitServices();
+            if (Utilities.CheckForInternetConnection())
+            {
+                await InitServices();
+            }
 
-            async void InitServices()
+            OnOperationFinished?.Invoke(this);
+
+
+            async Task InitServices()
             {
                 _mediationService = new UnityMediationService();
                 await _mediationService.InitServices();
                 InitEvents();
-
-                OnOperationFinished?.Invoke(this);
             }
 
             void InitEvents()
