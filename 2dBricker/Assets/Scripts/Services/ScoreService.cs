@@ -26,11 +26,12 @@ namespace Vorval.CalmBall.Service
             UpdateScore(BigInteger.Add(Score.Value, addedScore));
         }
 
-        public void ReduceScore(BigInteger price)
+        public bool ReduceScore(BigInteger price)
         {
-            if (!IsPurchaseAvailable(price)) return;
+            if (!IsPurchaseAvailable(price)) return false;
 
             Score.Value -= price;
+            return true;
         }
 
         public void UpdateScore(BigInteger newScore)

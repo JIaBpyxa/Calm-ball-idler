@@ -55,7 +55,7 @@ namespace Vorval.CalmBall.Service
         private void UpdateRemoteData(ConfigRemoteService.RemoteData remoteData)
         {
             RewardedScoreModifierDuration = remoteData.RewardedScoreModifierDuration;
-            RewardedScoreModifierCoefficient.Value = remoteData.RewardedScoreModifierCoefficient;
+            RewardedScoreModifierCoefficient.Value = remoteData.RewardedScoreModifierCoefficient / 1000f;
             
             OnOperationFinished?.Invoke(this);
         }

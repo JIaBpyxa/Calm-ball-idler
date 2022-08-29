@@ -64,10 +64,12 @@ namespace Vorval.CalmBall.Service
         {
             var upgradeData = _upgradeDataDictionary[harvestableType];
             var buyPrice = GetBuyPrice(harvestableType);
-            _scoreService.ReduceScore(buyPrice);
-            upgradeData.SetBought();
-            SaveService.SaveHarvestableUpgradeData(upgradeData);
-            OnHarvestableBought?.Invoke(harvestableType);
+            if (_scoreService.ReduceScore(buyPrice))
+            {
+                upgradeData.SetBought();
+                SaveService.SaveHarvestableUpgradeData(upgradeData);
+                OnHarvestableBought?.Invoke(harvestableType);
+            }
         }
 
         #endregion
@@ -77,8 +79,10 @@ namespace Vorval.CalmBall.Service
         public void BuyUpgradePower(HarvestableType harvestableType)
         {
             var powerUpgradePrice = GetPowerPrice(harvestableType);
-            _scoreService.ReduceScore(powerUpgradePrice);
-            UpgradePower(harvestableType);
+            if (_scoreService.ReduceScore(powerUpgradePrice))
+            {
+                UpgradePower(harvestableType);
+            }
         }
 
         public void UpgradePower(HarvestableType harvestableType)
@@ -92,8 +96,10 @@ namespace Vorval.CalmBall.Service
         public void BuyUpgradeRespawn(HarvestableType harvestableType)
         {
             var respawnUpgradePrice = GetRespawnIntervalPrice(harvestableType);
-            _scoreService.ReduceScore(respawnUpgradePrice);
-            UpgradeRespawn(harvestableType);
+            if (_scoreService.ReduceScore(respawnUpgradePrice))
+            {
+                UpgradeRespawn(harvestableType);
+            }
         }
 
         public void UpgradeRespawn(HarvestableType harvestableType)
@@ -113,7 +119,14 @@ namespace Vorval.CalmBall.Service
             return _upgradeDataDictionary[harvestableType].PowerUpgradeLevel;
         }
 
-        public float GetPower(HarvestableType harvestableType)
+        public float GetFloatPower(HarvestableType harvestableType)
+        {
+            var upgradeLevel = _upgradeDataDictionary[harvestableType].PowerUpgradeLevel;
+            var power = (float)_dataDictionary[harvestableType].GetPower(upgradeLevel) / 1000f;
+            return power;
+        }
+
+        public BigInteger GetPower(HarvestableType harvestableType)
         {
             var upgradeLevel = _upgradeDataDictionary[harvestableType].PowerUpgradeLevel;
             var power = _dataDictionary[harvestableType].GetPower(upgradeLevel);
@@ -164,7 +177,7 @@ namespace Vorval.CalmBall.Service
                 return BigInteger.Zero;
             }
 
-            var meanEarned = new BigInteger(60 / GetRespawnInterval(harvestableType) * GetPower(harvestableType));
+            var meanEarned = new BigInteger(60 / GetRespawnInterval(harvestableType)) * GetPower(harvestableType);
             return meanEarned;
         }
 
@@ -187,7 +200,7 @@ namespace Vorval.CalmBall.Service
 
         public BigInteger GetBonusMeanEarnings()
         {
-            return GetOpenMeanEarnings(GetPower(HarvestableType.Bonus));
+            return GetOpenMeanEarnings(GetFloatPower(HarvestableType.Bonus));
         }
 
         private void InitData(ConfigRemoteService.RemoteData remoteData)

@@ -1,12 +1,14 @@
+using System.Numerics;
 using UnityEngine;
 using Vorval.CalmBall.Service;
 using Zenject;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Vorval.CalmBall.Game
 {
     public class SimpleHarvestable : AbstractHarvestable
     {
-        private float _score;
+        private BigInteger _score;
         private ScoreService _scoreService;
 
         [Inject]
@@ -36,7 +38,8 @@ namespace Vorval.CalmBall.Game
 
             Debug.Log("Harvested ball");
             //OnHarvested?.Invoke();
-            var score = Mathf.RoundToInt(_score * scoreModifier);
+            //var score = Mathf.RoundToInt(_score * scoreModifier);
+            var score = _score * (BigInteger)(scoreModifier * 1000) / 1000;
             _scoreService.AddScore(score);
             statsService.AddEarnedScore(Type, score);
 
