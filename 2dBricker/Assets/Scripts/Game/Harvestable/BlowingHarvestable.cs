@@ -45,7 +45,9 @@ namespace Vorval.CalmBall.Game
 
         protected override void UpdatePower()
         {
-            _harvesterScaleModifier = harvestableDataService.GetPower(Type);
+            //_harvesterScaleModifier = harvestableDataService.GetFloatPower(Type);
+            var power = harvestableDataService.GetFloatPower(Type);
+            _harvester.UpdateScoreModifier(power);
         }
 
         private void BlowHarvester()

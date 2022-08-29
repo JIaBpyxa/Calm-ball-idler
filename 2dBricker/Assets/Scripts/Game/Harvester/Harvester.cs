@@ -45,6 +45,11 @@ namespace Vorval.CalmBall.Game
             }
         }
 
+        public void UpdateScoreModifier(float newValue)
+        {
+            _defaultScoreModifier = newValue;
+        }
+
         protected void HarvestAction(AbstractHarvestable harvestable)
         {
             harvestable.Harvest(scoreModifier, _harvesterType);
