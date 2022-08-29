@@ -40,6 +40,7 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 65ab3890469142146b9267dbf9df48d4, type: 3}
   - {fileID: 21300000, guid: 57da53a01d907b145916789e3c7675aa, type: 3}
+  - {fileID: 21300000, guid: 3905f9a0db642fc4aa7b7f2358902caa, type: 3}
   - {fileID: 21300000, guid: 15c2f6c029abde34fa8331aba2c66c75, type: 3}
   - {fileID: 21300000, guid: 1044a0311fd5bcd4aa256bb95b62e9db, type: 3}
   - {fileID: 21300000, guid: e517833113621b7419a01d13e5dc0e4f, type: 3}
@@ -50,10 +51,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0e92c2d359f94b149895115919d35229, type: 3}
   - {fileID: 21300000, guid: 01bf83e38f80e47429e35e5da1e72588, type: 3}
   - {fileID: 21300000, guid: 731d2c046b6946744b55dc426ba5129e, type: 3}
+  - {fileID: 21300000, guid: 6a54d57497fcf2e4fbd4b9f7067fe61e, type: 3}
   - {fileID: 21300000, guid: 00480fb4ba61225428335ac85521b602, type: 3}
   - {fileID: 21300000, guid: 9f3ae8d47bcc4f043a71ca0ebf6dfe51, type: 3}
   - {fileID: 21300000, guid: 0642e1355c61cde4885516c5e887f323, type: 3}
+  - {fileID: 21300000, guid: 3c861c756193d4147a8bc94cf953623f, type: 3}
   - {fileID: 21300000, guid: 64218595455cf4f44aeb087e3861c44e, type: 3}
+  - {fileID: 21300000, guid: 169c1e4661e5de84cbd821d0a7618c80, type: 3}
   - {fileID: 21300000, guid: ffec79663416ebb438c4fdb57d62a1b2, type: 3}
   - {fileID: 21300000, guid: 734c1ab87f831d841944fbfc8a6658a5, type: 3}
   - {fileID: 21300000, guid: 9a44e8e8fd34c24499be28223545d7c6, type: 3}
@@ -84,6 +88,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - Icon03
   - ButtonStarsLock05
+  - Back Balls
   - Loading Progress
   - ButtonStars01
   - IconsStars02
@@ -94,10 +99,13 @@ SpriteAtlas:
   - Icon15
   - CheckBox02
   - Icon09
+  - Calm Ball
   - graph
   - Icon07
   - BtnMenu
+  - IntroBG
   - ButtonStarsLock06
+  - Front Ball
   - Icon17
   - Icon18
   - Button02

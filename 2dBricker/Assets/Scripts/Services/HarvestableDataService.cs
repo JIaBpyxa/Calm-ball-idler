@@ -198,11 +198,6 @@ namespace Vorval.CalmBall.Service
             return meanEarnings;
         }
 
-        public BigInteger GetBonusMeanEarnings()
-        {
-            return GetOpenMeanEarnings(GetFloatPower(HarvestableType.Bonus));
-        }
-
         private void InitData(ConfigRemoteService.RemoteData remoteData)
         {
             var harvestableDataList = new List<HarvestableData>(5)
