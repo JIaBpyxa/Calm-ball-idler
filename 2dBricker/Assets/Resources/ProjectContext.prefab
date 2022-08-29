@@ -796,7 +796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fpsCanvas: {fileID: 1242083921693455915}
   _fpsText: {fileID: 641591876175900929}
-  _isShow: 1
+  _isShow: 0
 --- !u!1 &3904382896426334026
 GameObject:
   m_ObjectHideFlags: 0
