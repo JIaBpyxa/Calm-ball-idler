@@ -1,4 +1,5 @@
-﻿using Vorval.CalmBall.Service;
+﻿using Unity.Services.RemoteConfig;
+using Vorval.CalmBall.Service;
 using Zenject;
 
 namespace Vorval.CalmBall.Game
@@ -15,8 +16,12 @@ namespace Vorval.CalmBall.Game
 
         protected override void Init()
         {
-            InitPool();
-            UpdateSpawnInterval();
+            if (Utilities.CheckForInternetConnection())
+            {
+                InitPool();
+                UpdateSpawnInterval();
+            }
+
             OnOperationFinished?.Invoke(this);
         }
 
