@@ -27,7 +27,11 @@ namespace Vorval.CalmBall.UI
         [SerializeField] private TextMeshProUGUI _respawnUpgradePriceText;
 
         private IDisposable _scoreDisposable;
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> develop
         private HarvestableDataService _harvestableDataService;
         private ScoreService _scoreService;
 
@@ -78,7 +82,11 @@ namespace Vorval.CalmBall.UI
             _harvestableDataService.OnPowerUpgrade -= HandlePowerUpgrade;
             _harvestableDataService.OnRespawnUpgrade -= HandleRespawnUpgrade;
             _harvestableDataService.OnHarvestableBought -= HandleBought;
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> develop
             _scoreDisposable.Dispose();
         }
 
@@ -117,8 +125,24 @@ namespace Vorval.CalmBall.UI
 
         private void UpdatePowerData()
         {
+<<<<<<< HEAD
             var power = _harvestableDataService.GetPower(_harvestableType);
             _powerText.text = $"{ScriptLocalization.Power}: {power:F}";
+=======
+            string powerString;
+            if (_harvestableType == HarvestableType.Blow)
+            {
+                var power = _harvestableDataService.GetFloatPower(_harvestableType);
+                powerString = $"{power:F}";
+            }
+            else
+            {
+                var power = _harvestableDataService.GetPower(_harvestableType);
+                powerString = ScoreService.GetStringFromValue(power);
+            }
+
+            _powerText.text = $"{ScriptLocalization.Power}: {powerString}";
+>>>>>>> develop
 
             var powerUpgradePrice = _harvestableDataService.GetPowerPrice(_harvestableType);
             _powerUpgradePriceText.text = $"{ScoreService.GetStringFromValue(powerUpgradePrice)}";

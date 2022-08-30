@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿using System.Collections.Generic;
+=======
+﻿using System;
+using System.Collections.Generic;
+>>>>>>> develop
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -11,6 +16,14 @@ namespace Vorval.CalmBall.Service
         [SerializeField] private CanvasGroup _loadingCanvasGroup;
         [SerializeField] private Image _progressBarImage;
         [SerializeField] private TextMeshProUGUI _versionText;
+<<<<<<< HEAD
+=======
+        [Space] [SerializeField] private Image _backBalls;
+        [SerializeField] private Image _frontBall;
+
+        private Vector3 _backBallsDestination;
+        private Vector3 _frontBallDestination;
+>>>>>>> develop
 
         private List<ILoadingOperation> _loadingOperations;
         private int _loadedOperations = 0;
@@ -19,6 +32,21 @@ namespace Vorval.CalmBall.Service
         {
             _loadingCanvasGroup.gameObject.SetActive(true);
             _loadingCanvasGroup.alpha = 1f;
+<<<<<<< HEAD
+=======
+            _backBallsDestination = _backBalls.transform.position;
+            _frontBallDestination = _frontBall.transform.position;
+
+            var backSequence = DOTween.Sequence();
+            var frontSequence = DOTween.Sequence();
+
+            backSequence.Append(_backBalls.transform.DOLocalMove(_backBallsDestination + Vector3.right * 300f, 0f));
+            backSequence.Append(_backBalls.transform.DOLocalMove(_backBallsDestination, 1.5f));
+
+            frontSequence.Append(_frontBall.transform.DOLocalMove(_frontBallDestination + Vector3.left * 300f, 0f));
+            frontSequence.Append(_frontBall.transform.DOLocalMove(_frontBallDestination, 1.5f));
+
+>>>>>>> develop
             _versionText.text = $"v.{Application.version}";
         }
 

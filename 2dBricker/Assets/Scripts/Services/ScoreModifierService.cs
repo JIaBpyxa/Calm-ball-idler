@@ -42,7 +42,11 @@ namespace Vorval.CalmBall.Service
 
         public BigInteger GetBonusMeanEarnings()
         {
+<<<<<<< HEAD
             return _harvestableDataService.GetBonusMeanEarnings();
+=======
+            return _harvestableDataService.GetOpenMeanEarnings(RewardedScoreModifierCoefficient.Value);
+>>>>>>> develop
         }
 
         public void AddMeanEarnings()
@@ -51,12 +55,21 @@ namespace Vorval.CalmBall.Service
             _scoreService.AddScore(meanScore);
             OnBonusEarned?.Invoke(false);
         }
+<<<<<<< HEAD
         
         private void UpdateRemoteData(ConfigRemoteService.RemoteData remoteData)
         {
             RewardedScoreModifierDuration = remoteData.RewardedScoreModifierDuration;
             RewardedScoreModifierCoefficient.Value = remoteData.RewardedScoreModifierCoefficient;
             
+=======
+
+        private void UpdateRemoteData(ConfigRemoteService.RemoteData remoteData)
+        {
+            RewardedScoreModifierDuration = remoteData.RewardedScoreModifierDuration;
+            RewardedScoreModifierCoefficient.Value = remoteData.RewardedScoreModifierCoefficient / 1000f;
+
+>>>>>>> develop
             OnOperationFinished?.Invoke(this);
         }
 
@@ -68,7 +81,11 @@ namespace Vorval.CalmBall.Service
             }
             else if (rewardedType == AdsService.RewardedType.ScoreBonus)
             {
+<<<<<<< HEAD
                 var meanScore = _harvestableDataService.GetBonusMeanEarnings();
+=======
+                var meanScore = GetBonusMeanEarnings();
+>>>>>>> develop
                 _scoreService.AddScore(meanScore);
                 OnBonusEarned?.Invoke(true);
             }

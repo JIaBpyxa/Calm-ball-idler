@@ -34,7 +34,12 @@ namespace Vorval.CalmBall.Game
             BuyPrice = rawData.buyPrice;
         }
 
+<<<<<<< HEAD
         public float GetPower(int upgradeLevel)
+=======
+        /*
+        public float GetFloatPower(int upgradeLevel)
+>>>>>>> develop
         {
             if (!float.TryParse(BasePower, out var basePowerInt))
             {
@@ -42,6 +47,20 @@ namespace Vorval.CalmBall.Game
             }
 
             return basePowerInt * Mathf.Pow(BasePowerMultiplier, upgradeLevel);
+<<<<<<< HEAD
+=======
+        }*/
+
+        public BigInteger GetPower(int upgradeLevel)
+        {
+            if (!BigInteger.TryParse(BasePower, out var basePowerInt))
+            {
+                basePowerInt = 1;
+            }
+
+            return basePowerInt * (BigInteger)(Mathf.Pow(BasePowerMultiplier, upgradeLevel) * 1000) / 1000 +
+                   upgradeLevel;
+>>>>>>> develop
         }
 
         public float GetRespawnInterval(int upgradeLevel)
@@ -56,7 +75,12 @@ namespace Vorval.CalmBall.Game
                 basePowerUpgradePriceInt = 1;
             }
 
+<<<<<<< HEAD
             return basePowerUpgradePriceInt * (BigInteger)Mathf.Pow(BasePowerUpgradePriceMultiplier, upgradeLevel);
+=======
+            return basePowerUpgradePriceInt *
+                (BigInteger)(Mathf.Pow(BasePowerUpgradePriceMultiplier, upgradeLevel) * 1000) / 1000 + upgradeLevel;
+>>>>>>> develop
         }
 
         public BigInteger GetRespawnPrice(int upgradeLevel)
@@ -66,7 +90,12 @@ namespace Vorval.CalmBall.Game
                 baseRespawnUpgradePriceInt = 1;
             }
 
+<<<<<<< HEAD
             return baseRespawnUpgradePriceInt * (BigInteger)Mathf.Pow(BaseRespawnUpgradePriceMultiplier, upgradeLevel);
+=======
+            return baseRespawnUpgradePriceInt *
+                (BigInteger)(Mathf.Pow(BaseRespawnUpgradePriceMultiplier, upgradeLevel) * 1000) / 1000 + upgradeLevel;
+>>>>>>> develop
         }
 
         public BigInteger GetBuyPrice()

@@ -47,7 +47,11 @@ namespace Vorval.CalmBall.Service
             OnHarvestableStatsUpdate?.Invoke(harvestableType);
         }
 
+<<<<<<< HEAD
         public void AddEarnedScore(HarvestableType harvestableType, int score)
+=======
+        public void AddEarnedScore(HarvestableType harvestableType, BigInteger score)
+>>>>>>> develop
         {
             var statsData = _statsDictionary[harvestableType];
             statsData.AddScoreEarned(score);
@@ -93,7 +97,11 @@ namespace Vorval.CalmBall.Service
             SpawnedCount++;
         }
 
+<<<<<<< HEAD
         public void AddScoreEarned(int score)
+=======
+        public void AddScoreEarned(BigInteger score)
+>>>>>>> develop
         {
             ScoreEarned += score;
         }

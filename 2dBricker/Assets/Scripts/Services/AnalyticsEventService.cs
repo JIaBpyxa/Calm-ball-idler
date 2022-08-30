@@ -27,7 +27,11 @@ namespace Vorval.CalmBall.Service
             _scoreModifierService = scoreModifierService;
         }
 
+<<<<<<< HEAD
         async void Start()
+=======
+        private async void Start()
+>>>>>>> develop
         {
             try
             {
