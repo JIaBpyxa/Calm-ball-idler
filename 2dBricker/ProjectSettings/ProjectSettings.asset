@@ -85,7 +85,7 @@ PlayerSettings:
   hideHomeButton: 0
   submitAnalytics: 1
   usePlayerLog: 1
-  bakeCollisionMeshes: 0
+  bakeCollisionMeshes: 1
   forceSingleInstance: 0
   useFlipModelSwapchain: 1
   resizableWindow: 0
@@ -138,11 +138,16 @@ PlayerSettings:
     16:9: 1
     Others: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   bundleVersion: 0.2.8
 =======
   bundleVersion: 0.3.0
 >>>>>>> develop
+=======
+  bundleVersion: 0.3.1
+>>>>>>> develop
   preloadedAssets:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -183,9 +188,13 @@ PlayerSettings:
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   AndroidBundleVersionCode: 28
 =======
   AndroidBundleVersionCode: 30
+>>>>>>> develop
+=======
+  AndroidBundleVersionCode: 31
 >>>>>>> develop
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 33

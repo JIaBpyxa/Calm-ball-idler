@@ -46,7 +46,7 @@ namespace Vorval.CalmBall.Game
         {
             if (!IsActive.Value) return;
 
-            Debug.Log("Harvested ball");
+            //Debug.Log("Harvested ball");
             //OnHarvested?.Invoke();
 <<<<<<< HEAD
             var score = Mathf.RoundToInt(_score * scoreModifier);

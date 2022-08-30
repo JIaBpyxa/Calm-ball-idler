@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
+using Unity.Services.RemoteConfig;
 using UnityEngine;
 using Vorval.CalmBall.Game;
 using Zenject;
@@ -33,14 +34,18 @@ namespace Vorval.CalmBall.Service
         private async void Start()
 >>>>>>> develop
         {
-            try
+            if (Utilities.CheckForInternetConnection())
             {
-                await UnityServices.InitializeAsync();
-                var consentIdentifiers = await AnalyticsService.Instance.CheckForRequiredConsents();
-            }
-            catch (ConsentCheckException e)
-            {
-                // Something went wrong when checking the GeoIP, check the e.Reason and handle appropriately.
+                try
+                {
+                    await UnityServices.InitializeAsync();
+
+                    var consentIdentifiers = await AnalyticsService.Instance.CheckForRequiredConsents();
+                }
+                catch (ConsentCheckException e)
+                {
+                    // Something went wrong when checking the GeoIP, check the e.Reason and handle appropriately.
+                }
             }
 
             OnOperationFinished?.Invoke(this);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using UniRx;
+using Vorval.CalmBall.Game;
 using Zenject;
 
 namespace Vorval.CalmBall.Service
@@ -43,9 +44,14 @@ namespace Vorval.CalmBall.Service
         public BigInteger GetBonusMeanEarnings()
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return _harvestableDataService.GetBonusMeanEarnings();
 =======
             return _harvestableDataService.GetOpenMeanEarnings(RewardedScoreModifierCoefficient.Value);
+>>>>>>> develop
+=======
+            var power = _harvestableDataService.GetFloatPower(HarvestableData.HarvestableType.Bonus);
+            return _harvestableDataService.GetOpenMeanEarnings(power);
 >>>>>>> develop
         }
 
