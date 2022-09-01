@@ -7711,7 +7711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: ExternalForcesModule.multiplierCurve.scalar
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 199812283809775268, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: m_SortingLayer
@@ -8467,7 +8467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: ExternalForcesModule.multiplierCurve.scalar
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 199812283809775268, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: m_SortingLayer
