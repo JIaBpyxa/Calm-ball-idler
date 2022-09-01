@@ -3881,7 +3881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc001f8594f748c8b900ba8aca8a829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _magnitudeMultiplier: 15
+  _magnitudeMultiplier: 20
   PointerWorldPosition:
     value: {x: 0, y: 0, z: 0}
   PointerPosition:
