@@ -15,7 +15,7 @@ namespace Vorval.CalmBall.Service
         [SerializeField] private float _minChangeValue = .5f;
         [Range(0f, 1f)] [SerializeField] private float _changeRatioValue = .2f;
 
-        private float _windSpeed = 1f;
+        public FloatReactiveProperty WindSpeed { get; } = new(1f);
 
         private void Start()
         {
@@ -28,13 +28,16 @@ namespace Vorval.CalmBall.Service
 
         private void ChangeWindSpeed()
         {
+            var curValue = WindSpeed.Value;
             var changeValue = Mathf.Max(_minChangeValue,
-                Mathf.Abs(_windSpeed * Random.Range(-_changeRatioValue, _changeRatioValue)));
-            _windSpeed += changeValue * (Random.Range(0, 2) * 2 - 1);
-            _windSpeed = Mathf.Clamp(_windSpeed, _minSpeed, _maxSpeed);
+                Mathf.Abs(curValue * Random.Range(-_changeRatioValue, _changeRatioValue)));
+            curValue += changeValue * (Random.Range(0, 2) * 2 - 1);
+            curValue = Mathf.Clamp(curValue, _minSpeed, _maxSpeed);
 
-            _areaEffector.forceMagnitude = _windSpeed;
-            _particleSystemForceField.directionX = _windSpeed;
+            _areaEffector.forceMagnitude = curValue;
+            _particleSystemForceField.directionX = curValue;
+
+            WindSpeed.Value = curValue;
         }
     }
 }

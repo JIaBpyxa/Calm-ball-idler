@@ -270,6 +270,14 @@ MonoBehaviour:
         \u0438 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C {[AD_BONUS]}"
       Flags: 0000
       Languages_Touch: []
+    - Term: WindSpeed
+      TermType: 0
+      Description: 
+      Languages:
+      - '{[WIND_SPEED]} m/s'
+      - "{[WIND_SPEED]} \u043C/\u0441"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
