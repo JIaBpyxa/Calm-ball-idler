@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8473313391820825949}
   - component: {fileID: 7283026511931404192}
   - component: {fileID: 2893111223867770186}
+  - component: {fileID: 5799236980916097773}
   m_Layer: 6
   m_Name: Simple Obstacle
   m_TagString: Untagged
@@ -111,3 +112,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5799236980916097773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7357950482455046011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e1314b8911403d9a32ecdc640527f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dayColor: {r: 0, g: 0.35686275, b: 0.35686275, a: 1}
+  _nightColor: {r: 0.019607844, g: 0.24313726, b: 0.4509804, a: 1}
+  _colorChangeDuration: 1

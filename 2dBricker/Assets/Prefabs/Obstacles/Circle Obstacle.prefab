@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3321743091372887071}
   - component: {fileID: 2275133361951238166}
   - component: {fileID: 7556247001386861804}
+  - component: {fileID: -7106411404896367727}
   m_Layer: 6
   m_Name: Circle Obstacle
   m_TagString: Untagged
@@ -101,3 +102,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-7106411404896367727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2645842435697797867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e1314b8911403d9a32ecdc640527f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dayColor: {r: 0, g: 0.35686275, b: 0.35686275, a: 1}
+  _nightColor: {r: 0.019607844, g: 0.24313726, b: 0.4509804, a: 1}
+  _colorChangeDuration: 1
