@@ -7743,6 +7743,18 @@ PrefabInstance:
       value: -453274712
       objectReference: {fileID: 0}
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: ShapeModule.type
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 7.5
       objectReference: {fileID: 0}
@@ -8564,6 +8576,18 @@ PrefabInstance:
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: randomSeed
       value: 216810212
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: ShapeModule.type
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: ShapeModule.radius.value
