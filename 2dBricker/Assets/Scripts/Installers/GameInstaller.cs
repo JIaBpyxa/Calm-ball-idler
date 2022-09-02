@@ -8,11 +8,13 @@ namespace Vorval.CalmBall.Game
     {
         [SerializeField] private CameraService _cameraService;
         [SerializeField] private WindService _windService;
+        [SerializeField] private DayTimeService dayTimeService;
 
         public override void InstallBindings()
         {
             Container.BindInstance(_cameraService).AsSingle();
             Container.BindInstance(_windService).AsSingle();
+            Container.BindInstance(dayTimeService).AsSingle();
 
             Container.BindFactory<Object, AbstractHarvestable, AbstractHarvestable.Factory>()
                 .FromFactory<PrefabFactory<AbstractHarvestable>>();

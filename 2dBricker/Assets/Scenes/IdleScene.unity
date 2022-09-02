@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultColor: {r: 0.9019608, g: 0.9607843, b: 0.92156863, a: 0.039215688}
+  _nightColor: {r: 0, g: 0, b: 0, a: 0}
   _festivalColor: {r: 0.99607843, g: 0.9647059, b: 0.77254903, a: 0.039215688}
   _spriteRenderer: {fileID: 795114785}
   _meanMoveDuration: 210
@@ -589,6 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultColor: {r: 0.06666667, g: 0.2627451, b: 0.25882354, a: 1}
+  _nightColor: {r: 0, g: 0, b: 0, a: 0}
   _festivalColor: {r: 0.5921569, g: 0.23529412, b: 0.11372549, a: 1}
   _spriteRenderer: {fileID: 1807300548}
   _meanMoveDuration: 90
@@ -1352,6 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultColor: {r: 0.8745098, g: 0.9647059, b: 0.972549, a: 0.05882353}
+  _nightColor: {r: 0, g: 0, b: 0, a: 0}
   _festivalColor: {r: 0.99607843, g: 0.9372549, b: 0.62352943, a: 0.05882353}
   _spriteRenderer: {fileID: 2025756322}
   _meanMoveDuration: 180
@@ -7763,6 +7766,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: ExternalForcesModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -7867,6 +7874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultColor: {r: 0.21960784, g: 0.4745098, b: 0.46666667, a: 1}
+  _nightColor: {r: 0, g: 0, b: 0, a: 0}
   _festivalColor: {r: 1, g: 0.7254902, b: 0.6039216, a: 1}
   _spriteRenderer: {fileID: 1315890802}
   _meanMoveDuration: 180
@@ -8118,6 +8126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultColor: {r: 0.18039216, g: 0.41568628, b: 0.40392157, a: 1}
+  _nightColor: {r: 0, g: 0, b: 0, a: 0}
   _festivalColor: {r: 0.7882353, g: 0.4509804, b: 0.3254902, a: 1}
   _spriteRenderer: {fileID: 852656977}
   _meanMoveDuration: 150
@@ -8431,6 +8440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraService: {fileID: 374932381}
   _windService: {fileID: 474629028}
+  dayTimeService: {fileID: 1223766894}
 --- !u!1 &1158900529
 GameObject:
   m_ObjectHideFlags: 0
@@ -8497,6 +8507,50 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1223766892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1223766893}
+  - component: {fileID: 1223766894}
+  m_Layer: 0
+  m_Name: DayTime Service
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1223766893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223766892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1376949727}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1223766894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223766892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e3bcdf992d41998b1d628974b90013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1246948371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8596,6 +8650,10 @@ PrefabInstance:
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: InitialModule.gravitySource
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198819010933878564, guid: 07581250636651942a7b6354aabb583c, type: 3}
       propertyPath: ExternalForcesModule.enabled
@@ -9347,6 +9405,7 @@ Transform:
   - {fileID: 17787241}
   - {fileID: 374932380}
   - {fileID: 474629027}
+  - {fileID: 1223766893}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9653,6 +9712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultColor: {r: 0.1254902, g: 0.3372549, b: 0.32941177, a: 1}
+  _nightColor: {r: 0, g: 0, b: 0, a: 0}
   _festivalColor: {r: 0.94509804, g: 0.6313726, b: 0.21568628, a: 1}
   _spriteRenderer: {fileID: 811792755}
   _meanMoveDuration: 120

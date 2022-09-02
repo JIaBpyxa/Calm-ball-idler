@@ -1,6 +1,7 @@
 ﻿using System;
 using UniRx;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Vorval.CalmBall.Service
@@ -9,13 +10,19 @@ namespace Vorval.CalmBall.Service
     {
         [SerializeField] private ParticleSystemForceField _particleSystemForceField;
         [SerializeField] private AreaEffector2D _areaEffector;
-        [Space] [SerializeField] private float _speedChangeInterval = 25f;
+        [Space] [SerializeField] private float _speedChangeInterval = 10f;
         [Space] [SerializeField] private float _minSpeed = -10f;
         [SerializeField] private float _maxSpeed = 10f;
-        [SerializeField] private float _minChangeValue = .5f;
-        [Range(0f, 1f)] [SerializeField] private float _changeRatioValue = .2f;
+        [SerializeField] private float _minChangeValue = 1f;
+        [Range(0f, 1f)] [SerializeField] private float _changeRatioValue = .5f;
 
         public FloatReactiveProperty WindSpeed { get; } = new(1f);
+
+        [Inject]
+        private void Construct(DayTimeService dayTimeService)
+        {
+            dayTimeService.CurrentDayTime.Subscribe(HandleDayTimeChanged);
+        }
 
         private void Start()
         {
@@ -38,6 +45,11 @@ namespace Vorval.CalmBall.Service
             _particleSystemForceField.directionX = curValue;
 
             WindSpeed.Value = curValue;
+        }
+
+        private void HandleDayTimeChanged(DayTimeService.DayTime dayTime)
+        {
+            _minChangeValue = dayTime == DayTimeService.DayTime.Day ? 1f : 3f;
         }
     }
 }

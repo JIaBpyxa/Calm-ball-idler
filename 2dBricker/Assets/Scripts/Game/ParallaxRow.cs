@@ -11,22 +11,29 @@ namespace Vorval.CalmBall.Game
     public class ParallaxRow : MonoBehaviour
     {
         [SerializeField] private Color _defaultColor;
+        [SerializeField] private Color _nightColor;
         [SerializeField] private Color _festivalColor;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [Space] [SerializeField] private float _meanMoveDuration = 90f;
         [Space] [SerializeField] private float _parallaxY;
 
         [Space] [SerializeField] private float _leftEnd;
+
         [SerializeField] private float rightEnd;
         //[Space] [Range(-1f,1f)] [SerializeField] private float _test = 1f;
 
         private GyroService _gyroService;
+        private DayTimeService _dayTimeService;
 
         [Inject]
-        private void Construct(ScoreModifierService scoreModifierService, GyroService gyroService)
+        private void Construct(ScoreModifierService scoreModifierService, GyroService gyroService,
+            DayTimeService dayTimeService)
         {
             _gyroService = gyroService;
+            _dayTimeService = dayTimeService;
             scoreModifierService.IsActive.Subscribe(HandleScoreModifierActivation);
+
+            _dayTimeService.CurrentDayTime.Subscribe(ChangeColorByDayTime);
         }
 
         private void Awake()
@@ -75,12 +82,25 @@ namespace Vorval.CalmBall.Game
 
         private void StartFestival()
         {
-            _spriteRenderer.DOColor(_festivalColor, 1f);
+            ChangeColor(_festivalColor);
         }
 
         private void EndFestival()
         {
-            _spriteRenderer.DOColor(_defaultColor, 1f);
+            ChangeColorByDayTime(_dayTimeService.CurrentDayTime.Value);
+        }
+
+        private void ChangeColor(Color color)
+        {
+            _spriteRenderer.DOColor(color, 1f);
+        }
+
+        private void ChangeColorByDayTime(DayTimeService.DayTime dayTime)
+        {
+            var color = _dayTimeService.CurrentDayTime.Value == DayTimeService.DayTime.Day
+                ? _defaultColor
+                : _nightColor;
+            ChangeColor(color);
         }
     }
 }
