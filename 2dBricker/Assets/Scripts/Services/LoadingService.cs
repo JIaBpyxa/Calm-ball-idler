@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace Vorval.CalmBall.Service
         private List<ILoadingOperation> _loadingOperations;
         private int _loadedOperations = 0;
 
-        private void Awake()
+        private async void Awake()
         {
             _loadingCanvasGroup.gameObject.SetActive(true);
             _loadingCanvasGroup.alpha = 1f;
@@ -40,6 +41,7 @@ namespace Vorval.CalmBall.Service
 
             _versionText.text = $"v.{Application.version}";
 
+            //await Task.Delay(TimeSpan.FromSeconds(1f));
             SceneManager.LoadSceneAsync("Scenes/IdleScene");
         }
 
