@@ -1,8 +1,6 @@
 using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Vorval.CalmBall.Service;
-using Zenject;
 
 namespace Vorval.CalmBall.Game
 {
@@ -67,7 +65,7 @@ namespace Vorval.CalmBall.Game
         private void SmoothPointer()
         {
             var delta = _realPointerPosition - _smoothedPointerPosition;
-            _smoothedPointerPosition += delta * Time.deltaTime * _magnitudeMultiplier;
+            _smoothedPointerPosition += delta * (Time.deltaTime * _magnitudeMultiplier);
             PointerPosition.Value = _smoothedPointerPosition;
         }
 

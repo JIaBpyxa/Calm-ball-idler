@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Vorval.CalmBall.Service
@@ -23,7 +20,7 @@ namespace Vorval.CalmBall.Service
         private List<ILoadingOperation> _loadingOperations;
         private int _loadedOperations = 0;
 
-        private async void Awake()
+        private void Awake()
         {
             _loadingCanvasGroup.gameObject.SetActive(true);
             _loadingCanvasGroup.alpha = 1f;
@@ -42,7 +39,11 @@ namespace Vorval.CalmBall.Service
             _versionText.text = $"v.{Application.version}";
 
             //await Task.Delay(TimeSpan.FromSeconds(1f));
-            SceneManager.LoadSceneAsync("Scenes/IdleScene");
+        }
+
+        private void Start()
+        {
+            //SceneManager.LoadSceneAsync("Scenes/IdleScene");
         }
 
         public void AddLoadingOperation(ILoadingOperation loadingOperation)
@@ -58,7 +59,7 @@ namespace Vorval.CalmBall.Service
             var progressPercent = (float)_loadedOperations / _loadingOperations.Count;
 
             _progressBarImage.DOComplete();
-            _progressBarImage.DOFillAmount(progressPercent, .2f).SetEase(Ease.InOutExpo).onComplete +=
+            _progressBarImage.DOFillAmount(progressPercent, .5f).SetEase(Ease.InOutExpo).onComplete +=
                 HandleLoadingFinished;
 
             loadingOperation.OnOperationFinished -= HandleOperationLoaded;
