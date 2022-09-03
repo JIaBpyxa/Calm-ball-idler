@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Vorval.CalmBall.Service
@@ -38,6 +39,8 @@ namespace Vorval.CalmBall.Service
             frontSequence.Append(_frontBall.transform.DOLocalMove(_frontBallDestination, 1.5f));
 
             _versionText.text = $"v.{Application.version}";
+
+            SceneManager.LoadSceneAsync("Scenes/IdleScene");
         }
 
         public void AddLoadingOperation(ILoadingOperation loadingOperation)
