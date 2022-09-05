@@ -321,9 +321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0.9019608, g: 0.9607843, b: 0.92156863, a: 0.039215688}
-  _nightColor: {r: 0.9019608, g: 0.92156863, b: 0.94509804, a: 0.05882353}
-  _festivalColor: {r: 0.99607843, g: 0.9647059, b: 0.77254903, a: 0.039215688}
   _spriteRenderer: {fileID: 795114785}
   _meanMoveDuration: 210
   _parallaxY: -0.15
@@ -589,9 +586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0.06666667, g: 0.2627451, b: 0.25882354, a: 1}
-  _nightColor: {r: 0, g: 0, b: 0.35686275, a: 1}
-  _festivalColor: {r: 0.5921569, g: 0.23529412, b: 0.11372549, a: 1}
   _spriteRenderer: {fileID: 1807300548}
   _meanMoveDuration: 90
   _parallaxY: -0.05
@@ -844,6 +838,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dayColor: {r: 0.4392157, g: 0.77254903, b: 0.5647059, a: 0.39215687}
   _nightColor: {r: 0.42745098, g: 0.5411765, b: 0.6901961, a: 0.39215687}
+  _isFestival: 0
+  _festivalColor: {r: 0, g: 0, b: 0, a: 0}
   _colorChangeDuration: 1
 --- !u!1 &304222273
 GameObject:
@@ -1370,9 +1366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0.8745098, g: 0.9647059, b: 0.972549, a: 0.05882353}
-  _nightColor: {r: 0.42745098, g: 0.5411765, b: 0.6901961, a: 0.05882353}
-  _festivalColor: {r: 0.99607843, g: 0.9372549, b: 0.62352943, a: 0.05882353}
   _spriteRenderer: {fileID: 2025756322}
   _meanMoveDuration: 180
   _parallaxY: -0.25
@@ -6578,6 +6571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 795114784}
   - component: {fileID: 795114785}
+  - component: {fileID: 795114786}
   m_Layer: 0
   m_Name: Parallax Sprite
   m_TagString: Untagged
@@ -6652,6 +6646,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &795114786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795114783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e1314b8911403d9a32ecdc640527f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dayColor: {r: 0.9019608, g: 0.9607843, b: 0.92156863, a: 0.039215688}
+  _nightColor: {r: 0.9019608, g: 0.92156863, b: 0.94509804, a: 0.05882353}
+  _isFestival: 1
+  _festivalColor: {r: 0.99607843, g: 0.9647059, b: 0.77254903, a: 0.039215688}
+  _colorChangeDuration: 1
 --- !u!1 &811792753
 GameObject:
   m_ObjectHideFlags: 0
@@ -6662,6 +6673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 811792754}
   - component: {fileID: 811792755}
+  - component: {fileID: 811792756}
   m_Layer: 0
   m_Name: Parallax Sprite
   m_TagString: Untagged
@@ -6736,6 +6748,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &811792756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811792753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e1314b8911403d9a32ecdc640527f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dayColor: {r: 0.1254902, g: 0.3372549, b: 0.32941177, a: 1}
+  _nightColor: {r: 0.07058824, g: 0.07450981, b: 0.43529412, a: 1}
+  _isFestival: 1
+  _festivalColor: {r: 0.94509804, g: 0.6313726, b: 0.21568628, a: 1}
+  _colorChangeDuration: 1
 --- !u!1 &814106572
 GameObject:
   m_ObjectHideFlags: 0
@@ -6958,6 +6987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 852656976}
   - component: {fileID: 852656977}
+  - component: {fileID: 852656978}
   m_Layer: 0
   m_Name: Parallax Sprite
   m_TagString: Untagged
@@ -7032,6 +7062,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &852656978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852656975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e1314b8911403d9a32ecdc640527f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dayColor: {r: 0.18039216, g: 0.41568628, b: 0.40392157, a: 1}
+  _nightColor: {r: 0.050980393, g: 0.28235295, b: 0.49803922, a: 1}
+  _isFestival: 1
+  _festivalColor: {r: 0.7882353, g: 0.4509804, b: 0.3254902, a: 1}
+  _colorChangeDuration: 1
 --- !u!1 &858935829
 GameObject:
   m_ObjectHideFlags: 0
@@ -7890,9 +7937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0.21960784, g: 0.4745098, b: 0.46666667, a: 1}
-  _nightColor: {r: 0.13333334, g: 0.34901962, b: 0.5764706, a: 1}
-  _festivalColor: {r: 1, g: 0.7254902, b: 0.6039216, a: 1}
   _spriteRenderer: {fileID: 1315890802}
   _meanMoveDuration: 180
   _parallaxY: -0.7
@@ -8142,9 +8186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0.18039216, g: 0.41568628, b: 0.40392157, a: 1}
-  _nightColor: {r: 0.050980393, g: 0.28235295, b: 0.49803922, a: 1}
-  _festivalColor: {r: 0.7882353, g: 0.4509804, b: 0.3254902, a: 1}
   _spriteRenderer: {fileID: 852656977}
   _meanMoveDuration: 150
   _parallaxY: -0.4
@@ -8993,6 +9034,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1315890801}
   - component: {fileID: 1315890802}
+  - component: {fileID: 1315890803}
   m_Layer: 0
   m_Name: Parallax Sprite
   m_TagString: Untagged
@@ -9068,6 +9110,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1315890803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315890800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e1314b8911403d9a32ecdc640527f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dayColor: {r: 0.21960784, g: 0.4745098, b: 0.46666667, a: 1}
+  _nightColor: {r: 0.13333334, g: 0.34901962, b: 0.5764706, a: 1}
+  _isFestival: 1
+  _festivalColor: {r: 1, g: 0.7254902, b: 0.6039216, a: 1}
+  _colorChangeDuration: 1
 --- !u!1 &1338718223
 GameObject:
   m_ObjectHideFlags: 0
@@ -9436,13 +9495,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1076844352}
   - {fileID: 151466771}
+  - {fileID: 1076844352}
   - {fileID: 1450673730}
   - {fileID: 1076457739}
   - {fileID: 962243422}
-  - {fileID: 557023324}
   - {fileID: 93874327}
+  - {fileID: 557023324}
   - {fileID: 1246948372}
   m_Father: {fileID: 1343250278}
   m_RootOrder: 3
@@ -9586,9 +9645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadec9c15c847469cc9017e2c48e426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 0.1254902, g: 0.3372549, b: 0.32941177, a: 1}
-  _nightColor: {r: 0.07058824, g: 0.07450981, b: 0.43529412, a: 1}
-  _festivalColor: {r: 0.94509804, g: 0.6313726, b: 0.21568628, a: 1}
   _spriteRenderer: {fileID: 811792755}
   _meanMoveDuration: 120
   _parallaxY: -0.2
@@ -10589,6 +10645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807300547}
   - component: {fileID: 1807300548}
+  - component: {fileID: 1807300549}
   m_Layer: 0
   m_Name: Parallax Sprite
   m_TagString: Untagged
@@ -10663,6 +10720,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1807300549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807300546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e1314b8911403d9a32ecdc640527f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dayColor: {r: 0.06666667, g: 0.2627451, b: 0.25882354, a: 1}
+  _nightColor: {r: 0, g: 0, b: 0.35686275, a: 1}
+  _isFestival: 1
+  _festivalColor: {r: 0.9137255, g: 0.47843137, b: 0.17254902, a: 1}
+  _colorChangeDuration: 1
 --- !u!1 &1818304962
 GameObject:
   m_ObjectHideFlags: 0
@@ -11637,6 +11711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2025756321}
   - component: {fileID: 2025756322}
+  - component: {fileID: 2025756323}
   m_Layer: 0
   m_Name: Parallax Sprite
   m_TagString: Untagged
@@ -11711,6 +11786,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2025756323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025756320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e1314b8911403d9a32ecdc640527f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dayColor: {r: 0.8745098, g: 0.9647059, b: 0.972549, a: 0.05882353}
+  _nightColor: {r: 0.42745098, g: 0.5411765, b: 0.6901961, a: 0.05882353}
+  _isFestival: 1
+  _festivalColor: {r: 0.99607843, g: 0.9372549, b: 0.62352943, a: 0.05882353}
+  _colorChangeDuration: 1
 --- !u!1 &2077570051
 GameObject:
   m_ObjectHideFlags: 0
@@ -11810,6 +11902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dayColor: {r: 0, g: 0.35686275, b: 0.35686275, a: 1}
   _nightColor: {r: 0, g: 0.18039216, b: 0.35686275, a: 1}
+  _isFestival: 0
+  _festivalColor: {r: 0, g: 0, b: 0, a: 0}
   _colorChangeDuration: 1
 --- !u!1001 &2086130992
 PrefabInstance:

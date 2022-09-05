@@ -10,9 +10,6 @@ namespace Vorval.CalmBall.Game
 {
     public class ParallaxRow : MonoBehaviour
     {
-        [SerializeField] private Color _defaultColor;
-        [SerializeField] private Color _nightColor;
-        [SerializeField] private Color _festivalColor;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [Space] [SerializeField] private float _meanMoveDuration = 90f;
         [Space] [SerializeField] private float _parallaxY;
@@ -23,23 +20,16 @@ namespace Vorval.CalmBall.Game
         //[Space] [Range(-1f,1f)] [SerializeField] private float _test = 1f;
 
         private GyroService _gyroService;
-        private DayTimeService _dayTimeService;
 
         [Inject]
-        private void Construct(ScoreModifierService scoreModifierService, GyroService gyroService,
-            DayTimeService dayTimeService)
+        private void Construct(ScoreModifierService scoreModifierService, GyroService gyroService)
         {
             _gyroService = gyroService;
-            _dayTimeService = dayTimeService;
-            scoreModifierService.IsActive.Subscribe(HandleScoreModifierActivation);
-
-            _dayTimeService.CurrentDayTime.Subscribe(ChangeColorByDayTime);
         }
 
         private void Awake()
         {
             StartMoving();
-            EndFestival();
         }
 
         private void Update()
@@ -66,41 +56,6 @@ namespace Vorval.CalmBall.Game
             sequence.Append(_spriteRenderer.transform.DOLocalMoveX(startPoint, .01f).SetEase(Ease.Linear));
             sequence.Append(_spriteRenderer.transform.DOLocalMoveX(endPoint, moveDuration).SetEase(Ease.Linear));
             sequence.SetLoops(-1, LoopType.Yoyo);
-        }
-
-        private void HandleScoreModifierActivation(bool isActive)
-        {
-            if (isActive)
-            {
-                StartFestival();
-            }
-            else
-            {
-                EndFestival();
-            }
-        }
-
-        private void StartFestival()
-        {
-            ChangeColor(_festivalColor);
-        }
-
-        private void EndFestival()
-        {
-            ChangeColorByDayTime(_dayTimeService.CurrentDayTime.Value);
-        }
-
-        private void ChangeColor(Color color)
-        {
-            _spriteRenderer.DOColor(color, 1f);
-        }
-
-        private void ChangeColorByDayTime(DayTimeService.DayTime dayTime)
-        {
-            var color = _dayTimeService.CurrentDayTime.Value == DayTimeService.DayTime.Day
-                ? _defaultColor
-                : _nightColor;
-            ChangeColor(color);
         }
     }
 }
