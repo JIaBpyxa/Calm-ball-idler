@@ -1056,6 +1056,7 @@ MonoBehaviour:
   _startHeightPoint: 4
   _animationDuration: 4
   _heightModifier: 10
+  _camera: {fileID: 519420031}
 --- !u!1 &474629026
 GameObject:
   m_ObjectHideFlags: 0

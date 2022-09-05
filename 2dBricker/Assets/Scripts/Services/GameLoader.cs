@@ -1,16 +1,37 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Vorval.CalmBall.Service
 {
-    public class GameLoader : MonoBehaviour
+    public class GameLoader : MonoBehaviour, ILoadingOperation
     {
-        private async void Awake()
+        public Action<ILoadingOperation> OnOperationFinished { get; set; }
+
+        [Inject]
+        private void Construct(LoadingService loadingService)
         {
-            await Task.Delay(TimeSpan.FromSeconds(2f));
-            SceneManager.LoadSceneAsync("Scenes/IdleScene");
+            loadingService.AddLoadingOperation(this);
+        }
+
+        private void Awake()
+        {
+            SceneManager.LoadSceneAsync("Scenes/IdleScene", LoadSceneMode.Additive).completed += HandleCompleted;
+        }
+
+        private void HandleCompleted(AsyncOperation obj)
+        {
+            StartCoroutine(WaitAndFinish());
+
+
+            IEnumerator WaitAndFinish()
+            {
+                yield return new WaitForSeconds(1f);
+                OnOperationFinished.Invoke(this);
+                SceneManager.UnloadSceneAsync("InitScene");
+            }
         }
     }
 }
