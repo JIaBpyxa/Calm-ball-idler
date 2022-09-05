@@ -177,7 +177,8 @@ namespace Vorval.CalmBall.Service
                 return BigInteger.Zero;
             }
 
-            var meanEarned = new BigInteger(60 / GetRespawnInterval(harvestableType)) * GetPower(harvestableType);
+            var countInMinute = 60f / GetRespawnInterval(harvestableType);
+            var meanEarned = new BigInteger(countInMinute * 1000) * GetPower(harvestableType) / 1000;
             return meanEarned;
         }
 
