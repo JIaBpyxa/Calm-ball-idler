@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.unity.cinemachine": "2.8.6",
+    "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.17.2",
     "com.unity.device-simulator.devices": "1.0.0",
     "com.unity.feature.2d": "1.0.0",
@@ -15,7 +15,7 @@
     "com.unity.services.analytics": "4.1.0",
     "com.unity.services.authentication": "2.1.1",
     "com.unity.services.cloudsave": "2.0.1",
-    "com.unity.services.mediation": "0.5.1-preview.1",
+    "com.unity.services.mediation": "1.0.4",
     "com.unity.test-framework": "1.1.33",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.1",
