@@ -87,7 +87,7 @@ namespace Vorval.CalmBall.Service
         public static void SaveRemoteDataCache(ConfigRemoteService.RemoteData remoteData)
         {
             var json = JsonUtility.ToJson(remoteData);
-            Debug.Log(json);
+            //Debug.Log(json);
             SecurePlayerPrefs.SetString(RemoteDataKey, json);
         }
 
