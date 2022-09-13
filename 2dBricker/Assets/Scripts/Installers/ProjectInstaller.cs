@@ -13,6 +13,7 @@ namespace Vorval.CalmBall.Game
         [SerializeField] private PanelController _panelController;
         [SerializeField] private GraphicsService _graphicsService;
         [SerializeField] private AdsService _adsService;
+        [SerializeField] private AuthService _authService;
         [SerializeField] private AnalyticsEventService _analyticsEventService;
         [SerializeField] private AudioService _audioService;
         [SerializeField] private GyroService _gyroService;
@@ -29,6 +30,7 @@ namespace Vorval.CalmBall.Game
             Container.BindInstance(_adsService).AsSingle();
             Container.BindInstance(_analyticsEventService).AsSingle();
             Container.BindInstance(_audioService).AsSingle();
+            Container.BindInstance(_authService).AsSingle();
             Container.BindInstance(_gyroService).AsSingle();
 
             Container.Bind<ScoreService>().FromNew().AsSingle();

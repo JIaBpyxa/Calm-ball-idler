@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "31c6e66c",
         "name": "com.Vorval.CalmBall",
-        "processId": 6475,
+        "processId": 6600,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -24,6 +24,24 @@
             "deviceId": "31c6e66c",
             "name": "com.Vorval.CalmBall",
             "processId": 6475,
+            "exited": true
+        },
+        {
+            "deviceId": "31c6e66c",
+            "name": "com.Vorval.CalmBall",
+            "processId": 23129,
+            "exited": true
+        },
+        {
+            "deviceId": "31c6e66c",
+            "name": "com.Vorval.CalmBall",
+            "processId": 28856,
+            "exited": true
+        },
+        {
+            "deviceId": "31c6e66c",
+            "name": "com.Vorval.CalmBall",
+            "processId": 6600,
             "exited": false
         }
     ],

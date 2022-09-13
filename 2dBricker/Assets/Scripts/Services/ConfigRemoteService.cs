@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Unity.Services.Authentication;
-using Unity.Services.Core;
+using Cysharp.Threading.Tasks;
 using Unity.Services.RemoteConfig;
 using UnityEngine;
 using Zenject;
@@ -27,11 +26,13 @@ namespace Vorval.CalmBall.Service
         private const string RewardedScoreModifierDurationKey = "rewardedScoreModifierDuration";
         private const string RewardedScoreModifierCoefKey = "rewardedScoreModifierCoef";
 
-
+        private AuthService _authService;
+        
         [Inject]
-        private void Construct(LoadingService loadingService)
+        private void Construct(LoadingService loadingService, AuthService authService)
         {
             loadingService.AddLoadingOperation(this);
+            _authService = authService;
         }
 
         public struct userAttributes
@@ -66,7 +67,7 @@ namespace Vorval.CalmBall.Service
 
         private async Task InitializeRemoteConfigAsync()
         {
-            await UnityServices.InitializeAsync();
+            /*await UnityServices.InitializeAsync();
 
             // options can be passed in the initializer, e.g if you want to set analytics-user-id use two lines from below:
             // var options = new InitializationOptions().SetOption("com.unity.services.core.analytics-user-id", "my-user-id-123");
@@ -77,7 +78,9 @@ namespace Vorval.CalmBall.Service
             if (!AuthenticationService.Instance.IsSignedIn)
             {
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            }
+            }*/
+            await UniTask.WaitUntil(() => _authService.IsServiceInitialized);
+            await UniTask.WaitUntil(() => _authService.IsAnonymousAuthed);
 
             RemoteConfigService.Instance.FetchCompleted += RemoteConfigLoaded;
             RemoteConfigService.Instance.SetEnvironmentID(EnvironmentId);

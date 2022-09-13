@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Unity.Services.Analytics;
-using Unity.Services.Core;
 using Unity.Services.RemoteConfig;
 using UnityEngine;
 using Vorval.CalmBall.Game;
@@ -17,15 +17,17 @@ namespace Vorval.CalmBall.Service
         private HarvestableDataService _harvestableDataService;
         private AdsService _adsService;
         private ScoreModifierService _scoreModifierService;
+        private AuthService _authService;
 
         [Inject]
         private void Construct(LoadingService loadingService, HarvestableDataService harvestableDataService,
-            AdsService adsService, ScoreModifierService scoreModifierService)
+            AdsService adsService, ScoreModifierService scoreModifierService, AuthService authService)
         {
             loadingService.AddLoadingOperation(this);
             _harvestableDataService = harvestableDataService;
             _adsService = adsService;
             _scoreModifierService = scoreModifierService;
+            _authService = authService;
         }
 
         private async void Start()
@@ -34,7 +36,8 @@ namespace Vorval.CalmBall.Service
             {
                 try
                 {
-                    await UnityServices.InitializeAsync();
+                    await UniTask.WaitUntil(() => _authService.IsServiceInitialized);
+                    //await UnityServices.InitializeAsync();
 
                     var consentIdentifiers = await AnalyticsService.Instance.CheckForRequiredConsents();
                 }

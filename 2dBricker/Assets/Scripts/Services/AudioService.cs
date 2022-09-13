@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Audio;
 using Vorval.CalmBall.Game;
 using Zenject;
@@ -69,6 +70,7 @@ namespace Vorval.CalmBall.Service
                 Harvester.HarvesterType.Player => AudioType.PlayerHarvested,
                 Harvester.HarvesterType.RedZone => AudioType.BadHarvested,
                 Harvester.HarvesterType.BlowingHarvestable => AudioType.BlowHarvested,
+                _ => AudioType.DefaultHarvested
             };
 
             PlayEffectGame(audioType);

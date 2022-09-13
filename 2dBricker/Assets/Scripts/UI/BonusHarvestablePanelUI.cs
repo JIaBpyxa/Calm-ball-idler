@@ -13,8 +13,6 @@ namespace Vorval.CalmBall.UI
         [SerializeField] private LocalizationParamsManager _simpleParamsManager;
         [SerializeField] private LocalizationParamsManager _adsParamsManager;
 
-        private float _adModifier = 1f;
-
         private PanelController _panelController;
         private ScoreModifierService _scoreModifierService;
         private AdsService _adsService;

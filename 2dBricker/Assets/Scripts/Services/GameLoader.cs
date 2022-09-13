@@ -19,6 +19,7 @@ namespace Vorval.CalmBall.Service
         private void Awake()
         {
             SceneManager.LoadSceneAsync("Scenes/IdleScene", LoadSceneMode.Additive).completed += HandleCompleted;
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
 
         private void HandleCompleted(AsyncOperation obj)
