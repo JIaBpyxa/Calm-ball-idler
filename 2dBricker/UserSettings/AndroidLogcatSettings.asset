@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "31c6e66c",
         "name": "com.Vorval.CalmBall",
-        "processId": 10139,
+        "processId": 30410,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -13,12 +13,6 @@
             "name": "com.miui.home",
             "processId": 2681,
             "exited": false
-        },
-        {
-            "deviceId": "31c6e66c",
-            "name": "com.Vorval.CalmBall",
-            "processId": 6600,
-            "exited": true
         },
         {
             "deviceId": "31c6e66c",
@@ -42,6 +36,12 @@
             "deviceId": "31c6e66c",
             "name": "com.Vorval.CalmBall",
             "processId": 10139,
+            "exited": true
+        },
+        {
+            "deviceId": "31c6e66c",
+            "name": "com.Vorval.CalmBall",
+            "processId": 30410,
             "exited": false
         }
     ],
