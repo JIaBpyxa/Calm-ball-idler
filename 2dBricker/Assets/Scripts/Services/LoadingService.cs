@@ -20,6 +20,8 @@ namespace Vorval.CalmBall.Service
         {
             _gameLevelLoadingOperations = new List<ILoadingOperation>();
             _sceneLevelLoadingOperations = new List<ILoadingOperation>();
+
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
 
         public void AddLoadingOperation(ILoadingOperation loadingOperation, LoadingType loadingType)
