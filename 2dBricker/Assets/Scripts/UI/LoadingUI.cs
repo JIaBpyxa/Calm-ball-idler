@@ -20,6 +20,8 @@ namespace Vorval.CalmBall.UI
         private Vector3 _backBallsDestination;
         private Vector3 _frontBallDestination;
 
+        private float _currentLoadingProgress = 0f;
+
         private LoadingService _loadingService;
 
         [Inject]
@@ -54,11 +56,18 @@ namespace Vorval.CalmBall.UI
 
         private void HandleLoadingProgressChanged(float progress)
         {
+            if (progress < _currentLoadingProgress)
+            {
+                return;
+            }
+
+            var duration = progress - _currentLoadingProgress;
+
             _progressBarImage.DOComplete();
-            _progressBarImage.DOFillAmount(progress, .5f).SetEase(Ease.InOutExpo).onComplete += (() =>
+            _progressBarImage.DOFillAmount(progress, duration).SetEase(Ease.InOutExpo).onComplete += () =>
             {
                 HandleBarMoved(progress);
-            });
+            };
         }
 
         private void HandleBarMoved(float progress)
