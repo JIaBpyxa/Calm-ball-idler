@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -44,9 +45,11 @@ namespace Vorval.CalmBall.UI
             _rewardedScoreModifierButton.gameObject.SetActive(false);
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
             UpdateScoreModifierText(_scoreModifierService.RewardedScoreModifierCoefficient.Value);
+
+            yield return new WaitForSeconds(15f);
             if (_adsService.IsRewardedAdLoaded)
             {
                 HandleAdLoaded();
