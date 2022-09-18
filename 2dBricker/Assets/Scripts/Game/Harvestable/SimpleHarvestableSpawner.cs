@@ -1,3 +1,5 @@
+using Vorval.CalmBall.Service;
+
 namespace Vorval.CalmBall.Game
 {
     public class SimpleHarvestableSpawner : AbstractHarvestableSpawner
@@ -10,16 +12,16 @@ namespace Vorval.CalmBall.Game
             _spawnerView = GetComponentInChildren<HarvestableSpawnerView>();
         }
 
-        protected override void OnEnable()
+        protected void OnEnable()
         {
-            base.OnEnable();
+            //base.OnEnable();
             _harvestableDataService.OnRespawnUpgrade += HandleUpgrade;
             _harvestableDataService.OnHarvestableBought += HandleBuy;
         }
 
-        protected override void OnDisable()
+        protected void OnDisable()
         {
-            base.OnDisable();
+            //base.OnDisable();
             _harvestableDataService.OnRespawnUpgrade -= HandleUpgrade;
             _harvestableDataService.OnHarvestableBought -= HandleBuy;
         }
@@ -37,7 +39,7 @@ namespace Vorval.CalmBall.Game
                 _spawnerView.Lock();
             }
 
-            OnOperationFinished?.Invoke(this);
+            OnOperationFinished?.Invoke(this, LoadingService.LoadingType.SceneLevel);
         }
 
         protected override void SpawnHarvestable()

@@ -13,7 +13,7 @@ namespace Vorval.CalmBall.Service
 {
     public class AnalyticsEventService : MonoBehaviour, ILoadingOperation
     {
-        public Action<ILoadingOperation> OnOperationFinished { get; set; }
+        public Action<ILoadingOperation, LoadingService.LoadingType> OnOperationFinished { get; set; }
         private HarvestableDataService _harvestableDataService;
         private AdsService _adsService;
         private ScoreModifierService _scoreModifierService;
@@ -22,7 +22,7 @@ namespace Vorval.CalmBall.Service
         private void Construct(LoadingService loadingService, HarvestableDataService harvestableDataService,
             AdsService adsService, ScoreModifierService scoreModifierService)
         {
-            loadingService.AddLoadingOperation(this);
+            loadingService.AddLoadingOperation(this, LoadingService.LoadingType.GameLevel);
             _harvestableDataService = harvestableDataService;
             _adsService = adsService;
             _scoreModifierService = scoreModifierService;
@@ -44,7 +44,7 @@ namespace Vorval.CalmBall.Service
                 }
             }
 
-            OnOperationFinished?.Invoke(this);
+            OnOperationFinished?.Invoke(this, LoadingService.LoadingType.GameLevel);
         }
 
         private void OnEnable()

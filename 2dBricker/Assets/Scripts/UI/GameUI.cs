@@ -47,6 +47,10 @@ namespace Vorval.CalmBall.UI
         private void Start()
         {
             UpdateScoreModifierText(_scoreModifierService.RewardedScoreModifierCoefficient.Value);
+            if (_adsService.IsRewardedAdLoaded)
+            {
+                HandleAdLoaded();
+            }
         }
 
         private void OnEnable()

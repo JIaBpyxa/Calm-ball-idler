@@ -11,7 +11,7 @@ namespace Vorval.CalmBall.Service
     public class ConfigRemoteService : MonoBehaviour, ILoadingOperation
     {
         public Action<RemoteData> OnRemoteDataLoaded { get; set; }
-        public Action<ILoadingOperation> OnOperationFinished { get; set; }
+        public Action<ILoadingOperation, LoadingService.LoadingType> OnOperationFinished { get; set; }
 
         // dev environment
         //private const string EnvironmentId = "6d025401-3b79-4ffe-8265-fb8cae2e94c6";
@@ -31,7 +31,7 @@ namespace Vorval.CalmBall.Service
         [Inject]
         private void Construct(LoadingService loadingService)
         {
-            loadingService.AddLoadingOperation(this);
+            loadingService.AddLoadingOperation(this, LoadingService.LoadingType.GameLevel);
         }
 
         public struct userAttributes
@@ -53,7 +53,7 @@ namespace Vorval.CalmBall.Service
                 LoadCachedData();
             }
 
-            OnOperationFinished?.Invoke(this);
+            OnOperationFinished?.Invoke(this, LoadingService.LoadingType.GameLevel);
 
 
             void LoadCachedData()

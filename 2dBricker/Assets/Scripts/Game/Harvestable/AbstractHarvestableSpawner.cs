@@ -10,7 +10,7 @@ namespace Vorval.CalmBall.Game
     [RequireComponent(typeof(HarvestablePool))]
     public abstract class AbstractHarvestableSpawner : MonoBehaviour, ILoadingOperation
     {
-        public Action<ILoadingOperation> OnOperationFinished { get; set; }
+        public Action<ILoadingOperation, LoadingService.LoadingType> OnOperationFinished { get; set; }
 
         [SerializeField] protected HarvestableData.HarvestableType type;
         [SerializeField] protected Object _harvestablePrefab;
@@ -29,7 +29,7 @@ namespace Vorval.CalmBall.Game
         {
             _harvestableDataService = harvestableDataSvc;
             _audioService = audioSvc;
-            loadingSvc.AddLoadingOperation(this);
+            loadingSvc.AddLoadingOperation(this, LoadingService.LoadingType.SceneLevel);
         }
 
         protected virtual void Awake()
@@ -37,14 +37,9 @@ namespace Vorval.CalmBall.Game
             _harvestablePool = GetComponent<HarvestablePool>();
         }
 
-        protected virtual void OnEnable()
+        private void Start()
         {
-            _harvestableDataService.OnServiceReady += Init;
-        }
-
-        protected virtual void OnDisable()
-        {
-            _harvestableDataService.OnServiceReady -= Init;
+            Init();
         }
 
         protected void InitPool()
