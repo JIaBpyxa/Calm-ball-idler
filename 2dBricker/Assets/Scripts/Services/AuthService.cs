@@ -31,7 +31,8 @@ namespace Vorval.CalmBall.Service
                 await SignInAnonymously();
                 OnUnityServicesInitialized?.Invoke();
 
-                GameServices.Instance.LogIn(LoginComplete);
+                OnOperationFinished?.Invoke(this, LoadingService.LoadingType.GameLevel);
+                //GameServices.Instance.LogIn(LoginComplete);
             }
             else
             {
