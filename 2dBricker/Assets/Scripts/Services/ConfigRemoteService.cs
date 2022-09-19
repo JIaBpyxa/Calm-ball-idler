@@ -27,11 +27,13 @@ namespace Vorval.CalmBall.Service
         private const string RewardedScoreModifierDurationKey = "rewardedScoreModifierDuration";
         private const string RewardedScoreModifierCoefKey = "rewardedScoreModifierCoef";
 
+        private AuthService _authService;
 
         [Inject]
-        private void Construct(LoadingService loadingService)
+        private void Construct(LoadingService loadingService, AuthService authService)
         {
             loadingService.AddLoadingOperation(this, LoadingService.LoadingType.GameLevel);
+            _authService = authService;
         }
 
         public struct userAttributes
@@ -42,9 +44,21 @@ namespace Vorval.CalmBall.Service
         {
         }
 
-        private async void Start()
+        private void OnEnable()
         {
-            if (Utilities.CheckForInternetConnection())
+            _authService.OnUnityServicesInitialized += InitializeRemoteConfig;
+            _authService.OnNoInternetInitialized += LoadCachedData;
+        }
+
+        private void OnDisable()
+        {
+            _authService.OnUnityServicesInitialized -= InitializeRemoteConfig;
+            _authService.OnNoInternetInitialized -= LoadCachedData;
+        }
+
+        /*private async void Start()
+        {
+            /*if (Utilities.CheckForInternetConnection())
             {
                 await InitializeRemoteConfigAsync();
             }
@@ -61,28 +75,24 @@ namespace Vorval.CalmBall.Service
                 Debug.Log("Loading Cache data");
                 var cacheRemoteData = SaveService.GetRemoteDataCache();
                 OnRemoteDataLoaded?.Invoke(cacheRemoteData);
-            }
-        }
+            }#1#
+        }*/
 
-        private async Task InitializeRemoteConfigAsync()
+
+        private void InitializeRemoteConfig()
         {
-            await UnityServices.InitializeAsync();
-
-            // options can be passed in the initializer, e.g if you want to set analytics-user-id use two lines from below:
-            // var options = new InitializationOptions().SetOption("com.unity.services.core.analytics-user-id", "my-user-id-123");
-            // await UnityServices.InitializeAsync(options);
-            // for all valid settings and options, check
-            // https://pages.prd.mz.internal.unity3d.com/mz-developer-handbook/docs/sdk/operatesolutionsdk/settings-and-options-for-services
-
-            if (!AuthenticationService.Instance.IsSignedIn)
-            {
-                await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            }
-
             RemoteConfigService.Instance.FetchCompleted += RemoteConfigLoaded;
             RemoteConfigService.Instance.SetEnvironmentID(EnvironmentId);
 
             RemoteConfigService.Instance.FetchConfigs(new userAttributes(), new appAttributes());
+        }
+
+        private void LoadCachedData()
+        {
+            Debug.Log("Loading Cache data");
+            var cacheRemoteData = SaveService.GetRemoteDataCache();
+            OnRemoteDataLoaded?.Invoke(cacheRemoteData);
+            OnOperationFinished?.Invoke(this, LoadingService.LoadingType.GameLevel);
         }
 
         private void RemoteConfigLoaded(ConfigResponse configResponse)
@@ -131,6 +141,7 @@ namespace Vorval.CalmBall.Service
 
                 SaveService.SaveRemoteDataCache(remoteData);
                 OnRemoteDataLoaded?.Invoke(remoteData);
+                OnOperationFinished?.Invoke(this, LoadingService.LoadingType.GameLevel);
             }
         }
 

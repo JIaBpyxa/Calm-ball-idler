@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Unity.Services.Authentication;
+using Unity.Services.Core;
+using Unity.Services.RemoteConfig;
 using UnityEngine;
 using Zenject;
 
@@ -6,7 +10,10 @@ namespace Vorval.CalmBall.Service
 {
     public class AuthService : MonoBehaviour, ILoadingOperation
     {
+        public Action OnUnityServicesInitialized { get; set; }
+        public Action OnNoInternetInitialized { get; set; }
         public Action<ILoadingOperation, LoadingService.LoadingType> OnOperationFinished { get; set; }
+        private string _playerId;
 
 
         [Inject]
@@ -16,9 +23,37 @@ namespace Vorval.CalmBall.Service
             loadingService.AddLoadingOperation(this, LoadingService.LoadingType.GameLevel);
         }
 
-        private void Awake()
+        private async Task Awake()
         {
-            GameServices.Instance.LogIn(LoginComplete);
+            if (Utilities.CheckForInternetConnection())
+            {
+                await UnityServices.InitializeAsync();
+                await SignInAnonymously();
+                OnUnityServicesInitialized?.Invoke();
+
+                GameServices.Instance.LogIn(LoginComplete);
+            }
+            else
+            {
+                OnNoInternetInitialized?.Invoke();
+            }
+        }
+
+        private async Task SignInAnonymously()
+        {
+            AuthenticationService.Instance.SignedIn += () =>
+            {
+                _playerId = AuthenticationService.Instance.PlayerId;
+
+                Debug.Log("Signed in as: " + _playerId);
+            };
+            AuthenticationService.Instance.SignInFailed += s =>
+            {
+                // Take some action here...
+                Debug.Log(s);
+            };
+
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
         }
 
         private void LoginComplete(bool success)

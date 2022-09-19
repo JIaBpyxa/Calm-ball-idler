@@ -1072,6 +1072,7 @@ MonoBehaviour:
   _analyticsEventService: {fileID: 8762166029809783866}
   _audioService: {fileID: 7264006153948055107}
   _gyroService: {fileID: 1174328841382011772}
+  _authService: {fileID: 8860219926504001144}
 --- !u!1 &4134956179608931984
 GameObject:
   m_ObjectHideFlags: 0
