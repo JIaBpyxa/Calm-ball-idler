@@ -1,80 +1,78 @@
-﻿using System.Collections.Generic;
-using DG.Tweening;
-using TMPro;
+﻿using System;
+using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Vorval.CalmBall.Service
 {
     public class LoadingService : MonoBehaviour
     {
-        [SerializeField] private CanvasGroup _loadingCanvasGroup;
-        [SerializeField] private Image _progressBarImage;
-        [SerializeField] private TextMeshProUGUI _versionText;
-        [Space] [SerializeField] private Image _backBalls;
-        [SerializeField] private Image _frontBall;
+        public FloatReactiveProperty LoadingProgress { get; } = new(0f);
+        public Action OnGameLevelReady { get; set; }
 
-        private Vector3 _backBallsDestination;
-        private Vector3 _frontBallDestination;
+        private List<ILoadingOperation> _gameLevelLoadingOperations;
+        private List<ILoadingOperation> _sceneLevelLoadingOperations;
 
-        private List<ILoadingOperation> _loadingOperations;
-        private int _loadedOperations = 0;
+        private int _gameLevelOperationsLeft = 0;
+        private int _sceneLevelOperationsLeft = 0;
 
         private void Awake()
         {
-            _loadingCanvasGroup.gameObject.SetActive(true);
-            _loadingCanvasGroup.alpha = 1f;
-            _backBallsDestination = _backBalls.transform.position;
-            _frontBallDestination = _frontBall.transform.position;
+            _gameLevelLoadingOperations = new List<ILoadingOperation>();
+            _sceneLevelLoadingOperations = new List<ILoadingOperation>();
 
-            var backSequence = DOTween.Sequence();
-            var frontSequence = DOTween.Sequence();
-
-            backSequence.Append(_backBalls.transform.DOLocalMove(_backBallsDestination + Vector3.right * 300f, 0f));
-            backSequence.Append(_backBalls.transform.DOLocalMove(_backBallsDestination, 1.5f));
-
-            frontSequence.Append(_frontBall.transform.DOLocalMove(_frontBallDestination + Vector3.left * 300f, 0f));
-            frontSequence.Append(_frontBall.transform.DOLocalMove(_frontBallDestination, 1.5f));
-
-            _versionText.text = $"v.{Application.version}";
-
-            //await Task.Delay(TimeSpan.FromSeconds(1f));
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
 
-        private void Start()
-        {
-            //SceneManager.LoadSceneAsync("Scenes/IdleScene");
-        }
-
-        public void AddLoadingOperation(ILoadingOperation loadingOperation)
+        public void AddLoadingOperation(ILoadingOperation loadingOperation, LoadingType loadingType)
         {
             loadingOperation.OnOperationFinished += HandleOperationLoaded;
-            _loadingOperations ??= new List<ILoadingOperation>();
-            _loadingOperations.Add(loadingOperation);
+            if (loadingType == LoadingType.GameLevel)
+            {
+                _gameLevelLoadingOperations ??= new List<ILoadingOperation>();
+                _gameLevelLoadingOperations.Add(loadingOperation);
+                _gameLevelOperationsLeft++;
+            }
+            else
+            {
+                _sceneLevelLoadingOperations ??= new List<ILoadingOperation>();
+                _sceneLevelLoadingOperations.Add(loadingOperation);
+                _sceneLevelOperationsLeft++;
+            }
         }
 
-        private void HandleOperationLoaded(ILoadingOperation loadingOperation)
+        private void HandleOperationLoaded(ILoadingOperation loadingOperation, LoadingType loadingType)
         {
-            _loadedOperations++;
-            var progressPercent = (float)_loadedOperations / _loadingOperations.Count;
+            if (loadingType == LoadingType.GameLevel)
+            {
+                _gameLevelOperationsLeft--;
 
-            _progressBarImage.DOComplete();
-            _progressBarImage.DOFillAmount(progressPercent, .5f).SetEase(Ease.InOutExpo).onComplete +=
-                HandleLoadingFinished;
+                if (_gameLevelOperationsLeft == 0)
+                {
+                    Debug.Log($"Game level operations completed");
+                    OnGameLevelReady?.Invoke();
+                }
+            }
+            else
+            {
+                _sceneLevelOperationsLeft--;
+            }
+
+            Debug.Log(
+                $"Game operations left {_gameLevelOperationsLeft} Scene operations left {_sceneLevelOperationsLeft}");
+
+            var progressPercent = Mathf.Clamp01(1f - (float)(_gameLevelOperationsLeft + _sceneLevelOperationsLeft) /
+                (_gameLevelLoadingOperations.Count + _sceneLevelLoadingOperations.Count));
+
+            LoadingProgress.Value = progressPercent;
 
             loadingOperation.OnOperationFinished -= HandleOperationLoaded;
         }
 
-        private void HandleLoadingFinished()
+        public enum LoadingType
         {
-            if (_loadedOperations != _loadingOperations.Count) return;
-
-            _loadedOperations = 0;
-
-            _loadingCanvasGroup.DOFade(0f, 1f).SetEase(Ease.InOutExpo).onComplete += () =>
-            {
-                _loadingCanvasGroup.gameObject.SetActive(false);
-            };
+            GameLevel,
+            SceneLevel
         }
     }
 }

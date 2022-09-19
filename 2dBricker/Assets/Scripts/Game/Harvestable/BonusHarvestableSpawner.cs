@@ -22,7 +22,7 @@ namespace Vorval.CalmBall.Game
                 UpdateSpawnInterval();
             }
 
-            OnOperationFinished?.Invoke(this);
+            OnOperationFinished?.Invoke(this, LoadingService.LoadingType.SceneLevel);
         }
 
         protected override void SpawnHarvestable()

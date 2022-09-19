@@ -8,7 +8,7 @@ namespace Vorval.CalmBall.Service
 {
     public class ScoreModifierService : ILoadingOperation
     {
-        public Action<ILoadingOperation> OnOperationFinished { get; set; }
+        public Action<ILoadingOperation, LoadingService.LoadingType> OnOperationFinished { get; set; }
         public Action<bool> OnBonusEarned { get; set; }
         public readonly BoolReactiveProperty IsActive;
         public float RewardedScoreModifierDuration { get; private set; }
@@ -33,7 +33,7 @@ namespace Vorval.CalmBall.Service
             CurrentScoreModifierCoefficient = new FloatReactiveProperty(1f);
             RewardedScoreModifierCoefficient = new FloatReactiveProperty(2f);
 
-            loadingService.AddLoadingOperation(this);
+            loadingService.AddLoadingOperation(this, LoadingService.LoadingType.GameLevel);
         }
 
         public BigInteger GetMeanEarnings()
@@ -59,7 +59,7 @@ namespace Vorval.CalmBall.Service
             RewardedScoreModifierDuration = remoteData.RewardedScoreModifierDuration;
             RewardedScoreModifierCoefficient.Value = remoteData.RewardedScoreModifierCoefficient / 1000f;
 
-            OnOperationFinished?.Invoke(this);
+            OnOperationFinished?.Invoke(this, LoadingService.LoadingType.GameLevel);
         }
 
         private void HandleRewardedAdCompleted(AdsService.RewardedType rewardedType)

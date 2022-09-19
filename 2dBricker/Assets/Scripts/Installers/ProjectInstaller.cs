@@ -16,11 +16,13 @@ namespace Vorval.CalmBall.Game
         [SerializeField] private AnalyticsEventService _analyticsEventService;
         [SerializeField] private AudioService _audioService;
         [SerializeField] private GyroService _gyroService;
+        [SerializeField] private AuthService _authService;
 
         public override void InstallBindings()
         {
             SecurePlayerPrefs.Init();
 
+            Container.BindInstance(_authService).AsSingle();
             Container.BindInstance(_loadingService).AsSingle();
             Container.BindInstance(configRemoteService).AsSingle();
             Container.BindInstance(_panelController).AsSingle();

@@ -4,6 +4,6 @@ namespace Vorval.CalmBall.Service
 {
     public interface ILoadingOperation
     {
-        public Action<ILoadingOperation> OnOperationFinished { get; set; }
+        public Action<ILoadingOperation, LoadingService.LoadingType> OnOperationFinished { get; set; }
     }
 }

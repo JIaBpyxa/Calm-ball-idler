@@ -8,7 +8,7 @@ namespace Vorval.CalmBall.Service
 {
     public class AdsService : MonoBehaviour, ILoadingOperation
     {
-        public Action<ILoadingOperation> OnOperationFinished { get; set; }
+        public Action<ILoadingOperation, LoadingService.LoadingType> OnOperationFinished { get; set; }
         public Action OnRewardedAdLoaded { get; set; }
         public Action<RewardedType> OnRewardedCompleted { get; set; }
 
@@ -20,7 +20,7 @@ namespace Vorval.CalmBall.Service
         [Inject]
         private void Construct(LoadingService loadingService)
         {
-            loadingService.AddLoadingOperation(this);
+            loadingService.AddLoadingOperation(this, LoadingService.LoadingType.GameLevel);
         }
 
         private async void Start()
@@ -30,7 +30,7 @@ namespace Vorval.CalmBall.Service
                 await InitServices();
             }
 
-            OnOperationFinished?.Invoke(this);
+            OnOperationFinished?.Invoke(this, LoadingService.LoadingType.GameLevel);
 
 
             async Task InitServices()

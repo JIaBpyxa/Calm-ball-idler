@@ -22,7 +22,7 @@ namespace Vorval.CalmBall.Game
         public override void Activate(Vector3 position)
         {
             transform.position = position;
-            _rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            //_rigidbody.bodyType = RigidbodyType2D.Dynamic;
             gameObject.SetActive(true);
             harvestableView.Activate();
             IsActive.Value = true;
@@ -38,7 +38,7 @@ namespace Vorval.CalmBall.Game
         public override void Harvest(float scoreModifier, Harvester.HarvesterType harvesterType)
         {
             Debug.Log("Harvested ball");
-            _rigidbody.bodyType = RigidbodyType2D.Static;
+            //_rigidbody.bodyType = RigidbodyType2D.Static;
             //OnHarvested?.Invoke();
             BlowHarvester();
         }

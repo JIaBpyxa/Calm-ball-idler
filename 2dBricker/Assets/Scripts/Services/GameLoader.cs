@@ -8,19 +8,32 @@ namespace Vorval.CalmBall.Service
 {
     public class GameLoader : MonoBehaviour, ILoadingOperation
     {
-        public Action<ILoadingOperation> OnOperationFinished { get; set; }
+        public Action<ILoadingOperation, LoadingService.LoadingType> OnOperationFinished { get; set; }
 
+        private LoadingService _loadingService;
+        
         [Inject]
         private void Construct(LoadingService loadingService)
         {
-            loadingService.AddLoadingOperation(this);
+            _loadingService = loadingService;
+            loadingService.AddLoadingOperation(this, LoadingService.LoadingType.SceneLevel);
         }
 
-        private void Awake()
+        private void OnEnable()
+        {
+            _loadingService.OnGameLevelReady += HandleGameLevelReady;
+        }
+
+        private void OnDisable()
+        {
+            _loadingService.OnGameLevelReady -= HandleGameLevelReady;
+        }
+
+        private void HandleGameLevelReady()
         {
             SceneManager.LoadSceneAsync("Scenes/IdleScene", LoadSceneMode.Additive).completed += HandleCompleted;
         }
-
+        
         private void HandleCompleted(AsyncOperation obj)
         {
             StartCoroutine(WaitAndFinish());
@@ -29,7 +42,7 @@ namespace Vorval.CalmBall.Service
             IEnumerator WaitAndFinish()
             {
                 yield return new WaitForSeconds(1f);
-                OnOperationFinished.Invoke(this);
+                OnOperationFinished.Invoke(this, LoadingService.LoadingType.SceneLevel);
                 SceneManager.UnloadSceneAsync("InitScene");
             }
         }
