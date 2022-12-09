@@ -23,10 +23,17 @@ namespace Vorval.CalmBall.Game
 
         private bool _isPressed;
 
+        [Inject]
+        private void Construct(CameraService cameraService)
+        {
+            _camera = cameraService.MainCamera;
+            _cameraOffset = Vector3.forward * _camera.transform.position.z;
+        }
+
         private void Awake()
         {
-            _camera = Camera.main;
-            _cameraOffset = Vector3.forward * _camera.transform.position.z;
+            //_camera = Camera.main;
+            //_cameraOffset = Vector3.forward * _camera.transform.position.z;
 
             PointerWorldPosition = new Vector3ReactiveProperty(Vector3.zero);
             PointerPosition = new Vector3ReactiveProperty(Vector3.zero);
@@ -67,7 +74,7 @@ namespace Vorval.CalmBall.Game
         private void SmoothPointer()
         {
             var delta = _realPointerPosition - _smoothedPointerPosition;
-            _smoothedPointerPosition += delta * Time.deltaTime * _magnitudeMultiplier;
+            _smoothedPointerPosition += delta * (Time.deltaTime * _magnitudeMultiplier);
             PointerPosition.Value = _smoothedPointerPosition;
         }
 

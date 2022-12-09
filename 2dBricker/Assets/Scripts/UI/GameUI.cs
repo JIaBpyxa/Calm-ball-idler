@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -41,6 +42,11 @@ namespace Vorval.CalmBall.UI
                 _rewardedScoreModifierButton.onClick.AddListener(OpenRewardedScorePanel);
 
             _rewardedScoreModifierButton.gameObject.SetActive(false);
+        }
+
+        private void Start()
+        {
+            UpdateScoreModifierText(_scoreModifierService.RewardedScoreModifierCoefficient.Value);
         }
 
         private void OnEnable()

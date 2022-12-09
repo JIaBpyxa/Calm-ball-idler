@@ -10,13 +10,12 @@ namespace Vorval.CalmBall.Game
 {
     public class ParallaxRow : MonoBehaviour
     {
-        [SerializeField] private Color _defaultColor;
-        [SerializeField] private Color _festivalColor;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [Space] [SerializeField] private float _meanMoveDuration = 90f;
         [Space] [SerializeField] private float _parallaxY;
 
         [Space] [SerializeField] private float _leftEnd;
+
         [SerializeField] private float rightEnd;
         //[Space] [Range(-1f,1f)] [SerializeField] private float _test = 1f;
 
@@ -26,13 +25,11 @@ namespace Vorval.CalmBall.Game
         private void Construct(ScoreModifierService scoreModifierService, GyroService gyroService)
         {
             _gyroService = gyroService;
-            scoreModifierService.IsActive.Subscribe(HandleScoreModifierActivation);
         }
 
         private void Awake()
         {
             StartMoving();
-            EndFestival();
         }
 
         private void Update()
@@ -59,28 +56,6 @@ namespace Vorval.CalmBall.Game
             sequence.Append(_spriteRenderer.transform.DOLocalMoveX(startPoint, .01f).SetEase(Ease.Linear));
             sequence.Append(_spriteRenderer.transform.DOLocalMoveX(endPoint, moveDuration).SetEase(Ease.Linear));
             sequence.SetLoops(-1, LoopType.Yoyo);
-        }
-
-        private void HandleScoreModifierActivation(bool isActive)
-        {
-            if (isActive)
-            {
-                StartFestival();
-            }
-            else
-            {
-                EndFestival();
-            }
-        }
-
-        private void StartFestival()
-        {
-            _spriteRenderer.DOColor(_festivalColor, 1f);
-        }
-
-        private void EndFestival()
-        {
-            _spriteRenderer.DOColor(_defaultColor, 1f);
         }
     }
 }

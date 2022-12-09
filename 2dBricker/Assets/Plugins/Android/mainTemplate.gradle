@@ -22,6 +22,7 @@ dependencies {
     implementation 'com.unity3d.mediation:admob-adapter:[0.5,0.6[' // Assets/Editor/MediationAdapterDependencies.xml:10
     implementation 'com.unity3d.mediation:mediation-sdk:[0.5,0.6[' // Assets/Editor/MediationAdapterDependencies.xml:8
     implementation 'com.unity3d.mediation:unityads-adapter:[0.5,0.6[' // Assets/Editor/MediationAdapterDependencies.xml:11
+    implementation 'com.unity3d.mediation:vungle-adapter:[0.5,0.6[' // Assets/Editor/MediationAdapterDependencies.xml:12
 // Android Resolver Dependencies End
 
     constraints {

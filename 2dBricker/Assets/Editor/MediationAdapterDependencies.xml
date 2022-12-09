@@ -9,6 +9,7 @@
     <!-- Mediation SDK Android Adapters -->
     <androidPackage spec="com.unity3d.mediation:admob-adapter:[0.5,0.6[" mediation-identifier="admob-adapter" mediation-version="latest" />
     <androidPackage spec="com.unity3d.mediation:unityads-adapter:[0.5,0.6[" mediation-identifier="unityads-adapter" mediation-version="latest" />
+    <androidPackage spec="com.unity3d.mediation:vungle-adapter:[0.5,0.6[" mediation-identifier="vungle-adapter" mediation-version="latest" />
   </androidPackages>
   <iosPods>
     <!-- Mediation iOS SDK -->
@@ -18,5 +19,6 @@
     <!-- Mediation SDK iOS Adapters -->
     <iosPod name="UnityMediationAdmobAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="admob-adapter" mediation-version="latest" />
     <iosPod name="UnityMediationUnityAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="unityads-adapter" mediation-version="latest" />
+    <iosPod name="UnityMediationVungleAdapter" version="" source="'https://github.com/Unity-Technologies/unity-mediation-cocoapods-prod.git'" mediation-identifier="vungle-adapter" mediation-version="latest" />
   </iosPods>
 </dependencies>

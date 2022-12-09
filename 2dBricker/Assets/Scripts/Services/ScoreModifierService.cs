@@ -12,8 +12,8 @@ namespace Vorval.CalmBall.Service
         public Action<bool> OnBonusEarned { get; set; }
         public readonly BoolReactiveProperty IsActive;
         public float RewardedScoreModifierDuration { get; private set; }
-        public FloatReactiveProperty RewardedScoreModifierCoefficient { get; private set; }
-        public FloatReactiveProperty CurrentScoreModifierCoefficient { get; private set; }
+        public FloatReactiveProperty RewardedScoreModifierCoefficient { get; }
+        public FloatReactiveProperty CurrentScoreModifierCoefficient { get; }
 
         private AdsService _adsService;
         private HarvestableDataService _harvestableDataService;

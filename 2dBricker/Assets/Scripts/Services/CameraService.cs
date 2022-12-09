@@ -8,6 +8,9 @@ namespace Vorval.CalmBall.Service
         [SerializeField] private float _startHeightPoint = 15f;
         [SerializeField] private float _animationDuration = 3f;
         [SerializeField] private float _heightModifier = 5f;
+        [SerializeField] private Camera _camera;
+
+        public Camera MainCamera => _camera;
 
         private void Awake()
         {
@@ -15,11 +18,11 @@ namespace Vorval.CalmBall.Service
             safeArea.yMin = 0f;
             var yOffset = (Screen.height - safeArea.height) / Screen.height * _heightModifier;
 
-            if (Camera.main != null)
+            if (_camera != null)
             {
                 var sequence = DOTween.Sequence();
-                sequence.Append(Camera.main.transform.DOLocalMoveY(_startHeightPoint, .1f));
-                sequence.Append(Camera.main.transform.DOLocalMoveY(yOffset, _animationDuration));
+                sequence.Append(_camera.transform.DOLocalMoveY(_startHeightPoint, .1f));
+                sequence.Append(_camera.transform.DOLocalMoveY(yOffset, _animationDuration));
             }
         }
     }

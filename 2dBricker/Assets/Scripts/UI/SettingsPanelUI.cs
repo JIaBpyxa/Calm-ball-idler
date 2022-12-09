@@ -13,6 +13,7 @@ namespace Vorval.CalmBall.UI
         [SerializeField] private Button _applicationExitButton;
         [SerializeField] private Slider _musicSlider;
         [SerializeField] private Slider _sfxSlider;
+        //[SerializeField] private Button _aboutButton;
 
         private PanelController _panelController;
         private GraphicsService _graphicsService;
